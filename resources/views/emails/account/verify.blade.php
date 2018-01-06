@@ -4,7 +4,7 @@
 <br>
 Click the button below to verify your account, and start your application. We look forward to working with you in the future.
 
-@component('mail::button', ['url' => "/users/verify/$user->verification_token"])
+@component('mail::button', ['url' => "http://hr.ccgops.net/users/verify/$user->verification_token"])
 Verify My Account
 @endcomponent
 
