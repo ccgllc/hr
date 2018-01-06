@@ -34,11 +34,11 @@
             <a class="navbar-item" href="{{ route('register') }}">Register</a>
           @else
             <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link is-active" href="/profile">
+              <a class="navbar-link is-active">
                 {{ Auth::user()->name }}
               </a>
               <div class="navbar-dropdown is-right">
-                <a href="/profile" class="navbar-item">My Profile</a>
+                @if(Auth::user()->applied)<a href="/profile" class="navbar-item">My Profile</a>@endif
                 @if (Auth::user()->hasRole('administrator'))
                 <a href="/dashboard" class="navbar-item">Dashboard</a>
                 <a href="/users" class="navbar-item">Manage Users</a>

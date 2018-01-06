@@ -14,7 +14,9 @@ class CertificationsController extends Controller
     	$request->merge(['user_id' => $request->user()->id]);
     	$request->createCertifications();
     	$request->createSoftwareExperiences();
-    	$request->storeResume();
+        if ($request->hasFile('resume')){
+            $request->storeResume();
+        }
         $request->user()->update(['applied' => 1]);
     	return response('Certifications Saved!', 200)
                   ->header('Content-Type', 'text/plain');

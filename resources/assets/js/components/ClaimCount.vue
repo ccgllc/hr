@@ -7,7 +7,7 @@
 		          <input 
 		          	class="input" 
 		          	type="number" 
-		          	maxlength="6" min="0" max="10000" step="10"
+		          	maxlength="6" min="0" max="40000" step="10"
 		          	placeholder="0" 
 		          	v-model="results.total"
 		          	@input="add"

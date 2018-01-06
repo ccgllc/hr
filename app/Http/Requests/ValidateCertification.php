@@ -33,7 +33,7 @@ class ValidateCertification extends FormRequest
         return [
             'certifications' => 'array',
             'software' => 'array',
-            'resume' => 'required|mimetypes:application/pdf,application/msword,text/rtf,application/octet-stream,application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+            // 'resume' => 'mimetypes:application/pdf,application/msword,text/rtf,application/octet-stream,application/vnd.openxmlformats-officedocument.wordprocessingml.document'
         ];
     }
 
@@ -47,7 +47,7 @@ class ValidateCertification extends FormRequest
         return [
             // 'certifications.' => 'Please select at least one certification option.',
             // 'software.required' => 'please select at least one software option.',
-            'resume.mimetypes' => 'Sorry your resume is required! You may only upload a .pdf .doc .docx or .rtf file'
+            'resume.mimetypes' => 'You may only upload a .pdf .doc .docx or .rtf file'
         ];
     }
 

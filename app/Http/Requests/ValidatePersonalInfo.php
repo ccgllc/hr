@@ -82,7 +82,8 @@ class ValidatePersonalInfo extends FormRequest
      */ 
     public function createAdjusterLicense()
     {
-        return AdjusterLicense::create(
+        if ($this->hasAllLicenseData()) {
+            return AdjusterLicense::create(
                 $this->only([
                     'license_state', 
                     'license_number', 
@@ -91,5 +92,17 @@ class ValidatePersonalInfo extends FormRequest
                     'user_id'
                 ])
             );
+        }
+    }
+
+    protected function hasAllLicenseData() {
+        if ($this->license_number && $this->license_state && $this->expiration_month && $this->expiration_year)
+        {
+            return true;
+        } 
+        else 
+        {
+            return false;
+        }
     }
 }
