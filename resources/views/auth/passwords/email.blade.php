@@ -23,5 +23,5 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('/js/requestPasswordReset.js') }}"></script>
+    <script src="{{ mix('/js/requestPasswordReset.js') }}"></script>
 @endsection
