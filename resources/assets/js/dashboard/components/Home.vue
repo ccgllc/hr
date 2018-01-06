@@ -359,6 +359,7 @@
 			doughnutChart
 		},
 		mounted() {
+			console.log('dashboard');
 			// this.renderChart(this.chartData, {responsive: true, maintainAspectRatio: false})
 		},
 		data() {

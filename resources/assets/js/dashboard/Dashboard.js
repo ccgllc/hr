@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 
 import dashboardHome from './components/Home.vue';
 
+
 Vue.use(VueRouter);
 
 const routes = [
