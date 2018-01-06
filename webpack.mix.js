@@ -38,5 +38,5 @@ mix.js([
    mix.browserSync('hr.ccgops.test');
 
    if (mix.inProduction()) {
-    mix.version();
-}
+      mix.version();
+   }
