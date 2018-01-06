@@ -36,7 +36,9 @@ class AccountVerification extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.account.verify')
+        return $this->from('no-reply@ccgops.net')
+                    ->subject('Please Verify Your CCG Account')
+                    ->markdown('emails.account.verify')
                     ->with(['user' => $this->user]);
     }
 }
