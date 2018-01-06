@@ -3,7 +3,7 @@
     @slot('header')
         @component('mail::header', ['url' => config('app.url')])
             {{-- {{ config('app.name') }} --}}
-            <img src="http://localhost:3000/images/icon-on-light.png" alt="CCG" height="30px" width="auto">
+            <img src="http://hr.ccgops.net/images/icon-on-light.png" alt="CCG" height="30px" width="auto">
         @endcomponent
     @endslot
 
