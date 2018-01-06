@@ -1,22 +1,37 @@
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
+import Vue from 'vue';
+import Chart from 'chart.js';
+// import VueRouter from 'vue-router';
+// import axios from 'axios';
 
-window.Vue = require('vue');
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+// Vue.prototype.$http = axios
 
-Vue.component('example', require('./components/Example.vue'));
+// let app = new Vue({
+// 	name: 'App',
+// 	el: "#app",
+// 	mounted() {
+// 		console.log('this is app.js');
+// 	}
+// });
 
-const app = new Vue({
-    el: '#app'
-});
+let app = new Vue({
+	name: "App",
+	el: "#app",
+	mounted() {
+		document.addEventListener('DOMContentLoaded', function () {
+		  // allow mobile navigation.
+		  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+		  if ($navbarBurgers.length > 0) {
+		    $navbarBurgers.forEach(function ($el) {
+		      $el.addEventListener('click', function () {
+		        var target = $el.dataset.target;
+		        var $target = document.getElementById(target);
+		        $el.classList.toggle('is-active');
+		        $target.classList.toggle('is-active');
+		      });
+		    });
+		  }
+		});
+	}
+})

@@ -13,7 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // $user = \Auth::loginUsingId(1);
+        // \View::share('user', $user);
     }
 
     /**

@@ -1,38 +1,42 @@
 
-// Body
-$body-bg: #f5f8fa;
+//CCG Layout Variables
+$page-background: hsl(0, 0, 95%); //#F1F1F1
+$light-gray: hsl(0, 0, 98%); // #FAFAFA
+$gray: #E3E3E3;
 
-// Borders
-$laravel-border-color: darken($body-bg, 10%);
-$list-group-border: $laravel-border-color;
-$navbar-default-border: $laravel-border-color;
-$panel-default-border: $laravel-border-color;
-$panel-inner-border: $laravel-border-color;
+//Navbar Variables
+$navbar-height: 4em;
+$navbar-background-color: hsl(0,0, 89%); // #E3E3E3
 
-// Brands
-$brand-primary: #3097D1;
-$brand-info: #8eb4cb;
-$brand-success: #2ab27b;
-$brand-warning: #cbb956;
-$brand-danger: #bf5329;
+// bulma overrides
+$primary: hsl(204%, 51%, 45%);  //#3980AE
+$primary-bright: hsl(203, 61%, 54%); //#439BD1;
+$secondary: hsl(163%, 56%, 43%); //#30A987;
+$dark:  hsl(223%, 19%, 25%);  //#343b4d;
+$darker: darken($dark, 5%);
+$dark-border: lighten($dark, 10%);
+$less-dark: lighten($dark, 30%);
+$gray-text: hsl(0, 0%, 56%); // #908F8F;
+$text: $dark;
+$link: $primary-bright;
 
-// Typography
-$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
-$font-family-sans-serif: "Raleway", sans-serif;
-$font-size-base: 14px;
-$line-height-base: 1.6;
-$text-color: #636b6f;
+$navbar-background-color: $dark;
 
-// Navbar
-$navbar-default-bg: #fff;
+// title
+$title-color: $dark;
 
-// Buttons
-$btn-default-color: $text-color;
+// steps
+$steps-active-color: $primary;
 
-// Inputs
-$input-border: lighten($text-color, 40%);
-$input-border-focus: lighten($brand-primary, 25%);
-$input-color-placeholder: lighten($text-color, 30%);
+//Form
+$input-background-color: $light-gray;
 
-// Panels
-$panel-default-heading-bg: #fff;
+//Card
+$card-background-color: hsl(0, 11%, 97%);
+$card-shadow: 0 2px 3px hsl(0, 0, 84%);
+
+
+//Tag 
+$tag-background-color: $secondary;
+$tag-color: $light-gray;
+
