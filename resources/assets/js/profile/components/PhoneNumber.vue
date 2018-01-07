@@ -79,7 +79,7 @@
 			// submit newly edited 
 			submit() {
 				if (this.submitable) {
-					this.phoneNumber.put('api/user/personal-information/phone', false)
+					this.phoneNumber.put('/api/user/personal-information/phone', false)
 						.then(response => {
 							console.log(response);
 							this.phoneNumber.value = response;
