@@ -39,7 +39,7 @@
 			<div class="modal-card">
 			    <header class="modal-card-head">
 			      <p class="modal-card-title">Add a new Adjuster License</p>
-			      <button class="delete" aria-label="close" @click="creatingNewLicense = !creatingNewLicense"></button>
+			      <button class="delete" aria-label="close" @click="creatingNewLicense = false"></button>
 			    </header>
 			    <section class="modal-card-body">
 			      <form @submit.prevent="submit" @keydown="newLicense.errors.clear($event.target.name)">
@@ -102,7 +102,7 @@
 			    </section>
 			    <footer class="modal-card-foot">
 			      <button class="button is-primary" @click="submit">Save</button>
-			      <button class="button" @click="creatingNewLicense = !creatingNewLicense">Cancel</button>
+			      <button class="button" @click="creatingNewLicense = false">Cancel</button>
 			    </footer>
 			  </div>
 			  <!-- <button class="modal-close is-large" aria-label="close"></button> -->
@@ -156,6 +156,7 @@
 					.then(response => {
 						console.log(response)
 						this.adjusterLicenses.push(response);
+						this.newLicense.api_token = window.userData.api_token;
 						return this.creatingNewLicense = false;
 					})
 					.catch(error => {
