@@ -299,6 +299,18 @@ h1.profile-title {
 	font-size: 1rem;
 }
 
+.menu {
+	width: 100%; 
+	border: 1px solid #ccc; 
+	background: $light-gray;
+	position: absolute;
+	top: 50px;
+	left: 15px;
+
+	li.selected {
+		background: $gray;
+	}
+}
 //Card 
 a.card-header-icon.is-danger {
 	color: $gray-text;

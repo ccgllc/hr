@@ -125,7 +125,7 @@
 		},
 		mounted() {
 			this.adjusterLicenses = window.userData.adjuster_licenses;
-			this.newLicense.api_token = window.userData.api_token;
+			this.newLicense.api_token = window.axios.defaults.headers.common['Authorization'];
 			let today = new Date;
 			this.currentYear = today.getFullYear();
 		},
@@ -156,7 +156,7 @@
 					.then(response => {
 						console.log(response)
 						this.adjusterLicenses.push(response);
-						this.newLicense.api_token = window.userData.api_token;
+						this.newLicense.api_token = window.axios.defaults.headers.common['Authorization'];
 						return this.creatingNewLicense = false;
 					})
 					.catch(error => {

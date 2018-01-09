@@ -12,5 +12,5 @@
 
 @section('scripts')
 	<script> window.chartData = {!! json_encode($data) !!} </script>
-	<script src="{{ mix('js/Dashboard.js') }}"></script>
+	<script src="{{ mix('js/dashboard.js') }}"></script>
 @endsection
