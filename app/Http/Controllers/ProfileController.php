@@ -25,7 +25,7 @@ class ProfileController extends Controller
 	public function show($id)
 	{
 		$user = User::findOrFail($id);
-		$user->load(['roles', 'profile', 'adjusterLicenses', 'documents', 'workHistory', 'certifications']);
+		$user->load(['roles', 'profile', 'adjusterLicenses', 'documents', 'workHistory', 'certifications', 'softwareExperiences']);
 		$user->role = $this->prepareRolesForDisplay($user->roles);
 		return view('profile.show', compact('user'));
 	}

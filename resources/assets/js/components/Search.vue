@@ -2,7 +2,7 @@
 	<div id="search">
 		<form @submit.prevent> <!-- @keydown="search.errors.clear($event.target.name) -->
 			<div class="field">
-			    <input v-model="search.query" class="input is-search" type="text" @keydown="dynamicSearch($event)" placeholder="Search by name" style="position: relative;">
+			    <input v-model="search.query" class="input is-search" type="text" @keydown="dynamicSearch($event)" placeholder="Search users" style="position: relative;">
 			</div>
 		</form>
 		<div class="menu" v-if="results.length > 0">
@@ -42,11 +42,11 @@
 			dynamicSearch: _.debounce(function(event) {
 				var vm = this;
 				let action = vm.detectKeyboardAction(event);
-				console.log(action);
+				// console.log(action);
 				if (!action && vm.search.query != '')  vm.submit();
 				if (vm.search.query == '') vm.results = [];
 				// if (vm.search.query == '') vm.userData.users = window.users;
-			}, 200),
+			}, 100),
 			detectKeyboardAction(event) {
 				console.log(event.code)
 				switch (event.key) {
