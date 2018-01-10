@@ -91,7 +91,7 @@
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "" + ({"0":"/js/vendor","1":"/js/profile","2":"/js/apply","3":"/js/dashboard","4":"/js/manageRoles","5":"/js/app","6":"/js/user","7":"/js/requestPasswordReset","8":"/js/register","9":"/js/login","10":"/js/manageUserRoles"}[chunkId]||chunkId) + ".js";
+/******/ 		script.src = __webpack_require__.p + "" + ({"0":"/js/vendor","1":"/js/profile","2":"/js/apply","3":"/js/dashboard","4":"/js/manageRoles","5":"/js/app","6":"/js/requestPasswordReset","7":"/js/register","8":"/js/login","9":"/js/manageUserRoles","10":"/js/user"}[chunkId]||chunkId) + ".js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {

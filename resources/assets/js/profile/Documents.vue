@@ -80,6 +80,8 @@
 			this.userId = window.userData.id;
 			this.name = window.userData.name;
 			this.documents = window.userData.documents;
+			this.newFile.api_token = window.axios.defaults.headers.common['Authorization'];
+			this.newFile.user_id = this.userId;
 		},
 		data() {
 			return {
@@ -92,6 +94,8 @@
 				],
 				creatingNewFile: false,
 				newFile: new FormWithFiles({
+					user_id: '',
+					api_token: '',
 					type: '',
 					file: {}
 				}),
@@ -99,7 +103,13 @@
 		},
 		methods: {
 			submit() {
-				console.log('submiting');
+				this.newFile.post('/api/user/'+ this.userId + '/documents/').then(response => {
+					console.log(response);
+					this.documents.push(response);
+					this.creatingNewFile = false;
+				}).catch(error => {
+					console.error(error);
+				})
 			},
 			processFile(files) {
 				if (files.length > 0) {

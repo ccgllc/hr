@@ -61,6 +61,17 @@ class User extends Authenticatable
         return !! $role->intersect($this->roles)->count();
     }
 
+    public function hasPermissionTo($permission)
+    {
+        $hasPermission = false;
+        foreach($this->roles as $role){
+           if ($role->hasPermissionTo($permission)) {
+                $hasPermission = true; 
+           }
+        }
+        return $hasPermission;
+    }
+
     public function isConfirmed()
     {
         return $this->attributes['verified'] == 1 ? true : false;

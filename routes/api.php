@@ -31,6 +31,8 @@ Route::namespace('Api\Profile')
 		Route::put('user/personal-information/address', 'ProfileController@address');
 		Route::post('user/personal-information/license', 'ProfileController@license');
 		Route::delete('user/personal-information/license/{id}', 'ProfileController@destroyLicense');
+		Route::post('user/{id}/documents', 'UserDocumentsController@store');
+		Route::delete('user/documents/{id}', 'UserDocumentsController@destroy');
 });
 
 Route::namespace('Api\Acl')

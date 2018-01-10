@@ -6,10 +6,10 @@
     "/js/manageRoles.js": "/js/manageRoles.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/js/user.js": "/js/user.js",
     "/js/requestPasswordReset.js": "/js/requestPasswordReset.js",
     "/js/register.js": "/js/register.js",
     "/js/login.js": "/js/login.js",
     "/js/manageUserRoles.js": "/js/manageUserRoles.js",
+    "/js/user.js": "/js/user.js",
     "/js/manifest.js": "/js/manifest.js"
 }

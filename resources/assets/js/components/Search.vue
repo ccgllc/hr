@@ -8,7 +8,7 @@
 		<div class="menu" v-if="results.length > 0">
 			<ul class="menu-list">
 				<li v-for="result in results" style="list-style: none;" v-bind:class="{selected: isSelected == result.id }">
-					<a :href="'profile/' + result.id" v-text="result.name"></a>
+					<a :href="'/profile/' + result.id" v-text="result.name"></a>
 				</li>
 			</ul>
 		</div>

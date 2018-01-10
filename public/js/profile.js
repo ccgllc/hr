@@ -110,7 +110,7 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 
-/***/ 244:
+/***/ 22:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -169,7 +169,7 @@ var FormWithFiles = function (_Form) {
 
 /***/ }),
 
-/***/ 26:
+/***/ 23:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -177,7 +177,7 @@ var FormWithFiles = function (_Form) {
 
 /***/ }),
 
-/***/ 27:
+/***/ 24:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -200,7 +200,7 @@ module.exports = __webpack_require__(288);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__PersonalInformation__ = __webpack_require__(289);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__PersonalInformation___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__PersonalInformation__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Licenses__ = __webpack_require__(304);
@@ -2281,8 +2281,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_license_vue__ = __webpack_require__(306);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_license_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_license_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__structur_src_form_Form_js__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_states_js__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__data_months_js__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_states_js__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__data_months_js__ = __webpack_require__(24);
 //
 //
 //
@@ -3079,7 +3079,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__structur_src_form_FormWithFiles__ = __webpack_require__(244);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__structur_src_form_FormWithFiles__ = __webpack_require__(22);
 //
 //
 //
@@ -3162,6 +3162,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		this.userId = window.userData.id;
 		this.name = window.userData.name;
 		this.documents = window.userData.documents;
+		this.newFile.api_token = window.axios.defaults.headers.common['Authorization'];
+		this.newFile.user_id = this.userId;
 	},
 	data: function data() {
 		return {
@@ -3172,6 +3174,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			types: ['resume'],
 			creatingNewFile: false,
 			newFile: new __WEBPACK_IMPORTED_MODULE_0__structur_src_form_FormWithFiles__["a" /* default */]({
+				user_id: '',
+				api_token: '',
 				type: '',
 				file: {}
 			})
@@ -3180,7 +3184,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	methods: {
 		submit: function submit() {
-			console.log('submiting');
+			var _this = this;
+
+			this.newFile.post('/api/user/' + this.userId + '/documents/').then(function (response) {
+				console.log(response);
+				_this.documents.push(response);
+				_this.creatingNewFile = false;
+			}).catch(function (error) {
+				console.error(error);
+			});
 		},
 		processFile: function processFile(files) {
 			if (files.length > 0) {

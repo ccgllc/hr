@@ -13,10 +13,10 @@
 // 	return response()->download($file, 'Brandon Hamm.docx', ['Content-Type: application/pdf']);
 // });
 
-Route::get('/test', function(Request $request){
-	$request->user()->update(['applied' => 1]);
-	return $request->user();
-});
+// Route::get('/test', function(Request $request){
+// 	$request->user()->update(['applied' => 1]);
+// 	return $request->user();
+// });
 
 Route::get('/', function () {
     return redirect('register');

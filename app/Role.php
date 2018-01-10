@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Permission;
 use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
@@ -35,7 +36,7 @@ class Role extends Model
 	 */ 
     public function users()
     {
-    	return $this->belongsToMany(\App\User::class);
+    	return $this->belongsToMany(User::class);
     }
 
     /** 
@@ -44,7 +45,7 @@ class Role extends Model
      */ 
     public function permissions()
     {
-    	return $this->hasMany(App\Permission::class);
+    	return $this->belongsToMany(Permission::class);
     }
 
     public function scopeOfType($query, $type)
