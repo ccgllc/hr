@@ -450,25 +450,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 
-// import profileData from '../data/profileData.js';
 /* harmony default export */ __webpack_exports__["default"] = ({
 	name: 'XactnetAddress',
-	// props: ['personalData'],
 	mounted: function mounted() {
 		//find our input field
 		this.input = document.getElementById('xactnet-address-input');
-		//set our current values off $userData variable 
-		//@see Blade View 'Profile/show.blade.php'
-		//mutations will be returned from api and set in data.xactnet_address...
-		//window object will be stored until page refreshes.
-		this.xactnet_address.value = window.userData.profile.xactnet_address;
-		this.xactnet_address.api_token = window.userData.api_token;
+		this.form.xactnet_address = window.userData.profile.xactnet_address;
+		this.userId = window.userData.id;
 	},
 	data: function data() {
 		return {
-			xactnet_address: new __WEBPACK_IMPORTED_MODULE_0__structur_src_form_Form_js__["a" /* default */]({
-				value: '',
-				api_token: ''
+			userId: '',
+			form: new __WEBPACK_IMPORTED_MODULE_0__structur_src_form_Form_js__["a" /* default */]({
+				xactnet_address: ''
 			}),
 			editing: false,
 			showEdit: false,
@@ -479,7 +473,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	computed: {
 		submitable: function submitable() {
-			return this.xactnet_address.value === '' ? false : true;
+			return this.form.xactnet_address === '' ? false : true;
 		}
 	},
 	methods: {
@@ -488,10 +482,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			var _this = this;
 
 			if (this.submitable) {
-				this.xactnet_address.put('/api/user/personal-information/xactnet_address', false).then(function (response) {
+				this.form.put('/api/user/' + this.userId + '/xactnet_address', false).then(function (response) {
 					console.log(response);
-					_this.xactnet_address.value = response;
-					// this.xactnet_address.api_token = window.userData.api_token;
+					_this.form.xactnet_address = response;
 				}).catch(function (error) {
 					console.log(error);
 				});
@@ -553,7 +546,7 @@ var render = function() {
                 _vm.submit($event)
               },
               keydown: function($event) {
-                _vm.xactnet_address.errors.clear($event.target.name)
+                _vm.form.errors.clear($event.target.name)
               }
             }
           },
@@ -581,8 +574,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.xactnet_address.value,
-                        expression: "xactnet_address.value"
+                        value: _vm.form.xactnet_address,
+                        expression: "form.xactnet_address"
                       }
                     ],
                     staticClass: "input",
@@ -593,7 +586,7 @@ var render = function() {
                       "box-shadow": "none"
                     },
                     attrs: { id: "xactnet-address-input", type: "text" },
-                    domProps: { value: _vm.xactnet_address.value },
+                    domProps: { value: _vm.form.xactnet_address },
                     on: {
                       keyup: function($event) {
                         if (
@@ -609,8 +602,8 @@ var render = function() {
                           return
                         }
                         _vm.$set(
-                          _vm.xactnet_address,
-                          "value",
+                          _vm.form,
+                          "xactnet_address",
                           $event.target.value
                         )
                       }
@@ -618,13 +611,11 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _vm.xactnet_address.errors.has("value")
+                _vm.form.errors.has("value")
                   ? _c("span", {
                       staticClass: "help is-danger",
                       domProps: {
-                        textContent: _vm._s(
-                          _vm.xactnet_address.errors.get("value")
-                        )
+                        textContent: _vm._s(_vm.form.errors.get("value"))
                       }
                     })
                   : _vm._e()
@@ -633,7 +624,7 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        !_vm.editing && _vm.xactnet_address.value === null
+        !_vm.editing && _vm.form.xactnet_address === null
           ? _c(
               "span",
               {
@@ -667,7 +658,7 @@ var render = function() {
               [
                 _vm._v(
                   "\n\t\t\t" +
-                    _vm._s(_vm.xactnet_address.value) +
+                    _vm._s(_vm.form.xactnet_address) +
                     " \n\t\t\t \n\t\t\t"
                 ),
                 _c(
@@ -860,8 +851,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	name: 'PhoneNumber',
 	mounted: function mounted() {
 		this.input = document.getElementById('phone-input');
-		this.phoneNumber.value = window.userData.profile.phone;
-		this.phoneNumber.api_token = window.userData.api_token;
+		this.form.phone = window.userData.profile.phone;
+		this.userId = window.userData.id;
 	},
 	data: function data() {
 		return {
@@ -870,16 +861,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			copyText: 'copy',
 			input: {},
 			currentValue: '',
-			phoneNumber: new __WEBPACK_IMPORTED_MODULE_0__structur_src_form_Form_js__["a" /* default */]({
-				value: '',
-				api_token: ''
+			userId: '',
+			form: new __WEBPACK_IMPORTED_MODULE_0__structur_src_form_Form_js__["a" /* default */]({
+				phone: ''
 			})
 		};
 	},
 
 	computed: {
 		submitable: function submitable() {
-			return this.phoneNumber.value === '' ? false : true;
+			return this.form.phone === '' ? false : true;
 		}
 	},
 	methods: {
@@ -888,16 +879,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			var _this = this;
 
 			if (this.submitable) {
-				this.phoneNumber.put('/api/user/personal-information/phone', false).then(function (response) {
+				this.form.put('/api/user/' + this.userId + '/phone', false).then(function (response) {
 					console.log(response);
-					_this.phoneNumber.value = response;
+					_this.form.phone = response;
 					// this.phoneNumber.api_token = window.userData.api_token;
 				}).catch(function (error) {
 					console.log(error);
 				});
 			} else {
 				this.edit = false;
-				return this.phoneNumber.value = window.userData.profile.phoneNumber;
+				return this.form.phone = window.userData.profile.phone;
 			}
 		},
 		toggleEditing: function toggleEditing() {
@@ -961,7 +952,7 @@ var render = function() {
                 _vm.submit($event)
               },
               keydown: function($event) {
-                _vm.phoneNumber.errors.clear($event.target.name)
+                _vm.form.errors.clear($event.target.name)
               }
             }
           },
@@ -989,8 +980,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.phoneNumber.value,
-                        expression: "phoneNumber.value"
+                        value: _vm.form.phone,
+                        expression: "form.phone"
                       }
                     ],
                     staticClass: "input",
@@ -1001,7 +992,7 @@ var render = function() {
                       "box-shadow": "none"
                     },
                     attrs: { id: "phone-input", type: "text" },
-                    domProps: { value: _vm.phoneNumber.value },
+                    domProps: { value: _vm.form.phone },
                     on: {
                       keyup: function($event) {
                         if (
@@ -1016,17 +1007,17 @@ var render = function() {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.phoneNumber, "value", $event.target.value)
+                        _vm.$set(_vm.form, "phone", $event.target.value)
                       }
                     }
                   })
                 ]),
                 _vm._v(" "),
-                _vm.phoneNumber.errors.has("value")
+                _vm.form.errors.has("value")
                   ? _c("span", {
                       staticClass: "help is-danger",
                       domProps: {
-                        textContent: _vm._s(_vm.phoneNumber.errors.get("value"))
+                        textContent: _vm._s(_vm.form.errors.get("value"))
                       }
                     })
                   : _vm._e()
@@ -1057,7 +1048,7 @@ var render = function() {
               [
                 _vm._v(
                   "\n\t\t\t" +
-                    _vm._s(_vm._f("phoneNumber")(_vm.phoneNumber.value)) +
+                    _vm._s(_vm._f("phoneNumber")(_vm.form.phone)) +
                     "\n\t\t\t \n\t\t\t"
                 ),
                 _c(
@@ -1250,8 +1241,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	name: 'EmailAddress',
 	mounted: function mounted() {
 		this.input = document.getElementById('phone-input');
-		this.emailAddress.value = window.userData.email;
-		this.emailAddress.api_token = window.userData.api_token;
+		this.form.email = window.userData.email;
+		this.userId = window.userData.id;
 	},
 	data: function data() {
 		return {
@@ -1259,17 +1250,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			showEdit: false,
 			copyText: 'copy',
 			input: {},
+			userId: '',
 			currentValue: '',
-			emailAddress: new __WEBPACK_IMPORTED_MODULE_0__structur_src_form_Form_js__["a" /* default */]({
-				value: '',
-				api_token: ''
+			form: new __WEBPACK_IMPORTED_MODULE_0__structur_src_form_Form_js__["a" /* default */]({
+				email: ''
 			})
 		};
 	},
 
 	computed: {
 		submitable: function submitable() {
-			return this.emailAddress.value === '' ? false : true;
+			return this.form.email === '' ? false : true;
 		}
 	},
 	methods: {
@@ -1278,16 +1269,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			var _this = this;
 
 			if (this.submitable) {
-				this.emailAddress.put('/api/user/personal-information/email', false).then(function (response) {
+				this.form.put('/api/user/' + this.userId + '/email', false).then(function (response) {
 					console.log(response);
-					_this.emailAddress.value = response;
+					_this.form.email = response;
 					// this.emailAddress.api_token = window.userData.api_token;
 				}).catch(function (error) {
 					console.log(error);
 				});
 			} else {
 				this.edit = false;
-				return this.emailAddress.value = window.userData.profile.emailAddress;
+				return this.form.email = window.userData.profile.email;
 			}
 		},
 		close: function close() {
@@ -1346,7 +1337,7 @@ var render = function() {
                 _vm.submit($event)
               },
               keydown: function($event) {
-                _vm.emailAddress.errors.clear($event.target.name)
+                _vm.form.errors.clear($event.target.name)
               }
             }
           },
@@ -1380,8 +1371,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.emailAddress.value,
-                        expression: "emailAddress.value"
+                        value: _vm.form.email,
+                        expression: "form.email"
                       }
                     ],
                     staticClass: "input",
@@ -1392,7 +1383,7 @@ var render = function() {
                       "box-shadow": "none"
                     },
                     attrs: { id: "email-input", type: "text" },
-                    domProps: { value: _vm.emailAddress.value },
+                    domProps: { value: _vm.form.email },
                     on: {
                       keyup: function($event) {
                         if (
@@ -1407,19 +1398,17 @@ var render = function() {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.emailAddress, "value", $event.target.value)
+                        _vm.$set(_vm.form, "email", $event.target.value)
                       }
                     }
                   })
                 ]),
                 _vm._v(" "),
-                _vm.emailAddress.errors.has("value")
+                _vm.form.errors.has("email")
                   ? _c("span", {
                       staticClass: "help is-danger",
                       domProps: {
-                        textContent: _vm._s(
-                          _vm.emailAddress.errors.get("value")
-                        )
+                        textContent: _vm._s(_vm.form.errors.get("email"))
                       }
                     })
                   : _vm._e()
@@ -1449,9 +1438,7 @@ var render = function() {
               },
               [
                 _vm._v(
-                  "\n\t\t\t" +
-                    _vm._s(_vm.emailAddress.value) +
-                    "\n\t\t\t \n\t\t\t"
+                  "\n\t\t\t" + _vm._s(_vm.form.email) + "\n\t\t\t \n\t\t\t"
                 ),
                 _c(
                   "span",
@@ -1684,6 +1671,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		this.address.state = window.userData.profile.state;
 		this.address.zip = window.userData.profile.zip;
 		this.address.api_token = window.userData.api_token;
+		this.userId = window.userData.id;
 	},
 	data: function data() {
 		return {
@@ -1692,12 +1680,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			copyText: 'copy',
 			input: {},
 			currentValue: '',
+			userId: '',
 			address: new __WEBPACK_IMPORTED_MODULE_0__structur_src_form_Form_js__["a" /* default */]({
 				street: '',
 				city: '',
 				state: '',
-				zip: '',
-				api_token: ''
+				zip: ''
 			})
 		};
 	},
@@ -1713,7 +1701,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			var _this = this;
 
 			if (this.submitable) {
-				this.address.put('/api/user/personal-information/address', false).then(function (response) {
+				this.address.put('/api/user/' + this.userId + '/address', false).then(function (response) {
 					console.log(response);
 					_this.address.street = response['street'];
 					_this.address.city = response['city'];
@@ -1855,11 +1843,11 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _vm.address.errors.has("value")
+                _vm.address.errors.has("street")
                   ? _c("span", {
                       staticClass: "help is-danger",
                       domProps: {
-                        textContent: _vm._s(_vm.address.errors.get("value"))
+                        textContent: _vm._s(_vm.address.errors.get("street"))
                       }
                     })
                   : _vm._e()
@@ -1928,11 +1916,11 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _vm.address.errors.has("value")
+                _vm.address.errors.has("city")
                   ? _c("span", {
                       staticClass: "help is-danger",
                       domProps: {
-                        textContent: _vm._s(_vm.address.errors.get("value"))
+                        textContent: _vm._s(_vm.address.errors.get("city"))
                       }
                     })
                   : _vm._e()
@@ -2001,11 +1989,11 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _vm.address.errors.has("value")
+                _vm.address.errors.has("state")
                   ? _c("span", {
                       staticClass: "help is-danger",
                       domProps: {
-                        textContent: _vm._s(_vm.address.errors.get("value"))
+                        textContent: _vm._s(_vm.address.errors.get("state"))
                       }
                     })
                   : _vm._e()
@@ -2074,11 +2062,11 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _vm.address.errors.has("value")
+                _vm.address.errors.has("zip")
                   ? _c("span", {
                       staticClass: "help is-danger",
                       domProps: {
-                        textContent: _vm._s(_vm.address.errors.get("value"))
+                        textContent: _vm._s(_vm.address.errors.get("zip"))
                       }
                     })
                   : _vm._e()
@@ -2410,7 +2398,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	},
 	mounted: function mounted() {
 		this.adjusterLicenses = window.userData.adjuster_licenses;
-		this.newLicense.api_token = window.axios.defaults.headers.common['Authorization'];
+		this.userId = window.userData.id;
 		var today = new Date();
 		this.currentYear = today.getFullYear();
 	},
@@ -2424,12 +2412,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		return {
 			creatingNewLicense: false,
 			adjusterLicenses: [],
+			userId: '',
 			newLicense: new __WEBPACK_IMPORTED_MODULE_1__structur_src_form_Form_js__["a" /* default */]({
 				license_number: '',
 				license_state: '',
 				expiration_month: '',
-				expiration_year: '',
-				api_token: ''
+				expiration_year: ''
 			}),
 			currentYear: '',
 			states: __WEBPACK_IMPORTED_MODULE_2__data_states_js__["a" /* default */],
@@ -2441,10 +2429,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		submit: function submit() {
 			var _this = this;
 
-			this.newLicense.post('/api/user/personal-information/license').then(function (response) {
+			this.newLicense.post('/api/user/' + this.userId + '/license/' + this.docId).then(function (response) {
 				console.log(response);
 				_this.adjusterLicenses.push(response);
-				_this.newLicense.api_token = window.axios.defaults.headers.common['Authorization'];
 				return _this.creatingNewLicense = false;
 			}).catch(function (error) {
 				console.log(error);
@@ -2454,11 +2441,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			var _this2 = this;
 
 			if (confirm('Are you sure? This action cannot be undone..')) {
-				var api_token = window.axios.defaults.headers.common['Authorization'];
-				window.axios.delete('/api/user/personal-information/license/' + license.id + '?api_token=' + api_token).then(function (response) {
+				window.axios.delete('/api/user/' + this.userId + '/license/' + license.id).then(function (response) {
 					console.log(response);
 					var index = _this2.adjusterLicenses.indexOf(license);
-					console.log(index);
 					return _this2.adjusterLicenses.splice(index, 1);
 				}).catch(function (error) {
 					console.log(error);
@@ -3154,6 +3139,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3162,21 +3155,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		this.userId = window.userData.id;
 		this.name = window.userData.name;
 		this.documents = window.userData.documents;
-		this.newFile.api_token = window.axios.defaults.headers.common['Authorization'];
-		this.newFile.user_id = this.userId;
 	},
 	data: function data() {
 		return {
 			name: '',
 			userId: '',
 			documents: [],
-			filename: '',
 			types: ['resume'],
+			filename: '',
 			creatingNewFile: false,
 			newFile: new __WEBPACK_IMPORTED_MODULE_0__structur_src_form_FormWithFiles__["a" /* default */]({
-				user_id: '',
-				api_token: '',
 				type: '',
+				filename: '',
 				file: {}
 			})
 		};
@@ -3287,13 +3277,13 @@ var render = function() {
                 },
                 [
                   _c("div", { staticClass: "columns is-multiline" }, [
-                    _c("div", { staticClass: "column is-11" }, [
+                    _c("div", { staticClass: "column is-3" }, [
                       _c("div", { staticClass: "field" }, [
                         _c("label", { staticClass: "label" }, [
                           _vm._v("Type:")
                         ]),
                         _vm._v(" "),
-                        _c("div", { staticClass: "select" }, [
+                        _c("div", { staticClass: "select is-fullwidth" }, [
                           _c(
                             "select",
                             {
@@ -3349,6 +3339,51 @@ var render = function() {
                               domProps: {
                                 textContent: _vm._s(
                                   _vm.newFile.errors.get("type")
+                                )
+                              }
+                            })
+                          : _vm._e()
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "column is-9" }, [
+                      _c("div", { staticClass: "field" }, [
+                        _c("label", { staticClass: "label" }, [
+                          _vm._v("Filename:")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.newFile.filename,
+                              expression: "newFile.filename"
+                            }
+                          ],
+                          staticClass: "input",
+                          attrs: { type: "text", placeholder: "My File" },
+                          domProps: { value: _vm.newFile.filename },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newFile,
+                                "filename",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm.newFile.errors.has("filename")
+                          ? _c("span", {
+                              staticClass: "help is-danger",
+                              domProps: {
+                                textContent: _vm._s(
+                                  _vm.newFile.errors.get("filename")
                                 )
                               }
                             })

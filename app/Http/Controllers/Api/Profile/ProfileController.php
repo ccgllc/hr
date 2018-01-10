@@ -7,34 +7,40 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller {
 
-	public function xactnetAddress(Request $request)
+	public function xactnetAddress(Request $request, $id)
 	{
 		$valid = $request->validate([
-        	'value' => 'required|max:255',
+        	'xactnet_address' => 'required|max:255',
    		]);	
-   		$this->update($request, $this->setData($valid, 'xactnet_address'));
-   		return $valid['value'];
+   		
+   		$this->getUser($id)->profile()->update($valid);
+
+   		return $valid['xactnet_address'];
 	}
 
-	public function phone(Request $request)
+	public function phone(Request $request, $id)
 	{
 		$valid = $request->validate([
-        	'value' => 'required|max:255',
+        	'phone' => 'required|max:255',
    		]);	
-   		$this->update($request, $this->setData($valid, 'phone'));
-   		return $valid['value'];
+   		
+   		$this->getUser($id)->profile()->update($valid);
+
+   		return $valid['phone'];
 	}
 
-	public function email(Request $request)
+	public function email(Request $request, $id)
 	{
 		$valid = $request->validate([
-        	'value' => 'required|email|max:255',
+        	'email' => 'required|email|max:255',
    		]);	
-   		$request->user()->update($this->setData($valid, 'email'));
-   		return $valid['value'];
+   		
+		$this->getUser($id)->update($valid);
+
+   		return $valid['email'];
 	}
 
-	public function address(Request $request)
+	public function address(Request $request, $id)
 	{
 		$valid = $request->validate([
         	'street' => 'required|max:255',
@@ -42,11 +48,13 @@ class ProfileController extends Controller {
         	'state' => 'required',
         	'zip'  => 'required|max:5'
    		]);	
-   		$request->user()->profile()->update($valid);
+
+   		$this->getUser($id)->profile()->update($valid);
+
    		return $valid;
 	}
 
-	public function license(Request $request)
+	public function license(Request $request, $id)
 	{
 		$valid = $request->validate([
 			'license_state' => 'required|max:2',
@@ -55,25 +63,19 @@ class ProfileController extends Controller {
 			'expiration_year' => 'required|numeric'
 		]);
 
-		$license = $request->user()->AdjusterLicenses()->create($valid);
+		$license = $this->getUser($id)->AdjusterLicenses()->create($valid);
 
 		return $license;
 
 	}
 
-	public function destroyLicense(Request $request, $id)
+	public function destroyLicense(Request $request, $id, $licenseId)
 	{
-		return \App\AdjusterLicense::destroy($id);
+		return \App\AdjusterLicense::destroy($licenseId);
 	}
 
-	public function update($request, $data)
+	public function getUser($id)
 	{
-		$request->user()->profile()->update($data);
-	}
-	public function setData($data, $name)
-	{
-		$data[$name] = $data['value'];
-   		unset($data['value']);
-   		return $data;
+		return \App\User::findOrFail($id);
 	}
 }

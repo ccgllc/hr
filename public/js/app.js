@@ -217,7 +217,7 @@ if (token) {
 }
 
 if (api_token) {
-  window.axios.defaults.headers.common['Authorization'] = api_token.content;
+  window.axios.defaults.headers.common['Authorization'] = "Bearer " + api_token.content;
 }
 // else {
 //     // console.error('');

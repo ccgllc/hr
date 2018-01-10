@@ -25,14 +25,14 @@ Route::namespace('Api\EmploymentApplication')
 Route::namespace('Api\Profile')
 	->middleware('auth:api')
 	->group(function () {
-		Route::put('user/personal-information/xactnet_address', 'ProfileController@xactnetAddress');
-		Route::put('user/personal-information/phone', 'ProfileController@phone');
-		Route::put('user/personal-information/email', 'ProfileController@email');
-		Route::put('user/personal-information/address', 'ProfileController@address');
-		Route::post('user/personal-information/license', 'ProfileController@license');
-		Route::delete('user/personal-information/license/{id}', 'ProfileController@destroyLicense');
+		Route::put('user/{id}/xactnet_address', 'ProfileController@xactnetAddress');
+		Route::put('user/{id}/phone', 'ProfileController@phone');
+		Route::put('user/{id}/email', 'ProfileController@email');
+		Route::put('user/{id}/address', 'ProfileController@address');
+		Route::post('user/{id}/license', 'ProfileController@license');
+		Route::delete('user/{id}/license/{licenseId}', 'ProfileController@destroyLicense');
 		Route::post('user/{id}/documents', 'UserDocumentsController@store');
-		Route::delete('user/documents/{id}', 'UserDocumentsController@destroy');
+		Route::delete('user/{id}/documents', 'UserDocumentsController@destroy');
 });
 
 Route::namespace('Api\Acl')

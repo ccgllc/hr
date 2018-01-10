@@ -125,7 +125,7 @@
 		},
 		mounted() {
 			this.adjusterLicenses = window.userData.adjuster_licenses;
-			this.newLicense.api_token = window.axios.defaults.headers.common['Authorization'];
+			this.userId = window.userData.id;
 			let today = new Date;
 			this.currentYear = today.getFullYear();
 		},
@@ -138,12 +138,12 @@
 			return {
 				creatingNewLicense: false,
 				adjusterLicenses: [],
+				userId: '',
 				newLicense: new Form({
 					license_number: '',
 					license_state: '',
 					expiration_month: '',
 					expiration_year: '',
-					api_token: '',
 				}),
 				currentYear: '',
 				states,
@@ -152,11 +152,10 @@
 		},
 		methods: {
 			submit() {
-				this.newLicense.post('/api/user/personal-information/license')
+				this.newLicense.post('/api/user/' + this.userId + '/license/' + this.docId)
 					.then(response => {
 						console.log(response)
 						this.adjusterLicenses.push(response);
-						this.newLicense.api_token = window.axios.defaults.headers.common['Authorization'];
 						return this.creatingNewLicense = false;
 					})
 					.catch(error => {
@@ -165,12 +164,10 @@
 			},
 			remove(license) {
 				if (confirm('Are you sure? This action cannot be undone..')) {
-					let api_token = window.axios.defaults.headers.common['Authorization'];
-				window.axios.delete('/api/user/personal-information/license/' + license.id + '?api_token='+ api_token)
+				window.axios.delete('/api/user/' + this.userId + '/license/' + license.id)
 					.then(response => {
 						console.log(response);
 						let index = this.adjusterLicenses.indexOf(license);
-						console.log(index);
 						return this.adjusterLicenses.splice(index, 1);
 					})
 					.catch(error => {

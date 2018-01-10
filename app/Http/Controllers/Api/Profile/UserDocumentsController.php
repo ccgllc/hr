@@ -12,10 +12,7 @@ class UserDocumentsController extends Controller {
 	public function store(Validate $request, $id)
 	{
 		$user = User::findOrFail($id);
-
-		// $document = Document::create($request->except())
-		return $user;
-		// $user->documents()->save($document);
+		$request->createDocument($user);
 	}
 
 	public function destroy(Request $request, $id)

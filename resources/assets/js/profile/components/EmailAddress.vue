@@ -5,7 +5,7 @@
 		</div>
 
 		<div class="column is-10">
-			<form @submit.prevent="submit" @keydown="emailAddress.errors.clear($event.target.name)">
+			<form @submit.prevent="submit" @keydown="form.errors.clear($event.target.name)">
 				<div class="field" v-show="editing" style="margin-top: -5px;">
 					<div class="control has-icons-left">
 						<span class="icon is-small is-left" >
@@ -16,15 +16,15 @@
 							type="text"
 							class="input"
 							style="border: none; border-bottom: 1px solid #ccc; background: transparent; box-shadow: none;" 
-							v-model="emailAddress.value" 
+							v-model="form.email" 
 							@keyup.enter="toggleEditing"
 						>
 					</div>
-					<span class="help is-danger" v-if="emailAddress.errors.has('value')" v-text="emailAddress.errors.get('value')"></span>
+					<span class="help is-danger" v-if="form.errors.has('email')" v-text="form.errors.get('email')"></span>
 				</div>
 			</form>
 			<span v-if="!editing" @dblclick.prevent="toggleEditing" @mouseover="showEdit = true" @mouseleave="showEdit = false; copyText='copy'" style="cursor:pointer">
-				{{ emailAddress.value }}
+				{{ form.email }}
 				&nbsp;
 				<span v-show="showEdit">
 				<a 
@@ -52,8 +52,8 @@
 		name: 'EmailAddress',
 		mounted() {
 			this.input = document.getElementById('phone-input')
-			this.emailAddress.value = window.userData.email;
-			this.emailAddress.api_token = window.userData.api_token;
+			this.form.email = window.userData.email;
+			this.userId = window.userData.id;
 		},
 		data() {
 			return {
@@ -61,16 +61,16 @@
 				showEdit: false,
 				copyText: 'copy',
 				input: {},
+				userId: '',
 				currentValue: '',
-				emailAddress: new Form({
-					value: '',
-					api_token: ''
+				form: new Form({
+					email: '',
 				})
 			}
 		},
 		computed: {
 			submitable() {
-				return this.emailAddress.value === ''
+				return this.form.email === ''
 					? false 
 					: true;
 			}
@@ -79,17 +79,17 @@
 			// submit newly edited 
 			submit() {
 				if (this.submitable) {
-					this.emailAddress.put('/api/user/personal-information/email', false)
+					this.form.put('/api/user/' + this.userId + '/email', false)
 						.then(response => {
 							console.log(response);
-							this.emailAddress.value = response;
+							this.form.email = response;
 							// this.emailAddress.api_token = window.userData.api_token;
 						}).catch(error => {
 							console.log(error)
 						});
 				}else{
 					this.edit = false;
-					return this.emailAddress.value = window.userData.profile.emailAddress;
+					return this.form.email = window.userData.profile.email;
 				}
 			},
 			close() {

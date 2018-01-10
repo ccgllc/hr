@@ -24,16 +24,24 @@
 			      <form @submit.prevent="submit" @keydown="newFile.errors.clear($event.target.name)">
 					<div class="columns is-multiline">
 					
-						<div class="column is-11">
+						<div class="column is-3">
 							<div class="field">
 								<label class="label">Type:</label>
-								<div class="select">
+								<div class="select is-fullwidth">
 								  <select v-model="newFile.type">
 								    <option value="">select</option>
 								    <option v-for="type in types" :value="type">{{ type }}</option>
 								  </select>
 								</div>
 								  <span class="help is-danger" v-if="newFile.errors.has('type')" v-text="newFile.errors.get('type')"></span>
+							</div>
+						</div>
+
+						<div class="column is-9">
+							<div class="field">
+								<label class="label">Filename:</label>
+								<input type="text" v-model="newFile.filename" class="input" placeholder="My File">
+								<span class="help is-danger" v-if="newFile.errors.has('filename')" v-text="newFile.errors.get('filename')"></span>
 							</div>
 						</div>
 
@@ -80,23 +88,20 @@
 			this.userId = window.userData.id;
 			this.name = window.userData.name;
 			this.documents = window.userData.documents;
-			this.newFile.api_token = window.axios.defaults.headers.common['Authorization'];
-			this.newFile.user_id = this.userId;
 		},
 		data() {
 			return {
 				name: '',
 				userId: '',
 				documents: [],
-				filename: '',
 				types: [
 					'resume',
 				],
+				filename: '',
 				creatingNewFile: false,
 				newFile: new FormWithFiles({
-					user_id: '',
-					api_token: '',
 					type: '',
+					filename: '',
 					file: {}
 				}),
 			}
