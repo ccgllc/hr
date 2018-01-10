@@ -63,10 +63,10 @@ class User extends Authenticatable
 
     public function hasPermissionTo($permission)
     {
-       return $hasPermission = $this->roles->every(
-        function($role, $key) use($permission) {
-            return $role->hasPermissionTo($permission);
-        });
+        foreach($this->roles as $role) {
+            if ($role->hasPermissionTo($permission)) return true;
+        }
+        return false;
     }
 
     public function isConfirmed()

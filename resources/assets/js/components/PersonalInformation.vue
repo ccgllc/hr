@@ -170,7 +170,6 @@
 	import appData from '../data/appData.js';
 	export default {
 		name: 'PersonalInformation',
-		props: ['token'],
 		data () {
 			return {
 				appData,
@@ -198,7 +197,6 @@
 			setupView() {
 				this.appData.text.title = "Personal Information";
 				this.appData.text.subtitle = "Step One - Tell Us About Yourself";
-				this.appData.personalInfo.api_token = this.token;
 				this.appData.progress = 1;
 				let today = new Date;
 				this.currentYear = today.getFullYear();

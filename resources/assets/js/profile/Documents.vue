@@ -5,7 +5,7 @@
 		<div class="documents" v-for="doc in documents">
 			<span class="icon"><i class="fa fa-file-o"></i></span>
 			<!-- {{ doc.name }} --> 
-			<a :href="'/users/' + userId + '/documents/' + doc.id">{{ name }}'s {{ doc.type }}</a>
+			<a :href="'/users/' + userId + '/documents/' + doc.id">{{ doc.name }}'s {{ doc.type }}</a>
 		</div>
 		
 

@@ -12,7 +12,6 @@ class UserDocumentsController extends Controller
     {
     	$user = User::find($id)->firstOrFail();
     	$user->load('documents');
-
     	return $user;
     }
     public function show($userId, $id)
@@ -20,6 +19,6 @@ class UserDocumentsController extends Controller
     	$document = Document::whereId($id)->firstOrFail();
   		$disk = storage_path().'/hr/';
     	$file = $disk.'/'.$document->path;
-		return response()->download($file, $document->user->name.$document->name); 
+		return response()->download($file, $document->name.'.'.$document->extension);
     }
 }

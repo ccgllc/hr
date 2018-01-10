@@ -12,7 +12,7 @@
 					<br>
 					<application-progress></application-progress>
 					<br>
-			   		<router-view token="{{ Auth::user()->api_token }}"></router-view>
+			   		<router-view></router-view>
 
 		   		</div>
 	   		</div>

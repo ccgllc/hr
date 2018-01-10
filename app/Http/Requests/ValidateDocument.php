@@ -36,15 +36,17 @@ class ValidateDocument extends FormRequest
     public function createDocument($user)
     {
         $ext = $this->file('file')->clientExtension();  
-        $name = $this->filename . $user->id;
+        $name = $this->filename;
         $filename = $name.'.'.$ext;
         $path = $this->file('file')->storeAs('resumes', $filename, 'hr');
         $doc = new \App\Document;
-        $doc->name = $filename;
+        $doc->name = $name;
+        $doc->extension = $ext;
         $doc->type = $this->type;
         $doc->path = $path;
         $doc->user_id = $user->id;
-        return $doc->save();
+        $doc->save();
+        return $doc;
     }
 
     public function userCanUploadFiles()
@@ -73,6 +75,6 @@ class ValidateDocument extends FormRequest
      */
     public function userOwnsProfile()
     {
-        return $this->user()->api_token == $this->header('Authorization') ? true : false;
+        return 'Bearer '.$this->user()->api_token == $this->header('Authorization') ? true : false;
     }
 }

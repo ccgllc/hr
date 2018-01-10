@@ -32,7 +32,9 @@ Route::namespace('Api\Profile')
 		Route::post('user/{id}/license', 'ProfileController@license');
 		Route::delete('user/{id}/license/{licenseId}', 'ProfileController@destroyLicense');
 		Route::post('user/{id}/documents', 'UserDocumentsController@store');
-		Route::delete('user/{id}/documents', 'UserDocumentsController@destroy');
+		Route::delete('user/documents/{id}', 'UserDocumentsController@destroy');
+		Route::post('user/{id}/certifications', 'UserCertificationsController@store');
+		Route::delete('user/certifications/{id}', 'UserCertificationsController@destroy');
 });
 
 Route::namespace('Api\Acl')

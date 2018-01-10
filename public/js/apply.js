@@ -142,8 +142,7 @@ module.exports = function normalizeComponent (
 		license_number: '',
 		expiration_month: '',
 		expiration_year: '',
-		xactnet_address: '',
-		api_token: ''
+		xactnet_address: ''
 	}),
 	workHistory: new __WEBPACK_IMPORTED_MODULE_0__structur_src_form_Form__["a" /* default */]({
 		desk_experience: 0,
@@ -170,13 +169,11 @@ module.exports = function normalizeComponent (
 		flood_experience: 0,
 		flood_claims: 0,
 		earthquake_experience: 0,
-		earthquake_claims: 0,
-		api_token: ''
+		earthquake_claims: 0
 	}),
 	certifications: new __WEBPACK_IMPORTED_MODULE_1__structur_src_form_FormWithFiles__["a" /* default */]({
 		certifications: [],
 		software: [],
-		api_token: '',
 		resume: {}
 	}),
 	// resume: new FormData(),
@@ -569,7 +566,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	name: 'PersonalInformation',
-	props: ['token'],
 	data: function data() {
 		return {
 			appData: __WEBPACK_IMPORTED_MODULE_0__data_appData_js__["a" /* default */],
@@ -599,7 +595,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		setupView: function setupView() {
 			this.appData.text.title = "Personal Information";
 			this.appData.text.subtitle = "Step One - Tell Us About Yourself";
-			this.appData.personalInfo.api_token = this.token;
 			this.appData.progress = 1;
 			var today = new Date();
 			this.currentYear = today.getFullYear();
@@ -1655,7 +1650,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 // import states from '../data/states.js';
 /* harmony default export */ __webpack_exports__["default"] = ({
 	name: "WorkHistory",
-	props: ['token'],
 	components: {
 		experience: __WEBPACK_IMPORTED_MODULE_0__Experience_vue___default.a,
 		claimCount: __WEBPACK_IMPORTED_MODULE_1__ClaimCount_vue___default.a
@@ -1689,7 +1683,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		setupView: function setupView() {
 			this.appData.text.title = "Work History / Experience";
 			this.appData.text.subtitle = "Step Two - Tell us what you've worked on.";
-			this.appData.workHistory.api_token = this.token;
 			this.appData.progress = 2;
 		}
 	}
@@ -3095,7 +3088,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	name: 'Certifications',
-	props: ['token'],
 	mounted: function mounted() {
 		this.setupView();
 	},
@@ -3132,8 +3124,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 		setupView: function setupView() {
 			this.appData.text.title = "Industry Certifications";
-			this.appData.certifications.api_token = this.token;
-			// this.appData.resume.append('api_token', this.token);
 			this.appData.text.subtitle = "Step Three - Tell us what you're certified to do";
 			this.appData.progress = 3;
 		}

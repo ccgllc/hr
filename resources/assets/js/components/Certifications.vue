@@ -65,7 +65,6 @@
 
 	export default {
 		name: 'Certifications',
-		props: ['token'],
 		mounted() {
 			this.setupView();
 		},
@@ -117,8 +116,6 @@
 			},
 			setupView() {
 				this.appData.text.title = "Industry Certifications";
-				this.appData.certifications.api_token = this.token;
-				// this.appData.resume.append('api_token', this.token);
 				this.appData.text.subtitle = "Step Three - Tell us what you're certified to do";
 				this.appData.progress = 3;
 			}
