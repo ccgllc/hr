@@ -2,11 +2,14 @@
 	<div id="documents">
 		<h1 class="profile-title">My Documents</h1><br>
 
-		<div class="documents" v-for="doc in documents">
-			<span class="icon"><i class="fa fa-file-o"></i></span>
-			<!-- {{ doc.name }} --> 
-			<a :href="'/users/' + userId + '/documents/' + doc.id">{{ doc.name }}'s {{ doc.type }}</a>
-		</div>
+		<file 
+			v-for="doc in documents" 
+			:key="doc.id"
+			:user-id="userId"
+			:file="doc"
+			v-on:file-deleted="remove"
+		>	
+		</file>
 		
 
 		<br>
@@ -82,8 +85,12 @@
 
 <script>
 	import FormWithFiles from '../structur/src/form/FormWithFiles';
+	import file from './components/File.vue';
 	export default {
 		name: 'Documents',
+		components: {
+			file
+		},
 		mounted() {
 			this.userId = window.userData.id;
 			this.name = window.userData.name;
@@ -93,6 +100,7 @@
 			return {
 				name: '',
 				userId: '',
+				toggleDelete: false,
 				documents: [],
 				types: [
 					'resume',
@@ -115,6 +123,11 @@
 				}).catch(error => {
 					console.error(error);
 				})
+			},
+			remove(file) {
+				console.log('deleting');
+				let index = this.documents.indexOf(file);
+				return this.documents.splice(index, 1);
 			},
 			processFile(files) {
 				if (files.length > 0) {
