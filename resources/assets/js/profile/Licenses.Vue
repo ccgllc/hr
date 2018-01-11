@@ -1,6 +1,8 @@
 <template>
 	<div id="Licenses">
-		<div class="card" v-for="license in adjusterLicenses" :key="license.id" style="margin-top: 1rem;">
+		<div class="columns">
+		<div class="column is-6" v-for="license in adjusterLicenses" :key="license.id">
+		<div class="card" style="margin-top: 1rem;">
 			<header class="card-header">
 			    <p class="card-header-title">
 			     {{license.license_state}} Adjusting License
@@ -14,26 +16,31 @@
 		 	<div class="card-content">
 		 		<div class="content">
 		 			<div class="columns">
-						<div class="column is-1">
+						<div class="column is-3">
 							<p><strong>License #</strong>:</p>
 						</div>
 
-						<div class="column is-2">
+						<div class="column is-3">
 							<p>{{ license.license_number }}</p>
 						</div>
 
-						<div class="column is-1">
+						<div class="column is-3">
 							<p><strong>Expiration</strong>:</p>
 						</div>
 
-						<div class="column is-8">
+						<div class="column is-3">
 							<p>{{ license.expiration_month }} / {{license.expiration_year}}</p>
 						</div>
 					</div><!-- end columns -->
 				</div><!-- end content -->
 	 		</div><!-- end card content --> 
 	 	</div><!-- end card -->
+	 	</div>
+	 	</div>
+		<br>
+		<button @click="creatingNewLicense = !creatingNewLicense;" class="button is-info">{{ buttonText}}</button>
 		
+
 		<div class="modal" v-bind:class="{ 'is-active': creatingNewLicense }">
 			<div class="modal-background"></div>
 			<div class="modal-card">
@@ -107,9 +114,8 @@
 			  </div>
 			  <!-- <button class="modal-close is-large" aria-label="close"></button> -->
 			</div>
-		<!-- </div> -->
-		<br>
-		<button @click="creatingNewLicense = !creatingNewLicense;" class="button is-info">{{ buttonText}}</button>
+
+
 	</div>
 </template>
 

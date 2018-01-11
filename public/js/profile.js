@@ -2386,6 +2386,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2548,423 +2554,406 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "Licenses" } },
-    [
+  return _c("div", { attrs: { id: "Licenses" } }, [
+    _c(
+      "div",
+      { staticClass: "columns" },
       _vm._l(_vm.adjusterLicenses, function(license) {
-        return _c(
-          "div",
-          {
-            key: license.id,
-            staticClass: "card",
-            staticStyle: { "margin-top": "1rem" }
-          },
-          [
-            _c("header", { staticClass: "card-header" }, [
-              _c("p", { staticClass: "card-header-title" }, [
-                _vm._v(
-                  "\n\t\t     " +
-                    _vm._s(license.license_state) +
-                    " Adjusting License\n\t\t    "
+        return _c("div", { key: license.id, staticClass: "column is-6" }, [
+          _c(
+            "div",
+            { staticClass: "card", staticStyle: { "margin-top": "1rem" } },
+            [
+              _c("header", { staticClass: "card-header" }, [
+                _c("p", { staticClass: "card-header-title" }, [
+                  _vm._v(
+                    "\n\t\t     " +
+                      _vm._s(license.license_state) +
+                      " Adjusting License\n\t\t    "
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "card-header-icon is-danger",
+                    attrs: { "aria-label": "Delete" },
+                    on: {
+                      click: function($event) {
+                        _vm.remove(license)
+                      }
+                    }
+                  },
+                  [_vm._m(0, true)]
                 )
               ]),
               _vm._v(" "),
-              _c(
-                "a",
-                {
-                  staticClass: "card-header-icon is-danger",
-                  attrs: { "aria-label": "Delete" },
-                  on: {
-                    click: function($event) {
-                      _vm.remove(license)
-                    }
-                  }
-                },
-                [_vm._m(0, true)]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-content" }, [
-              _c("div", { staticClass: "content" }, [
-                _c("div", { staticClass: "columns" }, [
-                  _vm._m(1, true),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "column is-2" }, [
-                    _c("p", [_vm._v(_vm._s(license.license_number))])
-                  ]),
-                  _vm._v(" "),
-                  _vm._m(2, true),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "column is-8" }, [
-                    _c("p", [
-                      _vm._v(
-                        _vm._s(license.expiration_month) +
-                          " / " +
-                          _vm._s(license.expiration_year)
-                      )
+              _c("div", { staticClass: "card-content" }, [
+                _c("div", { staticClass: "content" }, [
+                  _c("div", { staticClass: "columns" }, [
+                    _vm._m(1, true),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "column is-3" }, [
+                      _c("p", [_vm._v(_vm._s(license.license_number))])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(2, true),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "column is-3" }, [
+                      _c("p", [
+                        _vm._v(
+                          _vm._s(license.expiration_month) +
+                            " / " +
+                            _vm._s(license.expiration_year)
+                        )
+                      ])
                     ])
                   ])
                 ])
               ])
-            ])
-          ]
-        )
-      }),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "modal",
-          class: { "is-active": _vm.creatingNewLicense }
-        },
-        [
-          _c("div", { staticClass: "modal-background" }),
-          _vm._v(" "),
-          _c("div", { staticClass: "modal-card" }, [
-            _c("header", { staticClass: "modal-card-head" }, [
-              _c("p", { staticClass: "modal-card-title" }, [
-                _vm._v("Add a new Adjuster License")
-              ]),
-              _vm._v(" "),
-              _c("button", {
-                staticClass: "delete",
-                attrs: { "aria-label": "close" },
-                on: {
-                  click: function($event) {
-                    _vm.creatingNewLicense = false
-                  }
-                }
-              })
+            ]
+          )
+        ])
+      })
+    ),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "button is-info",
+        on: {
+          click: function($event) {
+            _vm.creatingNewLicense = !_vm.creatingNewLicense
+          }
+        }
+      },
+      [_vm._v(_vm._s(_vm.buttonText))]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "modal", class: { "is-active": _vm.creatingNewLicense } },
+      [
+        _c("div", { staticClass: "modal-background" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "modal-card" }, [
+          _c("header", { staticClass: "modal-card-head" }, [
+            _c("p", { staticClass: "modal-card-title" }, [
+              _vm._v("Add a new Adjuster License")
             ]),
             _vm._v(" "),
-            _c("section", { staticClass: "modal-card-body" }, [
-              _c(
-                "form",
-                {
-                  on: {
-                    submit: function($event) {
-                      $event.preventDefault()
-                      _vm.submit($event)
-                    },
-                    keydown: function($event) {
-                      _vm.newLicense.errors.clear($event.target.name)
-                    }
+            _c("button", {
+              staticClass: "delete",
+              attrs: { "aria-label": "close" },
+              on: {
+                click: function($event) {
+                  _vm.creatingNewLicense = false
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("section", { staticClass: "modal-card-body" }, [
+            _c(
+              "form",
+              {
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    _vm.submit($event)
+                  },
+                  keydown: function($event) {
+                    _vm.newLicense.errors.clear($event.target.name)
                   }
-                },
-                [
-                  _c("div", { staticClass: "columns" }, [
-                    _c("div", { staticClass: "column is-2" }, [
-                      _c("div", { staticClass: "field" }, [
-                        _c("label", { staticClass: "label" }, [
-                          _vm._v("State:")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "select" }, [
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.newLicense.license_state,
-                                  expression: "newLicense.license_state"
+                }
+              },
+              [
+                _c("div", { staticClass: "columns" }, [
+                  _c("div", { staticClass: "column is-2" }, [
+                    _c("div", { staticClass: "field" }, [
+                      _c("label", { staticClass: "label" }, [_vm._v("State:")]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "select" }, [
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.newLicense.license_state,
+                                expression: "newLicense.license_state"
+                              }
+                            ],
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.newLicense,
+                                  "license_state",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "" } }),
+                            _vm._v(" "),
+                            _vm._l(_vm.states, function(state) {
+                              return _c(
+                                "option",
+                                { domProps: { value: state.abbr } },
+                                [_vm._v(_vm._s(state.abbr))]
+                              )
+                            })
+                          ],
+                          2
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm.newLicense.errors.has("license_state")
+                        ? _c("span", {
+                            staticClass: "help is-danger",
+                            domProps: {
+                              textContent: _vm._s(
+                                _vm.newLicense.errors.get("license_state")
+                              )
+                            }
+                          })
+                        : _vm._e()
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "column is-4" }, [
+                    _c("div", { staticClass: "field" }, [
+                      _c("label", { staticClass: "label" }, [
+                        _vm._v("License #:")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "control control has-icons-left" },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.newLicense.license_number,
+                                expression: "newLicense.license_number"
+                              }
+                            ],
+                            staticClass: "input",
+                            attrs: { type: "text" },
+                            domProps: { value: _vm.newLicense.license_number },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
                                 }
-                              ],
-                              on: {
-                                change: function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    _vm.newLicense,
-                                    "license_state",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
+                                _vm.$set(
+                                  _vm.newLicense,
+                                  "license_number",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm._m(3),
+                          _vm._v(" "),
+                          _vm.newLicense.errors.has("license_number")
+                            ? _c("span", {
+                                staticClass: "help is-danger",
+                                domProps: {
+                                  textContent: _vm._s(
+                                    _vm.newLicense.errors.get("license_number")
                                   )
                                 }
-                              }
-                            },
-                            [
-                              _c("option", { attrs: { value: "" } }),
-                              _vm._v(" "),
-                              _vm._l(_vm.states, function(state) {
-                                return _c(
-                                  "option",
-                                  { domProps: { value: state.abbr } },
-                                  [_vm._v(_vm._s(state.abbr))]
-                                )
                               })
+                            : _vm._e()
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "column is-2" }, [
+                    _c("div", { staticClass: "field" }, [
+                      _c("label", { staticClass: "label" }, [
+                        _vm._v("Exp. Mo:")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "select" }, [
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.newLicense.expiration_month,
+                                expression: "newLicense.expiration_month"
+                              }
                             ],
-                            2
-                          )
-                        ]),
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.newLicense,
+                                  "expiration_month",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("mo.")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(_vm.months, function(month) {
+                              return _c(
+                                "option",
+                                { domProps: { value: month.abbr } },
+                                [_vm._v(_vm._s(month.abbr))]
+                              )
+                            })
+                          ],
+                          2
+                        ),
                         _vm._v(" "),
-                        _vm.newLicense.errors.has("license_state")
+                        _vm.newLicense.errors.has("expiration_month")
                           ? _c("span", {
                               staticClass: "help is-danger",
                               domProps: {
                                 textContent: _vm._s(
-                                  _vm.newLicense.errors.get("license_state")
+                                  _vm.newLicense.errors.get("expiration_month")
                                 )
                               }
                             })
                           : _vm._e()
                       ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "column is-4" }, [
-                      _c("div", { staticClass: "field" }, [
-                        _c("label", { staticClass: "label" }, [
-                          _vm._v("License #:")
-                        ]),
-                        _vm._v(" "),
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "column is-4" }, [
+                    _c("div", { staticClass: "field" }, [
+                      _c("label", { staticClass: "label" }, [
+                        _vm._v("Exp. Year:")
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "select" }, [
                         _c(
-                          "div",
-                          { staticClass: "control control has-icons-left" },
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.newLicense.expiration_year,
+                                expression: "newLicense.expiration_year"
+                              }
+                            ],
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.newLicense,
+                                  "expiration_year",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              }
+                            }
+                          },
                           [
-                            _c("input", {
-                              directives: [
+                            _c("option", { attrs: { value: "" } }, [
+                              _vm._v("yr.")
+                            ]),
+                            _vm._v(" "),
+                            _vm._l(10, function(n) {
+                              return _c(
+                                "option",
                                 {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.newLicense.license_number,
-                                  expression: "newLicense.license_number"
-                                }
-                              ],
-                              staticClass: "input",
-                              attrs: { type: "text" },
+                                  domProps: { value: _vm.currentYear + n - 1 }
+                                },
+                                [_vm._v(_vm._s(_vm.currentYear + n - 1))]
+                              )
+                            })
+                          ],
+                          2
+                        ),
+                        _vm._v(" "),
+                        _vm.newLicense.errors.has("expiration_year")
+                          ? _c("span", {
+                              staticClass: "help is-danger",
                               domProps: {
-                                value: _vm.newLicense.license_number
-                              },
-                              on: {
-                                input: function($event) {
-                                  if ($event.target.composing) {
-                                    return
-                                  }
-                                  _vm.$set(
-                                    _vm.newLicense,
-                                    "license_number",
-                                    $event.target.value
-                                  )
-                                }
-                              }
-                            }),
-                            _vm._v(" "),
-                            _vm._m(3),
-                            _vm._v(" "),
-                            _vm.newLicense.errors.has("license_number")
-                              ? _c("span", {
-                                  staticClass: "help is-danger",
-                                  domProps: {
-                                    textContent: _vm._s(
-                                      _vm.newLicense.errors.get(
-                                        "license_number"
-                                      )
-                                    )
-                                  }
-                                })
-                              : _vm._e()
-                          ]
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "column is-2" }, [
-                      _c("div", { staticClass: "field" }, [
-                        _c("label", { staticClass: "label" }, [
-                          _vm._v("Exp. Mo:")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "select" }, [
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.newLicense.expiration_month,
-                                  expression: "newLicense.expiration_month"
-                                }
-                              ],
-                              on: {
-                                change: function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    _vm.newLicense,
-                                    "expiration_month",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
-                                }
-                              }
-                            },
-                            [
-                              _c("option", { attrs: { value: "" } }, [
-                                _vm._v("mo.")
-                              ]),
-                              _vm._v(" "),
-                              _vm._l(_vm.months, function(month) {
-                                return _c(
-                                  "option",
-                                  { domProps: { value: month.abbr } },
-                                  [_vm._v(_vm._s(month.abbr))]
+                                textContent: _vm._s(
+                                  _vm.newLicense.errors.get("expiration_year")
                                 )
-                              })
-                            ],
-                            2
-                          ),
-                          _vm._v(" "),
-                          _vm.newLicense.errors.has("expiration_month")
-                            ? _c("span", {
-                                staticClass: "help is-danger",
-                                domProps: {
-                                  textContent: _vm._s(
-                                    _vm.newLicense.errors.get(
-                                      "expiration_month"
-                                    )
-                                  )
-                                }
-                              })
-                            : _vm._e()
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "column is-4" }, [
-                      _c("div", { staticClass: "field" }, [
-                        _c("label", { staticClass: "label" }, [
-                          _vm._v("Exp. Year:")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "select" }, [
-                          _c(
-                            "select",
-                            {
-                              directives: [
-                                {
-                                  name: "model",
-                                  rawName: "v-model",
-                                  value: _vm.newLicense.expiration_year,
-                                  expression: "newLicense.expiration_year"
-                                }
-                              ],
-                              on: {
-                                change: function($event) {
-                                  var $$selectedVal = Array.prototype.filter
-                                    .call($event.target.options, function(o) {
-                                      return o.selected
-                                    })
-                                    .map(function(o) {
-                                      var val =
-                                        "_value" in o ? o._value : o.value
-                                      return val
-                                    })
-                                  _vm.$set(
-                                    _vm.newLicense,
-                                    "expiration_year",
-                                    $event.target.multiple
-                                      ? $$selectedVal
-                                      : $$selectedVal[0]
-                                  )
-                                }
                               }
-                            },
-                            [
-                              _c("option", { attrs: { value: "" } }, [
-                                _vm._v("yr.")
-                              ]),
-                              _vm._v(" "),
-                              _vm._l(10, function(n) {
-                                return _c(
-                                  "option",
-                                  {
-                                    domProps: { value: _vm.currentYear + n - 1 }
-                                  },
-                                  [_vm._v(_vm._s(_vm.currentYear + n - 1))]
-                                )
-                              })
-                            ],
-                            2
-                          ),
-                          _vm._v(" "),
-                          _vm.newLicense.errors.has("expiration_year")
-                            ? _c("span", {
-                                staticClass: "help is-danger",
-                                domProps: {
-                                  textContent: _vm._s(
-                                    _vm.newLicense.errors.get("expiration_year")
-                                  )
-                                }
-                              })
-                            : _vm._e()
-                        ])
+                            })
+                          : _vm._e()
                       ])
                     ])
                   ])
-                ]
-              )
-            ]),
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("footer", { staticClass: "modal-card-foot" }, [
+            _c(
+              "button",
+              { staticClass: "button is-primary", on: { click: _vm.submit } },
+              [_vm._v("Save")]
+            ),
             _vm._v(" "),
-            _c("footer", { staticClass: "modal-card-foot" }, [
-              _c(
-                "button",
-                { staticClass: "button is-primary", on: { click: _vm.submit } },
-                [_vm._v("Save")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "button",
-                  on: {
-                    click: function($event) {
-                      _vm.creatingNewLicense = false
-                    }
+            _c(
+              "button",
+              {
+                staticClass: "button",
+                on: {
+                  click: function($event) {
+                    _vm.creatingNewLicense = false
                   }
-                },
-                [_vm._v("Cancel")]
-              )
-            ])
+                }
+              },
+              [_vm._v("Cancel")]
+            )
           ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "button is-info",
-          on: {
-            click: function($event) {
-              _vm.creatingNewLicense = !_vm.creatingNewLicense
-            }
-          }
-        },
-        [_vm._v(_vm._s(_vm.buttonText))]
-      )
-    ],
-    2
-  )
+        ])
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -2979,7 +2968,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "column is-1" }, [
+    return _c("div", { staticClass: "column is-3" }, [
       _c("p", [_c("strong", [_vm._v("License #")]), _vm._v(":")])
     ])
   },
@@ -2987,7 +2976,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "column is-1" }, [
+    return _c("div", { staticClass: "column is-3" }, [
       _c("p", [_c("strong", [_vm._v("Expiration")]), _vm._v(":")])
     ])
   },
