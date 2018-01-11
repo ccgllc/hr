@@ -11,7 +11,7 @@ class UserRolesController extends Controller
     public function __contruct()
     {
     	$this->middleware('auth');
-    	// $this->middleware('admin');
+    	$this->middleware('dashboard');
     }
 
     public function index($id)

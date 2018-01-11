@@ -5,7 +5,7 @@
 		</div>
 
 		<div class="column is-10">
-			<form @submit.prevent="submit" @keydown="phoneNumber.errors.clear($event.target.name)">
+			<form @submit.prevent="submit" @keydown="form.errors.clear($event.target.name)">
 				<div class="field" v-show="editing" style="margin-top: -5px;">
 					<div class="control has-icons-left">
 						<span class="icon is-small is-left" style="cursor:pointer">
@@ -16,15 +16,15 @@
 							type="text"
 							class="input"
 							style="border: none; border-bottom: 1px solid #ccc; background: transparent; box-shadow: none;" 
-							v-model="phoneNumber.value" 
+							v-model="form.phone" 
 							@keyup.enter="toggleEditing"
 						>
 					</div>
-					<span class="help is-danger" v-if="phoneNumber.errors.has('value')" v-text="phoneNumber.errors.get('value')"></span>
+					<span class="help is-danger" v-if="form.errors.has('value')" v-text="form.errors.get('value')"></span>
 				</div>
 			</form>
 			<span v-if="!editing" @dblclick.prevent="toggleEditing" @mouseover="showEdit = true" @mouseleave="showEdit = false; copyText='copy'" style="cursor:pointer">
-				{{ phoneNumber.value | phoneNumber }}
+				{{ form.phone | phoneNumber }}
 				&nbsp;
 				<span v-show="showEdit">
 				<a 
@@ -52,8 +52,8 @@
 		name: 'PhoneNumber',
 		mounted() {
 			this.input = document.getElementById('phone-input')
-			this.phoneNumber.value = window.userData.profile.phone;
-			this.phoneNumber.api_token = window.userData.api_token;
+			this.form.phone = window.userData.profile.phone;
+			this.userId = window.userData.id;
 		},
 		data() {
 			return {
@@ -62,15 +62,15 @@
 				copyText: 'copy',
 				input: {},
 				currentValue: '',
-				phoneNumber: new Form({
-					value: '',
-					api_token: ''
+				userId: '',
+				form: new Form({
+					phone: '',
 				})
 			}
 		},
 		computed: {
 			submitable() {
-				return this.phoneNumber.value === ''
+				return this.form.phone === ''
 					? false 
 					: true;
 			}
@@ -79,17 +79,17 @@
 			// submit newly edited 
 			submit() {
 				if (this.submitable) {
-					this.phoneNumber.put('/api/user/personal-information/phone', false)
+					this.form.put('/api/user/' + this.userId + '/phone', false)
 						.then(response => {
 							console.log(response);
-							this.phoneNumber.value = response;
+							this.form.phone = response;
 							// this.phoneNumber.api_token = window.userData.api_token;
 						}).catch(error => {
 							console.log(error)
 						});
 				}else{
 					this.edit = false;
-					return this.phoneNumber.value = window.userData.profile.phoneNumber;
+					return this.form.phone = window.userData.profile.phone;
 				}
 			},
 			toggleEditing() {

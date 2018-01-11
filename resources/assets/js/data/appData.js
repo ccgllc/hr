@@ -22,7 +22,6 @@ export default {
 		expiration_month: '',
 		expiration_year: '',
 		xactnet_address: '',
-		api_token: ''
 	}),
 	workHistory: new Form({
 		desk_experience: 0,
@@ -50,12 +49,10 @@ export default {
 		flood_claims: 0,
 		earthquake_experience: 0,
 		earthquake_claims: 0,
-		api_token: ''
 	}),
 	certifications: new FormWithFiles({
 		certifications: [],
 		software: [],
-		api_token: '',
 		resume: {}
 	}),
 	// resume: new FormData(),

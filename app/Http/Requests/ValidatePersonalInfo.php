@@ -16,7 +16,7 @@ class ValidatePersonalInfo extends FormRequest
      */
     public function authorize()
     {
-         return  $this->user()->api_token == $this->api_token ? true : false;
+        return   'Bearer ' . $this->user()->api_token == $this->header('Authorization') ? true : false;
     }
 
     /**

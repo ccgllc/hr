@@ -254,7 +254,6 @@
 	// import states from '../data/states.js';
 	export default {
 		name: "WorkHistory",
-		props: ['token'],
 		components: {
 			experience,
 			claimCount
@@ -286,7 +285,6 @@
 			setupView() {
 				this.appData.text.title = "Work History / Experience";
 				this.appData.text.subtitle = "Step Two - Tell us what you've worked on.";
-				this.appData.workHistory.api_token = this.token;
 				this.appData.progress = 2;
 			}
 		}

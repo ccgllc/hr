@@ -20,7 +20,7 @@
 							@keyup.enter="toggleEditing"
 						>
 					</div>
-					<span class="help is-danger" v-if="address.errors.has('value')" v-text="address.errors.get('value')"></span>
+					<span class="help is-danger" v-if="address.errors.has('street')" v-text="address.errors.get('street')"></span>
 				</div>
 				<div class="field" v-show="editing" style="margin-top: -5px;">
 					<div class="control has-icons-left">
@@ -36,7 +36,7 @@
 							@keyup.enter="toggleEditing"
 						>
 					</div>
-					<span class="help is-danger" v-if="address.errors.has('value')" v-text="address.errors.get('value')"></span>
+					<span class="help is-danger" v-if="address.errors.has('city')" v-text="address.errors.get('city')"></span>
 				</div>
 				<div class="field" v-show="editing" style="margin-top: -5px;">
 					<div class="control has-icons-left">
@@ -52,7 +52,7 @@
 							@keyup.enter="toggleEditing"
 						>
 					</div>
-					<span class="help is-danger" v-if="address.errors.has('value')" v-text="address.errors.get('value')"></span>
+					<span class="help is-danger" v-if="address.errors.has('state')" v-text="address.errors.get('state')"></span>
 				</div>
 				<div class="field" v-show="editing" style="margin-top: -5px;">
 					<div class="control has-icons-left">
@@ -68,7 +68,7 @@
 							@keyup.enter="toggleEditing"
 						>
 					</div>
-					<span class="help is-danger" v-if="address.errors.has('value')" v-text="address.errors.get('value')"></span>
+					<span class="help is-danger" v-if="address.errors.has('zip')" v-text="address.errors.get('zip')"></span>
 				</div>
 			</form>
 			<span v-if="!editing" @dblclick.prevent="toggleEditing" @mouseover="showEdit = true" @mouseleave="showEdit = false; copyText='copy'" style="cursor:pointer">
@@ -106,6 +106,7 @@
 			this.address.state = window.userData.profile.state;
 			this.address.zip = window.userData.profile.zip;
 			this.address.api_token = window.userData.api_token;
+			this.userId = window.userData.id;
 		},
 		data() {
 			return {
@@ -114,12 +115,12 @@
 				copyText: 'copy',
 				input: {},
 				currentValue: '',
+				userId: '',
 				address: new Form({
 					street: '',
 					city: '',
 					state: '',
 					zip: '',
-					api_token: ''
 				})
 			}
 		},
@@ -137,7 +138,7 @@
 			// submit newly edited 
 			submit() {
 				if (this.submitable) {
-					this.address.put('/api/user/personal-information/address', false)
+					this.address.put('/api/user/' + this.userId + '/address', false)
 						.then(response => {
 							console.log(response);
 							this.address.street = response['street'];

@@ -299,6 +299,19 @@ h1.profile-title {
 	font-size: 1rem;
 }
 
+.menu {
+	width: 100%; 
+	border: 1px solid #ccc; 
+	background: $white;
+	position: absolute;
+	top: 64px;
+	left: 15px;
+	z-index: 1000;
+	li.selected {
+		color: $light-gray;
+		background: $primary-bright;
+	}
+}
 //Card 
 a.card-header-icon.is-danger {
 	color: $gray-text;
@@ -317,7 +330,10 @@ a.card-header-icon.is-danger {
 	}
 	.card-content .content {
 		a.delete {
-			&:hover {
+			&.is-danger:hover {
+				background: $danger;
+			}
+			&.is-warning:hover {
 				background: $warning;
 			}
 		}
@@ -404,4 +420,16 @@ p.card-header-title > span.tag {
 		background: $dark;
 	}
 	margin-right: .5rem;
+}
+//footer 
+.columns.is-app-footer{
+	color: #7683a2; 
+	font-size: .8em; 
+	margin-bottom: 0;
+	margin-top: 5rem;
+	background: $gray;
+	padding: 1.5rem;
+	strong {
+		color: #7683a2;
+	}
 }

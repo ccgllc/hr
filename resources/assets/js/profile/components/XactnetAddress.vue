@@ -5,7 +5,7 @@
 		</div>
 
 		<div class="column is-10">
-			<form @submit.prevent="submit" @keydown="xactnet_address.errors.clear($event.target.name)">
+			<form @submit.prevent="submit" @keydown="form.errors.clear($event.target.name)">
 				<div class="field" v-show="editing" style="margin-top: -5px;">
 					<div class="control has-icons-left">
 						<span class="icon is-small is-left" style="cursor:pointer">
@@ -16,16 +16,16 @@
 							type="text"
 							class="input"
 							style="border: none; border-bottom: 1px solid #ccc; background: transparent; box-shadow: none;" 
-							v-model="xactnet_address.value"
+							v-model="form.xactnet_address"
 							@keyup.enter="toggleEditing"
 						>
 					</div>
-					<span class="help is-danger" v-if="xactnet_address.errors.has('value')" v-text="xactnet_address.errors.get('value')"></span>
+					<span class="help is-danger" v-if="form.errors.has('value')" v-text="form.errors.get('value')"></span>
 				</div>
 			</form>
-			<span v-if="!editing && xactnet_address.value === null" class="button is-text" @click="toggleEditing" style="cursor:pointer">add</span>
+			<span v-if="!editing && form.xactnet_address === null" class="button is-text" @click="toggleEditing" style="cursor:pointer">add</span>
 			<span v-if="!editing" @dblclick.prevent="toggleEditing" @mouseover="showEdit = true" @mouseleave="showEdit = false; copyText='copy'" style="cursor:pointer">
-				{{ xactnet_address.value }} 
+				{{ form.xactnet_address }} 
 				&nbsp;
 				<span v-show="showEdit">
 				<a 
@@ -49,25 +49,19 @@
 
 <script>
 	import Form from "../../structur/src/form/Form.js";
-	// import profileData from '../data/profileData.js';
 	export default {
 		name: 'XactnetAddress',
-		// props: ['personalData'],
 		mounted() {
 			//find our input field
 			this.input = document.getElementById('xactnet-address-input')
-			//set our current values off $userData variable 
-			//@see Blade View 'Profile/show.blade.php'
-			//mutations will be returned from api and set in data.xactnet_address...
-			//window object will be stored until page refreshes.
-			this.xactnet_address.value = window.userData.profile.xactnet_address;
-			this.xactnet_address.api_token = window.userData.api_token;
+			this.form.xactnet_address = window.userData.profile.xactnet_address;
+			this.userId = window.userData.id;
 		},
 		data() {
 			return {
-				xactnet_address: new Form ({
-					value: '',
-					api_token: '',
+				userId: '',
+				form: new Form ({
+					xactnet_address: '',
 				}),
 				editing: false,
 				showEdit: false,
@@ -77,18 +71,17 @@
 		},
 		computed: {
 			submitable() {
-				return this.xactnet_address.value === '' ? false : true;
+				return this.form.xactnet_address === '' ? false : true;
 			}
 		},
 		methods: {
 			// submit newly edited 
 			submit() {
 				if (this.submitable) {
-					this.xactnet_address.put('/api/user/personal-information/xactnet_address', false)
+					this.form.put('/api/user/' + this.userId + '/xactnet_address', false)
 						.then(response => {
 							console.log(response);
-							this.xactnet_address.value = response;
-							// this.xactnet_address.api_token = window.userData.api_token;
+							this.form.xactnet_address = response;
 						}).catch(error => {
 							console.log(error)
 						});

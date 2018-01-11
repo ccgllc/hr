@@ -39,7 +39,7 @@
 			<div class="modal-card">
 			    <header class="modal-card-head">
 			      <p class="modal-card-title">Add a new Adjuster License</p>
-			      <button class="delete" aria-label="close" @click="creatingNewLicense = !creatingNewLicense"></button>
+			      <button class="delete" aria-label="close" @click="creatingNewLicense = false"></button>
 			    </header>
 			    <section class="modal-card-body">
 			      <form @submit.prevent="submit" @keydown="newLicense.errors.clear($event.target.name)">
@@ -102,14 +102,14 @@
 			    </section>
 			    <footer class="modal-card-foot">
 			      <button class="button is-primary" @click="submit">Save</button>
-			      <button class="button" @click="creatingNewLicense = !creatingNewLicense">Cancel</button>
+			      <button class="button" @click="creatingNewLicense = false">Cancel</button>
 			    </footer>
 			  </div>
 			  <!-- <button class="modal-close is-large" aria-label="close"></button> -->
 			</div>
 		<!-- </div> -->
 		<br>
-		<button @click="creatingNewLicense = !creatingNewLicense;" class="button is-primary">{{ buttonText}}</button>
+		<button @click="creatingNewLicense = !creatingNewLicense;" class="button is-info">{{ buttonText}}</button>
 	</div>
 </template>
 
@@ -125,7 +125,7 @@
 		},
 		mounted() {
 			this.adjusterLicenses = window.userData.adjuster_licenses;
-			this.newLicense.api_token = window.userData.api_token;
+			this.userId = window.userData.id;
 			let today = new Date;
 			this.currentYear = today.getFullYear();
 		},
@@ -138,12 +138,12 @@
 			return {
 				creatingNewLicense: false,
 				adjusterLicenses: [],
+				userId: '',
 				newLicense: new Form({
 					license_number: '',
 					license_state: '',
 					expiration_month: '',
 					expiration_year: '',
-					api_token: '',
 				}),
 				currentYear: '',
 				states,
@@ -152,7 +152,7 @@
 		},
 		methods: {
 			submit() {
-				this.newLicense.post('/api/user/personal-information/license')
+				this.newLicense.post('/api/user/' + this.userId + '/license/' + this.docId)
 					.then(response => {
 						console.log(response)
 						this.adjusterLicenses.push(response);
@@ -164,12 +164,10 @@
 			},
 			remove(license) {
 				if (confirm('Are you sure? This action cannot be undone..')) {
-					let api_token = window.axios.defaults.headers.common['Authorization'];
-				window.axios.delete('/api/user/personal-information/license/' + license.id + '?api_token='+ api_token)
+				window.axios.delete('/api/user/' + this.userId + '/license/' + license.id)
 					.then(response => {
 						console.log(response);
 						let index = this.adjusterLicenses.indexOf(license);
-						console.log(index);
 						return this.adjusterLicenses.splice(index, 1);
 					})
 					.catch(error => {

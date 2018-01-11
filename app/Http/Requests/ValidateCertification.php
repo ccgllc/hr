@@ -18,9 +18,7 @@ class ValidateCertification extends FormRequest
      */
     public function authorize()
     {
-         if(Auth::user()) {
-            return  Auth::user()->api_token == $this->api_token ? true : false;
-        };
+       return  'Bearer ' . $this->user()->api_token == $this->header('Authorization') ? true : false;
     }
 
     /**
@@ -81,12 +79,13 @@ class ValidateCertification extends FormRequest
     public function storeResume()
     {
         $ext = $this->file('resume')->clientExtension();
-        $name = $this->user()->id;
+        $name = $this->user()->name;
         $filename = $name.'.'.$ext;
         // dd($this->file('resume'));
         $path = $this->file('resume')->storeAs('resumes', $filename, 'hr');
         $doc = new Document;
-        $doc->name = $filename;
+        $doc->name = $name;
+        $doc->extension = $ext;
         $doc->type = 'resume';
         $doc->path = $path;
         $doc->user_id = $this->user()->id;

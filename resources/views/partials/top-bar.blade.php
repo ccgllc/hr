@@ -16,10 +16,9 @@
     <div class="navbar-start">
       @if (Auth::user()->hasRole('administrator'))
       <div class="navbar-item">
-        <div class="field has-addons">
-          <div class="control">
-              <input class="input is-search" type="text" placeholder="Search">
-            </div>
+        <div class="field">
+             {{--  <input class="input is-search" type="text" placeholder="Search"> --}}
+             <search></search>
           </div>
         </div>
         @endif

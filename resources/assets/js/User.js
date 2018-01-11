@@ -1,18 +1,14 @@
 import Vue from 'vue';
 import UserService from './structur/src/services/Resource.js';
 import userData from './data/userData.js';
-import search from './components/Search.vue';
+// import search from './components/Search.vue';
 
 Vue.component('search', search);
 
 let app = new Vue({
 	name: 'User Administration',
-	// userData,
 	propsData: ['token'],
 	el: '#user',
-	// components: {
-	// 	search: search
-	// },
 	data: {
 		userData,
 		userService: new UserService({
@@ -49,6 +45,12 @@ let app = new Vue({
 			}).catch(error => {
 				console.log(error)
 			});
+		},
+		select(user) {
+			console.log(user.name);
+		},
+		selectAll() {
+			console.log('selecting All');
 		}
 	}
 });

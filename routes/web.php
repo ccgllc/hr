@@ -2,10 +2,10 @@
 
 // use Laravel\Socialite\Facades\Socialite;
 
-// Route::get('/mailable', function () {
-//     $user = App\User::find(106);
-//     return new App\Mail\AccountVerification($user);
-// });
+Route::get('/mailable', function () {
+    $user = App\User::find(107);
+    return new App\Mail\AccountVerification($user);
+});
 
 // Route::get('/file', function(){
 // 	// dd(Storage::url('hr/user_documents/file.docx'));
@@ -13,10 +13,10 @@
 // 	return response()->download($file, 'Brandon Hamm.docx', ['Content-Type: application/pdf']);
 // });
 
-Route::get('/test', function(Request $request){
-	$request->user()->update(['applied' => 1]);
-	return $request->user();
-});
+// Route::get('/test', function(Request $request){
+// 	$request->user()->update(['applied' => 1]);
+// 	return $request->user();
+// });
 
 Route::get('/', function () {
     return redirect('register');

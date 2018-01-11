@@ -14,10 +14,14 @@ import Chart from 'chart.js';
 // 		console.log('this is app.js');
 // 	}
 // });
+import search from './components/Search.vue';
 
 let app = new Vue({
 	name: "App",
 	el: "#app",
+	components: {
+		search
+	},
 	mounted() {
 		document.addEventListener('DOMContentLoaded', function () {
 		  // allow mobile navigation.

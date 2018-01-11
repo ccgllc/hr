@@ -12,7 +12,7 @@ class UsersController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['verifyAccount']]);
+        $this->middleware('auth', ['except' => ['verifyAccount']], 'dashboard');
     }
     /**
      * Display a listing of the resource.

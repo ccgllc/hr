@@ -1,1 +1,455 @@
-webpackJsonp([8],{"+J4Z":function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=n("I3G/"),s=n.n(r),i=n("heXR"),o=n.n(i);s.a.component("userRoles",o.a),s.a.filter("capitalize",function(e){return e[0].toUpperCase()+e.slice(1)});new s.a({name:"ManageUserRoles",el:"#userRoles"})},"4apg":function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=n("c+1i");t.default={name:"UserRoles",data:function(){return{userRoles:[],roles:[],selected:[],user:new r.a({uri:{prefix:"api",resource:"user",params:[{id:window.userId}]},api_token:this.token})}},mounted:function(){var e=window.userRoles;console.log(e);var t=[];e.forEach(function(e){t.push(e.id)}),this.userRoles=t,this.roles=window.roles},methods:{sync:function(){var e=this;this.$nextTick(function(){e.user.put("roles",e.userRoles).then(function(e){console.log(e)}).catch(function(e){console.log(e)})})},get:function(){var e=this;this.user.get("roles").then(function(t){e.userRoles=t.roles}).catch(function(e){console.log(e)})}}}},7:function(e,t,n){e.exports=n("+J4Z")},"VU/8":function(e,t){e.exports=function(e,t,n,r,s,i){var o,u=e=e||{},a=typeof e.default;"object"!==a&&"function"!==a||(o=e,u=e.default);var c="function"==typeof u?u.options:u;t&&(c.render=t.render,c.staticRenderFns=t.staticRenderFns,c._compiled=!0),n&&(c.functional=!0),s&&(c._scopeId=s);var l;if(i?(l=function(e){(e=e||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext)||"undefined"==typeof __VUE_SSR_CONTEXT__||(e=__VUE_SSR_CONTEXT__),r&&r.call(this,e),e&&e._registeredComponents&&e._registeredComponents.add(i)},c._ssrRegister=l):r&&(l=r),l){var f=c.functional,d=f?c.render:c.beforeCreate;f?(c._injectStyles=l,c.render=function(e,t){return l.call(t),d(e,t)}):c.beforeCreate=d?[].concat(d,l):[l]}return{esModule:o,exports:u,options:c}}},"c+1i":function(e,t,n){"use strict";var r=n("mtWM"),s=n.n(r),i=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),o=function(){function e(t){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,e),this.config=t}return i(e,[{key:"get",value:function(e){return this.request("get",e)}},{key:"put",value:function(e,t){return this.config.data=t,this.request("put",e)}},{key:"delete",value:function(e){return this.request("delete",e)}},{key:"getData",value:function(){if(void 0!=this.config.data)return this.config.data}},{key:"request",value:function(e,t){var n=this;return new Promise(function(r,i){s.a[e](n.getFullUri()+t,n.getData()).then(function(e){r(e.data)}).catch(function(e){i(e.response.data.errors)})})}},{key:"getFullUri",value:function(){return this.getPrefix()+this.getResource()+this.getParams()}},{key:"getPrefix",value:function(){return""!=this.config.uri.prefix?"/"+this.config.uri.prefix+"/":""}},{key:"getResource",value:function(){return""!=this.config.uri.resource?this.config.uri.resource+"/":""}},{key:"getParams",value:function(){return this.config.uri.params.length>0?this.config.uri.params[0].id+"/":""}},{key:"onSuccess",value:function(e){return e}}]),e}();t.a=o},heXR:function(e,t,n){var r=n("VU/8")(n("4apg"),n("jjli"),!1,null,null,null);e.exports=r.exports},jjli:function(e,t){e.exports={render:function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("section",[n("table",{staticClass:"table is-hoverable is-full-width",staticStyle:{background:"transparent"}},[n("tbody",e._l(e.roles,function(t){return n("tr",[n("td",{staticStyle:{width:"5%"}},[n("div",{staticClass:"field"},[n("input",{directives:[{name:"model",rawName:"v-model",value:e.userRoles,expression:"userRoles"}],staticClass:"is-checkbox is-circle",attrs:{type:"checkbox",name:t.name,id:t.name},domProps:{value:t.id,checked:Array.isArray(e.userRoles)?e._i(e.userRoles,t.id)>-1:e.userRoles},on:{click:function(t){e.sync()},change:function(n){var r=e.userRoles,s=n.target,i=!!s.checked;if(Array.isArray(r)){var o=t.id,u=e._i(r,o);s.checked?u<0&&(e.userRoles=r.concat([o])):u>-1&&(e.userRoles=r.slice(0,u).concat(r.slice(u+1)))}else e.userRoles=i}}}),e._v(" "),n("label",{attrs:{for:t.name}},[e._v(e._s(e._f("capitalize")(t.name)))])])])])}))])])},staticRenderFns:[]}}},[7]);
+webpackJsonp([9],{
+
+/***/ 1:
+/***/ (function(module, exports) {
+
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file.
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+
+/***/ 16:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+
+
+var Resource = function () {
+	function Resource(config) {
+		_classCallCheck(this, Resource);
+
+		this.config = config;
+	}
+
+	_createClass(Resource, [{
+		key: 'get',
+		value: function get(endpoint) {
+			return this.request('get', endpoint);
+		}
+	}, {
+		key: 'put',
+		value: function put(endpoint, data) {
+			this.config.data = data;
+			return this.request('put', endpoint);
+		}
+	}, {
+		key: 'delete',
+		value: function _delete(endpoint) {
+			return this.request('delete', endpoint);
+		}
+	}, {
+		key: 'getData',
+		value: function getData() {
+			if (this.config.data != undefined) {
+				return this.config.data;
+			}
+		}
+	}, {
+		key: 'request',
+		value: function request(method, endpoint) {
+			var _this = this;
+
+			return new Promise(function (resolve, reject) {
+				__WEBPACK_IMPORTED_MODULE_0_axios___default.a[method](_this.getFullUri() + endpoint, _this.getData()).then(function (response) {
+					// this.onSuccess(response.data);
+					resolve(response.data);
+				}).catch(function (error) {
+					reject(error.response.data.errors);
+				});
+			});
+		}
+	}, {
+		key: 'getFullUri',
+		value: function getFullUri() {
+			return this.getPrefix() + this.getResource() + this.getParams();
+		}
+	}, {
+		key: 'getPrefix',
+		value: function getPrefix() {
+			return this.config.uri.prefix != '' ? '/' + this.config.uri.prefix + '/' : '';
+		}
+	}, {
+		key: 'getResource',
+		value: function getResource() {
+			return this.config.uri.resource != '' ? this.config.uri.resource + '/' : ''; //throw 'you must provide a resource.';
+		}
+	}, {
+		key: 'getParams',
+		value: function getParams() {
+			return this.config.uri.params.length > 0 ? this.config.uri.params[0].id + '/' : '';
+		}
+	}, {
+		key: 'onSuccess',
+		value: function onSuccess(data) {
+			return data;
+		}
+	}]);
+
+	return Resource;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (Resource);
+
+/***/ }),
+
+/***/ 282:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(283);
+
+
+/***/ }),
+
+/***/ 283:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_UserRoles_vue__ = __webpack_require__(284);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_UserRoles_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_UserRoles_vue__);
+
+// import Resource from './structur/src/services/Resource.js';
+
+// import roles from './data/roles.js';
+// import search from './components/Search.vue';
+
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('userRoles', __WEBPACK_IMPORTED_MODULE_1__components_UserRoles_vue___default.a);
+
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.filter('capitalize', function (value) {
+	return value[0].toUpperCase() + value.slice(1);
+});
+
+var userRoles = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
+	name: 'ManageUserRoles',
+	el: '#userRoles'
+});
+
+/***/ }),
+
+/***/ 284:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(285)
+/* template */
+var __vue_template__ = __webpack_require__(286)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/UserRoles.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-59961eea", Component.options)
+  } else {
+    hotAPI.reload("data-v-59961eea", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 285:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__structur_src_services_Resource_js__ = __webpack_require__(16);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	name: 'UserRoles',
+	data: function data() {
+		return {
+			userRoles: [],
+			roles: [],
+			selected: [],
+			user: new __WEBPACK_IMPORTED_MODULE_0__structur_src_services_Resource_js__["a" /* default */]({
+				uri: {
+					prefix: 'api',
+					resource: 'user',
+					params: [{ id: window.userId }]
+				},
+				api_token: this.token
+			})
+		};
+	},
+	mounted: function mounted() {
+		var userRoles = window.userRoles;
+		console.log(userRoles);
+		var roleIds = [];
+		userRoles.forEach(function (role) {
+			roleIds.push(role['id']);
+		});
+		this.userRoles = roleIds;
+		this.roles = window.roles;
+	},
+
+	methods: {
+		sync: function sync() {
+			var _this = this;
+
+			this.$nextTick(function () {
+				_this.user.put('roles', _this.userRoles).then(function (response) {
+					// this.userRoles = response;
+					console.log(response);
+				}).catch(function (error) {
+					console.log(error);
+				});
+			});
+		},
+		get: function get() {
+			var _this2 = this;
+
+			this.user.get('roles').then(function (response) {
+				_this2.userRoles = response.roles;
+			}).catch(function (error) {
+				console.log(error);
+			});
+		}
+	}
+});
+
+/***/ }),
+
+/***/ 286:
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", [
+    _c(
+      "table",
+      {
+        staticClass: "table is-hoverable is-full-width",
+        staticStyle: { background: "transparent" }
+      },
+      [
+        _c(
+          "tbody",
+          _vm._l(_vm.roles, function(role) {
+            return _c("tr", [
+              _c("td", { staticStyle: { width: "5%" } }, [
+                _c("div", { staticClass: "field" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.userRoles,
+                        expression: "userRoles"
+                      }
+                    ],
+                    staticClass: "is-checkbox is-circle",
+                    attrs: { type: "checkbox", name: role.name, id: role.name },
+                    domProps: {
+                      value: role.id,
+                      checked: Array.isArray(_vm.userRoles)
+                        ? _vm._i(_vm.userRoles, role.id) > -1
+                        : _vm.userRoles
+                    },
+                    on: {
+                      click: function($event) {
+                        _vm.sync()
+                      },
+                      change: function($event) {
+                        var $$a = _vm.userRoles,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = role.id,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 && (_vm.userRoles = $$a.concat([$$v]))
+                          } else {
+                            $$i > -1 &&
+                              (_vm.userRoles = $$a
+                                .slice(0, $$i)
+                                .concat($$a.slice($$i + 1)))
+                          }
+                        } else {
+                          _vm.userRoles = $$c
+                        }
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: role.name } }, [
+                    _vm._v(_vm._s(_vm._f("capitalize")(role.name)))
+                  ])
+                ])
+              ])
+            ])
+          })
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-59961eea", module.exports)
+  }
+}
+
+/***/ })
+
+},[282]);
