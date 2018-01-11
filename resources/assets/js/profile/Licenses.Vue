@@ -109,7 +109,7 @@
 			</div>
 		<!-- </div> -->
 		<br>
-		<button @click="creatingNewLicense = !creatingNewLicense;" class="button is-primary">{{ buttonText}}</button>
+		<button @click="creatingNewLicense = !creatingNewLicense;" class="button is-info">{{ buttonText}}</button>
 	</div>
 </template>
 

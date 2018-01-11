@@ -6,7 +6,18 @@
 				<div class="card">
 					<div class="card-content">
 						<div class="content">
+							<span class="icon has-text-info"><i class="fa fa-certificate"></i></span>
 							{{ cert.type }}
+							<span 
+								class="is-pulled-right is-tooltip-danger tooltip is-tooltip-left" 
+								:data-tooltip="'Delete ' + cert.type"
+							>
+								<a 
+									class="delete is-small is-danger"
+									@click="remove(cert, 'certifications')"
+								></a>
+							</span>
+
 						</div>	
 					</div>
 				</div>
@@ -18,7 +29,17 @@
 				<div class="card">
 					<div class="card-content">
 						<div class="content">
+							<span class="icon has-text-info"><i class="fa fa-laptop"></i></span>
 							{{ exp.type }}
+							<span 
+								class="is-pulled-right is-tooltip-danger tooltip is-tooltip-left" 
+								:data-tooltip="'Delete ' + exp.type"
+							>
+								<a 
+									class="delete is-small is-danger"
+									@click="remove(exp, 'software-experiences')"
+								></a>
+							</span>
 						</div>	
 					</div>
 				</div>
@@ -27,7 +48,7 @@
 
 
 		<!-- =====================BUTTON===================== -->
-		<button class="button is-info" @click="creatingNew = !creatingNew">Add new</button>
+		<br><button class="button is-info" @click="creatingNew = !creatingNew">Add new</button>
 		<!-- =====================BUTTON===================== -->
 
 
@@ -142,8 +163,26 @@
 				this.form.post('/api/user/' + this.userId + '/' + this.type)
 							.then(response => {
 								console.log(response);
-								this.certifications.push(response);
-								this.creatingNew = false;
+								this.type == 'certifications' 
+									? this.certifications.push(response) 
+									: this.softwareExperiences.push(response);
+								return this.creatingNew = false;
+							}).catch(error => {
+								console.error(error);
+							})
+			},
+			remove(obj, uri) {
+				window.axios.delete('/api/user/' + uri + '/' + obj.id)
+							.then(response => {
+								console.log(response);
+								if (uri == 'software-experiences')
+								{
+									let index = this.softwareExperiences.indexOf(obj);
+									return this.softwareExperiences.splice(index, 1);
+								}else{
+									let index = this.certifications.indexOf(obj);
+									return this.certifications.splice(index, 1);
+								}
 							}).catch(error => {
 								console.error(error);
 							})

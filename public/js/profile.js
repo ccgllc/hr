@@ -2953,7 +2953,7 @@ var render = function() {
       _c(
         "button",
         {
-          staticClass: "button is-primary",
+          staticClass: "button is-info",
           on: {
             click: function($event) {
               _vm.creatingNewLicense = !_vm.creatingNewLicense
@@ -3637,6 +3637,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3668,8 +3689,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			console.log('submitting');
 			this.form.post('/api/user/' + this.userId + '/' + this.type).then(function (response) {
 				console.log(response);
-				_this.certifications.push(response);
-				_this.creatingNew = false;
+				_this.type == 'certifications' ? _this.certifications.push(response) : _this.softwareExperiences.push(response);
+				return _this.creatingNew = false;
+			}).catch(function (error) {
+				console.error(error);
+			});
+		},
+		remove: function remove(obj, uri) {
+			var _this2 = this;
+
+			window.axios.delete('/api/user/' + uri + '/' + obj.id).then(function (response) {
+				console.log(response);
+				if (uri == 'software-experiences') {
+					var index = _this2.softwareExperiences.indexOf(obj);
+					return _this2.softwareExperiences.splice(index, 1);
+				} else {
+					var _index = _this2.certifications.indexOf(obj);
+					return _this2.certifications.splice(_index, 1);
+				}
 			}).catch(function (error) {
 				console.error(error);
 			});
@@ -3701,7 +3738,26 @@ var render = function() {
           _c("div", { staticClass: "card" }, [
             _c("div", { staticClass: "card-content" }, [
               _c("div", { staticClass: "content" }, [
-                _vm._v("\n\t\t\t\t\t\t" + _vm._s(cert.type) + "\n\t\t\t\t\t")
+                _vm._m(0, true),
+                _vm._v("\n\t\t\t\t\t\t" + _vm._s(cert.type) + "\n\t\t\t\t\t\t"),
+                _c(
+                  "span",
+                  {
+                    staticClass:
+                      "is-pulled-right is-tooltip-danger tooltip is-tooltip-left",
+                    attrs: { "data-tooltip": "Delete " + cert.type }
+                  },
+                  [
+                    _c("a", {
+                      staticClass: "delete is-small is-danger",
+                      on: {
+                        click: function($event) {
+                          _vm.remove(cert, "certifications")
+                        }
+                      }
+                    })
+                  ]
+                )
               ])
             ])
           ])
@@ -3720,7 +3776,26 @@ var render = function() {
           _c("div", { staticClass: "card" }, [
             _c("div", { staticClass: "card-content" }, [
               _c("div", { staticClass: "content" }, [
-                _vm._v("\n\t\t\t\t\t\t" + _vm._s(exp.type) + "\n\t\t\t\t\t")
+                _vm._m(1, true),
+                _vm._v("\n\t\t\t\t\t\t" + _vm._s(exp.type) + "\n\t\t\t\t\t\t"),
+                _c(
+                  "span",
+                  {
+                    staticClass:
+                      "is-pulled-right is-tooltip-danger tooltip is-tooltip-left",
+                    attrs: { "data-tooltip": "Delete " + exp.type }
+                  },
+                  [
+                    _c("a", {
+                      staticClass: "delete is-small is-danger",
+                      on: {
+                        click: function($event) {
+                          _vm.remove(exp, "software-experiences")
+                        }
+                      }
+                    })
+                  ]
+                )
               ])
             ])
           ])
@@ -3728,6 +3803,7 @@ var render = function() {
       })
     ),
     _vm._v(" "),
+    _c("br"),
     _c(
       "button",
       {
@@ -4009,7 +4085,24 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "icon has-text-info" }, [
+      _c("i", { staticClass: "fa fa-certificate" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "icon has-text-info" }, [
+      _c("i", { staticClass: "fa fa-laptop" })
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

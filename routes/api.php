@@ -35,6 +35,8 @@ Route::namespace('Api\Profile')
 		Route::delete('user/documents/{id}', 'UserDocumentsController@destroy');
 		Route::post('user/{id}/certifications', 'UserCertificationsController@store');
 		Route::delete('user/certifications/{id}', 'UserCertificationsController@destroy');
+		Route::post('user/{id}/software-experiences', 'UserSoftwareExperiencesController@store');
+		Route::delete('user/software-experiences/{id}', 'UserSoftwareExperiencesController@destroy');
 });
 
 Route::namespace('Api\Acl')
