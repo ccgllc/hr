@@ -3065,6 +3065,8 @@ module.exports = Component.exports
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__structur_src_form_FormWithFiles__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_File_vue__ = __webpack_require__(348);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_File_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_File_vue__);
 //
 //
 //
@@ -3147,10 +3149,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	name: 'Documents',
+	components: {
+		file: __WEBPACK_IMPORTED_MODULE_1__components_File_vue___default.a
+	},
 	mounted: function mounted() {
 		this.userId = window.userData.id;
 		this.name = window.userData.name;
@@ -3160,6 +3169,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		return {
 			name: '',
 			userId: '',
+			toggleDelete: false,
 			documents: [],
 			types: ['resume'],
 			filename: '',
@@ -3183,6 +3193,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			}).catch(function (error) {
 				console.error(error);
 			});
+		},
+		remove: function remove(file) {
+			console.log('deleting');
+			var index = this.documents.indexOf(file);
+			return this.documents.splice(index, 1);
 		},
 		processFile: function processFile(files) {
 			if (files.length > 0) {
@@ -3210,17 +3225,11 @@ var render = function() {
       _c("br"),
       _vm._v(" "),
       _vm._l(_vm.documents, function(doc) {
-        return _c("div", { staticClass: "documents" }, [
-          _vm._m(0, true),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              attrs: { href: "/users/" + _vm.userId + "/documents/" + doc.id }
-            },
-            [_vm._v(_vm._s(doc.name) + "'s " + _vm._s(doc.type))]
-          )
-        ])
+        return _c("file", {
+          key: doc.id,
+          attrs: { "user-id": _vm.userId, file: doc },
+          on: { "file-deleted": _vm.remove }
+        })
       }),
       _vm._v(" "),
       _c("br"),
@@ -3405,7 +3414,7 @@ var render = function() {
                               }
                             }),
                             _vm._v(" "),
-                            _vm._m(1),
+                            _vm._m(0),
                             _vm._v(" "),
                             _vm.filename != ""
                               ? _c("span", {
@@ -3452,14 +3461,6 @@ var render = function() {
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "icon" }, [
-      _c("i", { staticClass: "fa fa-file-o" })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -4489,6 +4490,183 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-557f9f56", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 348:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(349)
+/* template */
+var __vue_template__ = __webpack_require__(350)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/profile/components/File.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-89b52e66", Component.options)
+  } else {
+    hotAPI.reload("data-v-89b52e66", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 349:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	name: 'File',
+	props: ['userId', 'file'],
+	data: function data() {
+		return {
+			showDelete: false
+		};
+	},
+
+	methods: {
+		remove: function remove(file) {
+			var _this = this;
+
+			if (confirm("Are you sure? This cannot be undone.")) {
+				window.axios.delete('/api/user/documents/' + file.id).then(function (response) {
+					console.log(response);
+					_this.$emit('file-deleted', file);
+				}).catch(function (error) {
+					console.error(error);
+				});
+			}
+		}
+	}
+});
+
+/***/ }),
+
+/***/ 350:
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "file",
+      on: {
+        mouseover: function($event) {
+          _vm.showDelete = true
+        },
+        mouseleave: function($event) {
+          _vm.showDelete = false
+        }
+      }
+    },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          attrs: { href: "/users/" + _vm.userId + "/documents/" + _vm.file.id }
+        },
+        [_vm._v(_vm._s(_vm.file.name) + "'s " + _vm._s(_vm.file.type))]
+      ),
+      _vm._v(" \n\t"),
+      _c(
+        "span",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.showDelete,
+              expression: "showDelete"
+            }
+          ]
+        },
+        [
+          _c("span", {
+            staticClass: "delete is-small",
+            staticStyle: { "margin-top": "5px" },
+            on: {
+              click: function($event) {
+                _vm.remove(_vm.file)
+              }
+            }
+          })
+        ]
+      ),
+      _vm._v(" "),
+      _c("br")
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "icon" }, [
+      _c("i", { staticClass: "fa fa-file-o" })
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-89b52e66", module.exports)
   }
 }
 
