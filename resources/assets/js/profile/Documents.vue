@@ -11,10 +11,7 @@
 		>	
 		</file>
 		
-
-		<br>
-		<button class="button is-info" @click="creatingNewFile = !creatingNewFile">Upload File</button>
-
+		<br><button class="button is-info" @click="creatingNewFile = !creatingNewFile">Upload File</button>
 
 		<div class="modal" v-bind:class="{ 'is-active': creatingNewFile }">
 			<div class="modal-background"></div>

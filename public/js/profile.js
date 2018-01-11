@@ -3134,9 +3134,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 
 
@@ -3263,6 +3260,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	name: 'File',
@@ -3298,58 +3296,71 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "file",
-      on: {
-        mouseover: function($event) {
-          _vm.showDelete = true
-        },
-        mouseleave: function($event) {
-          _vm.showDelete = false
+  return _c("div", [
+    _c(
+      "p",
+      {
+        staticStyle: {
+          "text-transform": "uppercase",
+          color: "#8f8f8f",
+          "font-size": ".75rem"
         }
-      }
-    },
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          attrs: { href: "/users/" + _vm.userId + "/documents/" + _vm.file.id }
-        },
-        [_vm._v(_vm._s(_vm.file.name) + "'s " + _vm._s(_vm.file.type))]
-      ),
-      _vm._v(" \n\t"),
-      _c(
-        "span",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.showDelete,
-              expression: "showDelete"
+      },
+      [_c("small", [_vm._v(_vm._s(_vm.file.type))])]
+    ),
+    _vm._v(" "),
+    _c(
+      "p",
+      {
+        on: {
+          mouseover: function($event) {
+            _vm.showDelete = true
+          },
+          mouseleave: function($event) {
+            _vm.showDelete = false
+          }
+        }
+      },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            attrs: {
+              href: "/users/" + _vm.userId + "/documents/" + _vm.file.id
             }
-          ]
-        },
-        [
-          _c("span", {
-            staticClass: "delete is-small",
-            staticStyle: { "margin-top": "5px" },
-            on: {
-              click: function($event) {
-                _vm.remove(_vm.file)
+          },
+          [_vm._v(_vm._s(_vm.file.name))]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.showDelete,
+                expression: "showDelete"
               }
-            }
-          })
-        ]
-      ),
-      _vm._v(" "),
-      _c("br")
-    ]
-  )
+            ]
+          },
+          [
+            _c("span", {
+              staticClass: "delete is-small",
+              staticStyle: { "margin-top": "5px" },
+              on: {
+                click: function($event) {
+                  _vm.remove(_vm.file)
+                }
+              }
+            })
+          ]
+        )
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -3395,7 +3406,6 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("br"),
-      _vm._v(" "),
       _c(
         "button",
         {

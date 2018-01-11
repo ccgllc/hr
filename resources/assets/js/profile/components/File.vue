@@ -1,15 +1,16 @@
 <template>
-	<div
-		class="file"
-		@mouseover="showDelete = true"
-		@mouseleave="showDelete = false"
-	>
-		<span class="icon"><i class="fa fa-file-o"></i></span>
-		<a :href="'/users/' + userId + '/documents/' + file.id">{{ file.name }}'s {{ file.type }}</a>&nbsp;
-		<span v-show="showDelete">
-			<span @click="remove(file)" class="delete is-small" style="margin-top: 5px;"></span>
-		</span>
-		<br>
+	<div>
+		<p style="text-transform: uppercase; color:#8f8f8f; font-size: .75rem"><small>{{ file.type }}</small></p>
+		<p
+			@mouseover="showDelete = true"
+			@mouseleave="showDelete = false"
+		>
+			<span class="icon"><i class="fa fa-file-o"></i></span>
+			<a :href="'/users/' + userId + '/documents/' + file.id">{{ file.name }}</a>
+			<span v-show="showDelete">
+				<span @click="remove(file)" class="delete is-small" style="margin-top: 5px;"></span>
+			</span>
+		</p>
 	</div>
 </template>
 
