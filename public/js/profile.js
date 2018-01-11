@@ -2429,7 +2429,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		submit: function submit() {
 			var _this = this;
 
-			this.newLicense.post('/api/user/' + this.userId + '/license/' + this.docId).then(function (response) {
+			this.newLicense.post('/api/user/' + this.userId + '/license/').then(function (response) {
 				console.log(response);
 				_this.adjusterLicenses.push(response);
 				return _this.creatingNewLicense = false;

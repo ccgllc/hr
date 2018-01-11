@@ -152,7 +152,7 @@
 		},
 		methods: {
 			submit() {
-				this.newLicense.post('/api/user/' + this.userId + '/license/' + this.docId)
+				this.newLicense.post('/api/user/' + this.userId + '/license/')
 					.then(response => {
 						console.log(response)
 						this.adjusterLicenses.push(response);
