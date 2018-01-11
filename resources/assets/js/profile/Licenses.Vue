@@ -1,8 +1,8 @@
 <template>
 	<div id="Licenses">
-		<div class="columns">
-		<div class="column is-6" v-for="license in adjusterLicenses" :key="license.id">
-		<div class="card" style="margin-top: 1rem;">
+		<div class="columns is-multiline">
+		<div class="column is-half" v-for="license in adjusterLicenses" :key="license.id">
+		<div class="card">
 			<header class="card-header">
 			    <p class="card-header-title">
 			     {{license.license_state}} Adjusting License

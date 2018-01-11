@@ -2557,62 +2557,58 @@ var render = function() {
   return _c("div", { attrs: { id: "Licenses" } }, [
     _c(
       "div",
-      { staticClass: "columns" },
+      { staticClass: "columns is-multiline" },
       _vm._l(_vm.adjusterLicenses, function(license) {
-        return _c("div", { key: license.id, staticClass: "column is-6" }, [
-          _c(
-            "div",
-            { staticClass: "card", staticStyle: { "margin-top": "1rem" } },
-            [
-              _c("header", { staticClass: "card-header" }, [
-                _c("p", { staticClass: "card-header-title" }, [
-                  _vm._v(
-                    "\n\t\t     " +
-                      _vm._s(license.license_state) +
-                      " Adjusting License\n\t\t    "
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "a",
-                  {
-                    staticClass: "card-header-icon is-danger",
-                    attrs: { "aria-label": "Delete" },
-                    on: {
-                      click: function($event) {
-                        _vm.remove(license)
-                      }
-                    }
-                  },
-                  [_vm._m(0, true)]
+        return _c("div", { key: license.id, staticClass: "column is-half" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("header", { staticClass: "card-header" }, [
+              _c("p", { staticClass: "card-header-title" }, [
+                _vm._v(
+                  "\n\t\t     " +
+                    _vm._s(license.license_state) +
+                    " Adjusting License\n\t\t    "
                 )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "card-content" }, [
-                _c("div", { staticClass: "content" }, [
-                  _c("div", { staticClass: "columns" }, [
-                    _vm._m(1, true),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "column is-3" }, [
-                      _c("p", [_vm._v(_vm._s(license.license_number))])
-                    ]),
-                    _vm._v(" "),
-                    _vm._m(2, true),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "column is-3" }, [
-                      _c("p", [
-                        _vm._v(
-                          _vm._s(license.expiration_month) +
-                            " / " +
-                            _vm._s(license.expiration_year)
-                        )
-                      ])
+              _c(
+                "a",
+                {
+                  staticClass: "card-header-icon is-danger",
+                  attrs: { "aria-label": "Delete" },
+                  on: {
+                    click: function($event) {
+                      _vm.remove(license)
+                    }
+                  }
+                },
+                [_vm._m(0, true)]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-content" }, [
+              _c("div", { staticClass: "content" }, [
+                _c("div", { staticClass: "columns" }, [
+                  _vm._m(1, true),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "column is-3" }, [
+                    _c("p", [_vm._v(_vm._s(license.license_number))])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(2, true),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "column is-3" }, [
+                    _c("p", [
+                      _vm._v(
+                        _vm._s(license.expiration_month) +
+                          " / " +
+                          _vm._s(license.expiration_year)
+                      )
                     ])
                   ])
                 ])
               ])
-            ]
-          )
+            ])
+          ])
         ])
       })
     ),
