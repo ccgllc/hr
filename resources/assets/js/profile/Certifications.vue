@@ -1,8 +1,8 @@
 <template>
 	<div id="certifications">
 		<h1 class="profile-title">My Certifications</h1><br>
-		<div class="columns" id="certifications">
-			<div class="certification column"  v-for="cert in certifications">
+		<div class="columns is-multiline" id="certifications">
+			<div class="certification column is-3"  v-for="cert in certifications">
 				<div class="card">
 					<div class="card-content">
 						<div class="content">
@@ -24,8 +24,8 @@
 			</div>
 		</div>
 		<h1 class="profile-title">Software Experience</h1><br>
-		<div class="columns" id="certifications">
-			<div class="certification column"  v-for="exp in softwareExperiences">
+		<div class="columns is-multiline" id="certifications">
+			<div class="certification column is-3"  v-for="exp in softwareExperiences">
 				<div class="card">
 					<div class="card-content">
 						<div class="content">

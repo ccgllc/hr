@@ -3910,9 +3910,9 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "columns", attrs: { id: "certifications" } },
+      { staticClass: "columns is-multiline", attrs: { id: "certifications" } },
       _vm._l(_vm.certifications, function(cert) {
-        return _c("div", { staticClass: "certification column" }, [
+        return _c("div", { staticClass: "certification column is-3" }, [
           _c("div", { staticClass: "card" }, [
             _c("div", { staticClass: "card-content" }, [
               _c("div", { staticClass: "content" }, [
@@ -3948,9 +3948,9 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "columns", attrs: { id: "certifications" } },
+      { staticClass: "columns is-multiline", attrs: { id: "certifications" } },
       _vm._l(_vm.softwareExperiences, function(exp) {
-        return _c("div", { staticClass: "certification column" }, [
+        return _c("div", { staticClass: "certification column is-3" }, [
           _c("div", { staticClass: "card" }, [
             _c("div", { staticClass: "card-content" }, [
               _c("div", { staticClass: "content" }, [
