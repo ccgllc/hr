@@ -28,7 +28,7 @@
                 @include('partials.top-bar')
             {{-- </div> --}}
         {{-- </div> --}}
-        <div class="columns is-gapless">
+        <div class="columns is-gapless app-content">
           {{--  <div class="column is-2">
                 @include('partials.nav')
             </div> --}}
