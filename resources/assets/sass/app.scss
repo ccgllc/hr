@@ -18,6 +18,10 @@
     margin-bottom: 0;
 }
 
+.app-content {
+	min-height: 80vh;
+}
+
 input[type=text].is-search {
 	background: $darker;
 	color: $less-dark;
