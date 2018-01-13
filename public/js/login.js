@@ -193,8 +193,6 @@ module.exports = Component.exports
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__structur_src_form_Form_js__ = __webpack_require__(4);
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 //
 //
 //
@@ -263,8 +261,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 	methods: {
 		submit: function submit() {
 			return this.form.post('/login').then(function (response) {
-				console.log(typeof response === 'undefined' ? 'undefined' : _typeof(response));
-				return window.location.href = response;
+				console.log(response);
+				var storage = window.localStorage;
+				storage.setItem('token', response.token);
+				// window.axios.defaults.headers.common['Authorization'] = storage.token;
+				return window.location.href = response.destination;
 			});
 		}
 	}

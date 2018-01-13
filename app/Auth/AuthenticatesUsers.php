@@ -109,7 +109,11 @@ trait AuthenticatesUsers
         $this->clearLoginAttempts($request);
 
         return $this->authenticated($request, $this->guard()->user())
-                ?: session()->pull('url.intended', $this->redirectPath()); //redirect()->intended($this->redirectPath());
+                // ?: session()->pull('url.intended', $this->redirectPath()); //redirect()->intended($this->redirectPath());
+                ?: response()->json([
+                    'token' => $this->guard()->user()->api_token,
+                    'destination' => session()->pull('url.intended', $this->redirectPath())
+                ]);
     }
 
     /**

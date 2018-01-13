@@ -208,7 +208,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  */
 
 var token = document.head.querySelector('meta[name="csrf-token"]');
-var api_token = document.head.querySelector('meta[name="api-token"]');
+var api_token = window.localStorage.token;
 
 if (token) {
   window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
@@ -217,11 +217,15 @@ if (token) {
 }
 
 if (api_token) {
-  window.axios.defaults.headers.common['Authorization'] = "Bearer " + api_token.content;
+  window.axios.defaults.headers.common['Authorization'] = "Bearer " + api_token;
+} else {
+  if (!window.location === '/login#') {
+    console.error('You need to login.');
+    window.axios.post('logout').then(function (response) {
+      //wndow.location = '/login';
+    });
+  }
 }
-// else {
-//     // console.error('');
-// }
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

@@ -7,8 +7,6 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-     <!-- Api Token -->
-    <meta name="api-token" content="{{ Auth::user()->api_token }}">
 
     <title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
 
