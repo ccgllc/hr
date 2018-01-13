@@ -29,13 +29,13 @@ Route::namespace('Api\Profile')
 		Route::put('user/{id}/phone', 'ProfileController@phone');
 		Route::put('user/{id}/email', 'ProfileController@email');
 		Route::put('user/{id}/address', 'ProfileController@address');
-		Route::put('user/{id}/license', 'ProfileController@license');
+		Route::post('user/{id}/license', 'ProfileController@license');
 		Route::delete('user/{id}/license/{licenseId}', 'ProfileController@destroyLicense');
-		Route::put('user/{id}/documents', 'UserDocumentsController@store');
+		Route::post('user/{id}/documents', 'UserDocumentsController@store');
 		Route::delete('user/documents/{id}', 'UserDocumentsController@destroy');
-		Route::put('user/{id}/certifications', 'UserCertificationsController@store');
+		Route::post('user/{id}/certifications', 'UserCertificationsController@store');
 		Route::delete('user/certifications/{id}', 'UserCertificationsController@destroy');
-		Route::put('user/{id}/software-experiences', 'UserSoftwareExperiencesController@store');
+		Route::post('user/{id}/software-experiences', 'UserSoftwareExperiencesController@store');
 		Route::delete('user/software-experiences/{id}', 'UserSoftwareExperiencesController@destroy');
 });
 
