@@ -3820,14 +3820,16 @@ module.exports = {"_from":"vue-chartjs@^3.0.2","_id":"vue-chartjs@3.0.2","_inBun
 /* harmony default export */ __webpack_exports__["a"] = ({
     extends: __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["b" /* Doughnut */],
     mounted: function mounted() {
-        this.chartData.labels = ['Applicants', 'Users'];
+        this.chartData.labels = ['Applicants', 'Active', 'Candidates', 'New Hires', 'No Hire'];
         this.chartData.datasets[0].data.push(window.chartData.applicantCount);
-        this.chartData.datasets[0].data.push(window.chartData.totalUsers);
+        // this.chartData.datasets[0].data.push(window.chartData.totalUsers);
+        this.chartData.datasets[0].data.push(window.chartData.activeCount);
+        this.chartData.datasets[0].data.push(window.chartData.candidateCount);
+        this.chartData.datasets[0].data.push(window.chartData.newHireCount);
+        this.chartData.datasets[0].data.push(window.chartData.noHireCount);
         this.renderChart(this.chartData, this.options);
         var chart = this.$data._chart;
-        // console.log(this.$refs.canvas);
         this.$refs.canvas.onclick = function (evt) {
-            // console.log(evt);
             var metric = chart.getElementsAtEvent(evt);
             if (metric[0]) {
                 var chartData = metric[0]['_chart'].config.data;
@@ -3847,13 +3849,19 @@ module.exports = {"_from":"vue-chartjs@^3.0.2","_id":"vue-chartjs@3.0.2","_inBun
             chartData: {
                 labels: [],
                 datasets: [{
-                    backgroundColor: ['#439BD1', '#343b4d'],
+                    backgroundColor: ['#439BD1', '#30A987', '#343b4d', '#FEDD62', '#FC3C63'],
                     data: []
                 }]
             },
             options: {
                 title: { display: true, text: 'Total Users' },
-                legend: { display: true },
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    labels: {
+                        boxWidth: 12
+                    }
+                },
                 responsive: true,
                 maintainAspectRatio: false
             }

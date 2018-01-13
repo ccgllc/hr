@@ -28,8 +28,13 @@ class DashboardController extends Controller
     		$data->labels[] = $role->name;
     		$data->datasets->data[] = count($role->users);
     	}
-        $data->applicants = User::status('applicant')->get();
-        $data->applicantCount = $data->applicants->count();
+        // $data->applicants = User::status('applicant')->get();
+        $data->applicantCount = User::status('applicant')->count();
+        // $data->active = User::status('active')->get();
+        $data->activeCount = User::status('active')->count();
+        $data->candidateCount = User::status('candidate')->count();
+        $data->newHireCount = User::status('new-hire')->count();
+        $data->noHireCount = User::status('no-hire')->count();
         // dd($data->applicants);
     	$data->totalUsers = User::count() - $data->applicantCount;
     	return $data;
