@@ -31,7 +31,9 @@
                 @include('partials.nav')
             </div> --}}
             <div class="column">
+                <div class="section">
                 @yield('content')
+                </div>
             </div> 
         </div>
         <div class="columns is-app-footer">
