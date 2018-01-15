@@ -6,25 +6,21 @@
 		<div class="column is-10">
 			<h1 class="title hr-title">HR Dashboard</h1>
 
-			<div class="tabs" style="margin-bottom: 5rem">
-			  	<ul>
-				    <li class="is-active"><a><span class="icon"><i class="fa fa-tachometer"></i></span>Overview</a></li>
-				    <li><a><span class="icon"><i class="fa fa-user-circle-o"></i></span>Manage Users</a></li>
-				    <li><a><span class="icon"><i class="fa fa-users"></i></span>Mange Roles</a></li>
-				    <li><a><span class="icon"><i class="fa fa-envelope"></i></span>Engagement</a></li>
-			  	</ul>
-			</div>
-
-			<div class="columns is-gapless">
+			<dashboard-navigation></dashboard-navigation>
+			
+			<div class="columns">
 				<div class="column is-4">
-					<doughnut-chart></doughnut-chart>
+					<user-statuses-chart></user-statuses-chart>
 				</div>
 				<div class="column is-8">
-					<bar-chart></bar-chart>
+					<user-roles-chart></user-roles-chart>
 				</div>
 			</div>
 			<!-- <hr> -->
-			<div class="columns" style="margin-top: 5rem;">	
+			
+			<user-counts></user-counts>
+
+			<div class="columns">	
 				<div class="column">
 					<div class="card">
 						<header class="card-header is-info">
@@ -350,17 +346,20 @@
 </template>
 
 <script>
-	import barChart from '../BarChart.js';
-	import doughnutChart from '../Doughnut.js'
+	import dashboardNavigation from './DashboardNavigation.vue';
+	import userRolesChart from '../UserRolesChart.js';
+	import userStatusesChart from '../UserStatusesChart.js';
+	import userCounts from './UserCounts.vue';
 	export default {
 		name: 'Home',
 		components: {
-			barChart,
-			doughnutChart
+			dashboardNavigation,
+			userRolesChart,
+			userStatusesChart,
+			userCounts
 		},
 		mounted() {
-			console.log('dashboard');
-			// this.renderChart(this.chartData, {responsive: true, maintainAspectRatio: false})
+			//
 		},
 		data() {
 			return {

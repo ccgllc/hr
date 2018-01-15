@@ -214,7 +214,7 @@ h2.has-text-primary strong{
 }
 
 h1.hr-title {
-	margin-top: 5rem;
+	// margin-top: 5rem;
 }
 
 //Card 
@@ -424,6 +424,34 @@ p.card-header-title > span.tag {
 		background: $dark;
 	}
 	margin-right: .5rem;
+}
+
+.card {
+	.card-content {
+		span.count {
+			font-size:4rem;
+			font-weight: 700;
+			&.is-total {
+				color: $gray-text;
+			}
+			&.is-applicants {
+				color: $primary-bright;
+			}
+			&.is-active {
+				color: $secondary;
+			}
+			&.is-inactive{
+				color: $warning;
+			}
+			&.is-no-hires {
+				color: $danger;
+			}
+		}
+		span.type {
+			color: $gray-text;
+			text-transform: uppercase;
+		}
+	}
 }
 //footer 
 .columns.is-app-footer{
