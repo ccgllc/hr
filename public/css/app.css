@@ -14130,10 +14130,6 @@ h2.has-text-primary strong {
   padding-top: 40px;
 }
 
-h1.hr-title {
-  margin-top: 5rem;
-}
-
 .card {
   border: 1px solid white;
   margin-right: 0;
@@ -14369,6 +14365,36 @@ p.card-header-title > span.tag.is-primary {
 
 p.card-header-title > span.tag.is-dark {
   background: #343b4c;
+}
+
+.card .card-content span.count {
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.card .card-content span.count.is-total {
+  color: #8f8f8f;
+}
+
+.card .card-content span.count.is-applicants {
+  color: #429ad1;
+}
+
+.card .card-content span.count.is-active {
+  color: #30ab88;
+}
+
+.card .card-content span.count.is-inactive {
+  color: #ffdd57;
+}
+
+.card .card-content span.count.is-no-hires {
+  color: #ff3860;
+}
+
+.card .card-content span.type {
+  color: #8f8f8f;
+  text-transform: uppercase;
 }
 
 .columns.is-app-footer {
