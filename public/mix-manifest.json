@@ -1,8 +1,8 @@
 {
     "/js/vendor.js": "/js/vendor.js",
     "/js/profile.js": "/js/profile.js",
-    "/js/apply.js": "/js/apply.js",
     "/js/dashboard.js": "/js/dashboard.js",
+    "/js/apply.js": "/js/apply.js",
     "/js/manageRoles.js": "/js/manageRoles.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",

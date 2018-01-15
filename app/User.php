@@ -29,6 +29,11 @@ class User extends Authenticatable
         'password', 'remember_token', 'api_token', 'verification_token'
     ];
 
+    public function getCreatedAtAttribute($value)
+    {
+       return \Carbon\Carbon::parse($value)->diffForHumans();
+    }
+
     /** 
      * Define role relationship.
      * @return Void

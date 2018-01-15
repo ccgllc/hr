@@ -2,13 +2,12 @@ import { Doughnut } from 'vue-chartjs';
 export default {
     extends: Doughnut,
     mounted() {
-        this.chartData.labels = ['Applicants', 'Active', 'Candidates', 'New Hires', 'No Hire'];
-        this.chartData.datasets[0].data.push(window.chartData.applicantCount);
+        this.chartData.datasets[0].data.push(window.dashboardData.applicantCount);
         // this.chartData.datasets[0].data.push(window.chartData.totalUsers);
-        this.chartData.datasets[0].data.push(window.chartData.activeCount);
-        this.chartData.datasets[0].data.push(window.chartData.candidateCount);
-        this.chartData.datasets[0].data.push(window.chartData.newHireCount);
-        this.chartData.datasets[0].data.push(window.chartData.noHireCount);
+        this.chartData.datasets[0].data.push(window.dashboardData.activeCount);
+        this.chartData.datasets[0].data.push(window.dashboardData.candidateCount);
+        this.chartData.datasets[0].data.push(window.dashboardData.newHireCount);
+        this.chartData.datasets[0].data.push(window.dashboardData.noHireCount);
         this.renderChart(this.chartData, this.options);
         let chart = this.$data._chart;
         this.$refs.canvas.onclick = function(evt) {
@@ -29,7 +28,7 @@ export default {
     data() {
         return {
             chartData: {
-                labels: [],
+                labels: ['Applicants', 'Active', 'Candidates', 'New Hires', 'No Hire'],
                 datasets: [
                     {
                         backgroundColor: ['#439BD1', '#30A987', '#343b4d', '#FEDD62', '#FC3C63'],

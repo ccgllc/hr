@@ -1,4 +1,4 @@
-webpackJsonp([3],{
+webpackJsonp([2],{
 
 /***/ 1:
 /***/ (function(module, exports) {
@@ -115,7 +115,7 @@ module.exports = function normalizeComponent (
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = mergeOptions;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_merge__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_merge__ = __webpack_require__(336);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_merge___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash_merge__);
 
 function mergeOptions(obj, src) {
@@ -128,18 +128,43 @@ function mergeOptions(obj, src) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__counts_js__ = __webpack_require__(330);
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    userRolesChart: {},
+    userStatusesChart: {
+        chartData: {
+            labels: ['Applicants', 'Active', 'Candidates', 'New Hires', 'No Hire'],
+            datasets: [{
+                backgroundColor: ['#439BD1', '#30A987', '#343b4d', '#FEDD62', '#FC3C63'],
+                data: []
+            }]
+        }
+    },
+    counts: __WEBPACK_IMPORTED_MODULE_0__counts_js__["a" /* default */],
+    newHires: [],
+    candidates: [],
+    applicants: []
+});
+
+/***/ }),
+
+/***/ 150:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* unused harmony export VueCharts */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__BaseCharts_Bar__ = __webpack_require__(333);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__BaseCharts_HorizontalBar__ = __webpack_require__(335);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__BaseCharts_Doughnut__ = __webpack_require__(336);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__BaseCharts_Line__ = __webpack_require__(337);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__BaseCharts_Pie__ = __webpack_require__(338);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__BaseCharts_PolarArea__ = __webpack_require__(339);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__BaseCharts_Radar__ = __webpack_require__(340);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__BaseCharts_Bubble__ = __webpack_require__(341);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__BaseCharts_Scatter__ = __webpack_require__(342);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__mixins_index_js__ = __webpack_require__(343);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__package_json__ = __webpack_require__(346);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__BaseCharts_Bar__ = __webpack_require__(335);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__BaseCharts_HorizontalBar__ = __webpack_require__(337);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__BaseCharts_Doughnut__ = __webpack_require__(338);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__BaseCharts_Line__ = __webpack_require__(339);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__BaseCharts_Pie__ = __webpack_require__(340);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__BaseCharts_PolarArea__ = __webpack_require__(341);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__BaseCharts_Radar__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__BaseCharts_Bubble__ = __webpack_require__(343);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__BaseCharts_Scatter__ = __webpack_require__(344);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__mixins_index_js__ = __webpack_require__(345);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__package_json__ = __webpack_require__(348);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__package_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__package_json__);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__BaseCharts_Bar__["a"]; });
 /* unused harmony reexport HorizontalBar */
@@ -180,15 +205,15 @@ var VueCharts = {
 
 /***/ }),
 
-/***/ 325:
+/***/ 326:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(326);
+module.exports = __webpack_require__(327);
 
 
 /***/ }),
 
-/***/ 326:
+/***/ 327:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -196,7 +221,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Home_vue__ = __webpack_require__(327);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Home_vue__ = __webpack_require__(328);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Home_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_Home_vue__);
 
 
@@ -227,15 +252,15 @@ var Dashboard = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 
 /***/ }),
 
-/***/ 327:
+/***/ 328:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(328)
+var __vue_script__ = __webpack_require__(329)
 /* template */
-var __vue_template__ = __webpack_require__(351)
+var __vue_template__ = __webpack_require__(362)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -275,17 +300,24 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 328:
+/***/ 329:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__DashboardNavigation_vue__ = __webpack_require__(329);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__DashboardNavigation_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__DashboardNavigation_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__UserRolesChart_js__ = __webpack_require__(332);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__UserStatusesChart_js__ = __webpack_require__(347);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__UserCounts_vue__ = __webpack_require__(348);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__UserCounts_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__UserCounts_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__data_dashboardData_js__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__DashboardNavigation_vue__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__DashboardNavigation_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__DashboardNavigation_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__UserRolesChart_js__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__UserStatusesChart_js__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__UserCounts_vue__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__UserCounts_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__UserCounts_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__NewHires_vue__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__NewHires_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__NewHires_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Candidates_vue__ = __webpack_require__(356);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Candidates_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__Candidates_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Applicants_vue__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Applicants_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__Applicants_vue__);
 //
 //
 //
@@ -324,318 +356,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
+
+
 
 
 
@@ -644,18 +368,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
 	name: 'Home',
 	components: {
-		dashboardNavigation: __WEBPACK_IMPORTED_MODULE_0__DashboardNavigation_vue___default.a,
-		userRolesChart: __WEBPACK_IMPORTED_MODULE_1__UserRolesChart_js__["a" /* default */],
-		userStatusesChart: __WEBPACK_IMPORTED_MODULE_2__UserStatusesChart_js__["a" /* default */],
-		userCounts: __WEBPACK_IMPORTED_MODULE_3__UserCounts_vue___default.a
+		dashboardNavigation: __WEBPACK_IMPORTED_MODULE_1__DashboardNavigation_vue___default.a,
+		userRolesChart: __WEBPACK_IMPORTED_MODULE_2__UserRolesChart_js__["a" /* default */],
+		userStatusesChart: __WEBPACK_IMPORTED_MODULE_3__UserStatusesChart_js__["a" /* default */],
+		userCounts: __WEBPACK_IMPORTED_MODULE_4__UserCounts_vue___default.a,
+		newHires: __WEBPACK_IMPORTED_MODULE_5__NewHires_vue___default.a,
+		candidates: __WEBPACK_IMPORTED_MODULE_6__Candidates_vue___default.a,
+		applicants: __WEBPACK_IMPORTED_MODULE_7__Applicants_vue___default.a
 	},
 	mounted: function mounted() {
 		//
 	},
 	data: function data() {
-		return {
-			//		
-		};
+		return __WEBPACK_IMPORTED_MODULE_0__data_dashboardData_js__["a" /* default */];
 	},
 
 	methods: {
@@ -665,15 +390,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 329:
+/***/ 330:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = ({
+	applicants: 0,
+	active: 0,
+	inActive: 0,
+	noHire: 0,
+	total: 0
+});
+
+/***/ }),
+
+/***/ 331:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(330)
+var __vue_script__ = __webpack_require__(332)
 /* template */
-var __vue_template__ = __webpack_require__(331)
+var __vue_template__ = __webpack_require__(333)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -713,7 +452,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 330:
+/***/ 332:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -739,7 +478,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 331:
+/***/ 333:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -809,17 +548,17 @@ if (false) {
 
 /***/ }),
 
-/***/ 332:
+/***/ 334:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(150);
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     extends: __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["a" /* Bar */],
     mounted: function mounted() {
-        this.chartData.labels = window.chartData.labels;
-        this.chartData.datasets[0].data = window.chartData.datasets.data;
+        this.chartData.labels = window.dashboardData.userRolesChart.labels;
+        this.chartData.datasets[0].data = window.dashboardData.userRolesChart.datasets[0].data;
         this.renderChart(this.chartData, this.options);
     },
     data: function data() {
@@ -843,7 +582,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 333:
+/***/ 335:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -935,7 +674,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 334:
+/***/ 336:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -3150,7 +2889,7 @@ module.exports = merge;
 
 /***/ }),
 
-/***/ 335:
+/***/ 337:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3242,7 +2981,7 @@ module.exports = merge;
 
 /***/ }),
 
-/***/ 336:
+/***/ 338:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3316,7 +3055,7 @@ module.exports = merge;
 
 /***/ }),
 
-/***/ 337:
+/***/ 339:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3406,7 +3145,7 @@ module.exports = merge;
 
 /***/ }),
 
-/***/ 338:
+/***/ 340:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3480,7 +3219,7 @@ module.exports = merge;
 
 /***/ }),
 
-/***/ 339:
+/***/ 341:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3554,7 +3293,7 @@ module.exports = merge;
 
 /***/ }),
 
-/***/ 340:
+/***/ 342:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3628,7 +3367,7 @@ module.exports = merge;
 
 /***/ }),
 
-/***/ 341:
+/***/ 343:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3720,7 +3459,7 @@ module.exports = merge;
 
 /***/ }),
 
-/***/ 342:
+/***/ 344:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3801,13 +3540,13 @@ module.exports = merge;
 
 /***/ }),
 
-/***/ 343:
+/***/ 345:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__reactiveData_js__ = __webpack_require__(344);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__reactiveData_js__ = __webpack_require__(346);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__reactiveData_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__reactiveData_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reactiveProp_js__ = __webpack_require__(345);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reactiveProp_js__ = __webpack_require__(347);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reactiveProp_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__reactiveProp_js__);
 
 
@@ -3818,7 +3557,7 @@ module.exports = merge;
 
 /***/ }),
 
-/***/ 344:
+/***/ 346:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -3886,7 +3625,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 345:
+/***/ 347:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -3954,29 +3693,28 @@ module.exports = {
 
 /***/ }),
 
-/***/ 346:
+/***/ 348:
 /***/ (function(module, exports) {
 
-module.exports = {"_from":"vue-chartjs@^3.0.2","_id":"vue-chartjs@3.0.2","_inBundle":false,"_integrity":"sha512-m6ItjL8o3ff4JpbF083RzZ4KPiNBFsqMKmWCcAtlisOdm1vvB/9mUDJePmxYKJkvl2AcpvLPiH1cUrhq46r8vA==","_location":"/vue-chartjs","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"vue-chartjs@^3.0.2","name":"vue-chartjs","escapedName":"vue-chartjs","rawSpec":"^3.0.2","saveSpec":null,"fetchSpec":"^3.0.2"},"_requiredBy":["/"],"_resolved":"https://registry.npmjs.org/vue-chartjs/-/vue-chartjs-3.0.2.tgz","_shasum":"960d0ba9c2f3720b85ff02417707adc02f953de9","_spec":"vue-chartjs@^3.0.2","_where":"/Users/Brandon/code/ccg/hr","author":{"name":"Jakub Juszczak","email":"jakub@posteo.de"},"browserify":{"transform":["babelify"]},"bugs":{"url":"https://github.com/apertureless/vue-chartjs/issues"},"bundleDependencies":false,"contributors":[{"name":"Thorsten Lünborg","url":"https://github.com/LinusBorg"},{"name":"Juan Carlos Alonso","url":"https://github.com/jcalonso"}],"dependencies":{"lodash.merge":"^4.6.0"},"deprecated":false,"description":"Vue.js wrapper for chart.js for creating beautiful charts.","devDependencies":{"@babel/cli":"^7.0.0-beta.31","@babel/core":"^7.0.0-beta.31","@babel/preset-env":"^7.0.0-beta.31","@babel/preset-stage-2":"^7.0.0-beta.31","babel-loader":"8.0.0-beta.0","chai":"^3.5.0","chart.js":"2.7.0","chromedriver":"^2.28.0","connect-history-api-fallback":"^1.1.0","cross-env":"^3.2.4","cross-spawn":"^5.1.0","css-loader":"^0.28.0","eslint":"^3.19.0","eslint-config-standard":"^10.2.1","eslint-friendly-formatter":"^2.0.7","eslint-loader":"^1.7.1","eslint-plugin-html":"^2.0.1","eslint-plugin-import":"^2.2.0","eslint-plugin-node":"^4.2.2","eslint-plugin-promise":"^3.5.0","eslint-plugin-standard":"^3.0.1","eventsource-polyfill":"^0.9.6","express":"^4.15.2","extract-text-webpack-plugin":"^3.0.1","file-loader":"^0.10.1","friendly-errors-webpack-plugin":"^1.6.1","function-bind":"^1.0.2","html-webpack-plugin":"^2.28.0","http-proxy-middleware":"^0.17.4","inject-loader":"^3.0.0","isparta":"^4.0.0","jasmine-core":"^2.5.2","json-loader":"^0.5.4","karma":"^1.5.0","karma-coverage":"^1.1.1","karma-jasmine":"^1.0.2","karma-mocha":"^1.2.0","karma-phantomjs-launcher":"^1.0.4","karma-phantomjs-shim":"^1.4.0","karma-sinon-chai":"^1.2.0","karma-sourcemap-loader":"^0.3.7","karma-spec-reporter":"0.0.30","karma-webpack":"2","lolex":"^1.6.0","mocha":"^3.1.0","nightwatch":"^0.9.14","opn":"^5.1.0","ora":"^1.2.0","phantomjs-prebuilt":"^2.1.13","portfinder":"^1.0.13","selenium-server":"^3.3.1","shelljs":"^0.7.7","sinon":"^2.1.0","sinon-chai":"^2.9.0","url-loader":"^0.5.8","vue":"2.5.2","vue-hot-reload-api":"2.1.0","vue-html-loader":"^1.2.4","vue-loader":"^13.3.0","vue-style-loader":"3.0.1","vue-template-compiler":"2.5.2","webpack":"^3.7.1","webpack-dev-middleware":"^1.10.1","webpack-hot-middleware":"^2.17.1","webpack-merge":"^4.1.0"},"engines":{"node":">=6.9.0","npm":">= 3.0.0"},"files":["src","dist","es"],"greenkeeper":{"ignore":["extract-text-webpack-plugin","karma-webpack","webpack","webpack-merge"]},"homepage":"http://vue-chartjs.org","jsnext:main":"es/index.js","keywords":["ChartJs","Vue","Visualisation","Wrapper","Charts"],"license":"MIT","main":"dist/vue-chartjs.js","maintainers":[{"name":"Jakub Juszczak","email":"jakub@posteo.de","url":"http://www.jakubjuszczak.de"}],"module":"es/index.js","name":"vue-chartjs","peerDependencies":{"chart.js":"2.7.x"},"repository":{"type":"git","url":"git+ssh://git@github.com/apertureless/vue-chartjs.git"},"scripts":{"build":"yarn run release && yarn run build:es","build:es":"cross-env BABEL_ENV=es babel src --out-dir es","dev":"node build/dev-server.js","e2e":"node test/e2e/runner.js","lint":"eslint --ext .js,.vue src test/unit/specs test/e2e/specs","prepublishOnly":"yarn run lint && yarn run test && yarn run build","release":"webpack --progress --hide-modules --config  ./build/webpack.release.js && NODE_ENV=production webpack --progress --hide-modules --config  ./build/webpack.release.min.js","test":"npm run unit","unit":"karma start test/unit/karma.conf.js --single-run"},"unpkg":"dist/vue-chartjs.min.js","version":"3.0.2"}
+module.exports = {"name":"vue-chartjs","version":"3.0.2","description":"Vue.js wrapper for chart.js for creating beautiful charts.","author":"Jakub Juszczak <jakub@posteo.de>","homepage":"http://vue-chartjs.org","license":"MIT","contributors":[{"name":"Thorsten Lünborg","web":"https://github.com/LinusBorg"},{"name":"Juan Carlos Alonso","web":"https://github.com/jcalonso"}],"maintainers":[{"name":"Jakub Juszczak","email":"jakub@posteo.de","web":"http://www.jakubjuszczak.de"}],"repository":{"type":"git","url":"git+ssh://git@github.com:apertureless/vue-chartjs.git"},"bugs":{"url":"https://github.com/apertureless/vue-chartjs/issues"},"keywords":["ChartJs","Vue","Visualisation","Wrapper","Charts"],"main":"dist/vue-chartjs.js","unpkg":"dist/vue-chartjs.min.js","module":"es/index.js","jsnext:main":"es/index.js","files":["src","dist","es"],"scripts":{"dev":"node build/dev-server.js","build":"yarn run release && yarn run build:es","build:es":"cross-env BABEL_ENV=es babel src --out-dir es","unit":"karma start test/unit/karma.conf.js --single-run","e2e":"node test/e2e/runner.js","test":"npm run unit","lint":"eslint --ext .js,.vue src test/unit/specs test/e2e/specs","release":"webpack --progress --hide-modules --config  ./build/webpack.release.js && NODE_ENV=production webpack --progress --hide-modules --config  ./build/webpack.release.min.js","prepublishOnly":"yarn run lint && yarn run test && yarn run build"},"dependencies":{"lodash.merge":"^4.6.0"},"peerDependencies":{"chart.js":"2.7.x"},"devDependencies":{"@babel/cli":"^7.0.0-beta.31","@babel/core":"^7.0.0-beta.31","@babel/preset-env":"^7.0.0-beta.31","@babel/preset-stage-2":"^7.0.0-beta.31","babel-loader":"8.0.0-beta.0","chai":"^3.5.0","chart.js":"2.7.0","chromedriver":"^2.28.0","connect-history-api-fallback":"^1.1.0","cross-env":"^3.2.4","cross-spawn":"^5.1.0","css-loader":"^0.28.0","eslint":"^3.19.0","eslint-config-standard":"^10.2.1","eslint-friendly-formatter":"^2.0.7","eslint-loader":"^1.7.1","eslint-plugin-html":"^2.0.1","eslint-plugin-import":"^2.2.0","eslint-plugin-node":"^4.2.2","eslint-plugin-promise":"^3.5.0","eslint-plugin-standard":"^3.0.1","eventsource-polyfill":"^0.9.6","express":"^4.15.2","extract-text-webpack-plugin":"^3.0.1","file-loader":"^0.10.1","friendly-errors-webpack-plugin":"^1.6.1","function-bind":"^1.0.2","html-webpack-plugin":"^2.28.0","http-proxy-middleware":"^0.17.4","inject-loader":"^3.0.0","isparta":"^4.0.0","jasmine-core":"^2.5.2","json-loader":"^0.5.4","karma":"^1.5.0","karma-coverage":"^1.1.1","karma-jasmine":"^1.0.2","karma-mocha":"^1.2.0","karma-phantomjs-launcher":"^1.0.4","karma-phantomjs-shim":"^1.4.0","karma-sinon-chai":"^1.2.0","karma-sourcemap-loader":"^0.3.7","karma-spec-reporter":"0.0.30","karma-webpack":"2","lolex":"^1.6.0","mocha":"^3.1.0","nightwatch":"^0.9.14","opn":"^5.1.0","ora":"^1.2.0","phantomjs-prebuilt":"^2.1.13","portfinder":"^1.0.13","selenium-server":"^3.3.1","shelljs":"^0.7.7","sinon":"^2.1.0","sinon-chai":"^2.9.0","url-loader":"^0.5.8","vue":"2.5.2","vue-hot-reload-api":"2.1.0","vue-html-loader":"^1.2.4","vue-loader":"^13.3.0","vue-style-loader":"3.0.1","vue-template-compiler":"2.5.2","webpack":"^3.7.1","webpack-dev-middleware":"^1.10.1","webpack-hot-middleware":"^2.17.1","webpack-merge":"^4.1.0"},"engines":{"node":">=6.9.0","npm":">= 3.0.0"},"browserify":{"transform":["babelify"]},"greenkeeper":{"ignore":["extract-text-webpack-plugin","karma-webpack","webpack","webpack-merge"]}}
 
 /***/ }),
 
-/***/ 347:
+/***/ 349:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__ = __webpack_require__(150);
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     extends: __WEBPACK_IMPORTED_MODULE_0_vue_chartjs__["b" /* Doughnut */],
     mounted: function mounted() {
-        this.chartData.labels = ['Applicants', 'Active', 'Candidates', 'New Hires', 'No Hire'];
-        this.chartData.datasets[0].data.push(window.chartData.applicantCount);
+        this.chartData.datasets[0].data.push(window.dashboardData.applicantCount);
         // this.chartData.datasets[0].data.push(window.chartData.totalUsers);
-        this.chartData.datasets[0].data.push(window.chartData.activeCount);
-        this.chartData.datasets[0].data.push(window.chartData.candidateCount);
-        this.chartData.datasets[0].data.push(window.chartData.newHireCount);
-        this.chartData.datasets[0].data.push(window.chartData.noHireCount);
+        this.chartData.datasets[0].data.push(window.dashboardData.activeCount);
+        this.chartData.datasets[0].data.push(window.dashboardData.candidateCount);
+        this.chartData.datasets[0].data.push(window.dashboardData.newHireCount);
+        this.chartData.datasets[0].data.push(window.dashboardData.noHireCount);
         this.renderChart(this.chartData, this.options);
         var chart = this.$data._chart;
         this.$refs.canvas.onclick = function (evt) {
@@ -3997,7 +3735,7 @@ module.exports = {"_from":"vue-chartjs@^3.0.2","_id":"vue-chartjs@3.0.2","_inBun
     data: function data() {
         return {
             chartData: {
-                labels: [],
+                labels: ['Applicants', 'Active', 'Candidates', 'New Hires', 'No Hire'],
                 datasets: [{
                     backgroundColor: ['#439BD1', '#30A987', '#343b4d', '#FEDD62', '#FC3C63'],
                     data: []
@@ -4021,15 +3759,15 @@ module.exports = {"_from":"vue-chartjs@^3.0.2","_id":"vue-chartjs@3.0.2","_inBun
 
 /***/ }),
 
-/***/ 348:
+/***/ 350:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(349)
+var __vue_script__ = __webpack_require__(351)
 /* template */
-var __vue_template__ = __webpack_require__(350)
+var __vue_template__ = __webpack_require__(352)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -4069,7 +3807,216 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 349:
+/***/ 351:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__data_dashboardData_js__ = __webpack_require__(149);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	name: 'UserCounts',
+	mounted: function mounted() {
+		this.data.applicants = window.dashboardData.applicantCount;
+		this.data.active = window.dashboardData.activeCount;
+		this.data.inActive = window.dashboardData.inActiveCount;
+		this.data.noHire = window.dashboardData.noHireCount;
+		this.data.total = +window.dashboardData.candidateCount + +window.dashboardData.newHireCount + +this.data.applicants + +this.data.active + +this.data.inActive + +this.data.noHire;
+	},
+	data: function data() {
+		return {
+			data: __WEBPACK_IMPORTED_MODULE_0__data_dashboardData_js__["a" /* default */].counts
+		};
+	}
+});
+
+/***/ }),
+
+/***/ 352:
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "columns", staticStyle: { margin: "3rem 0 3rem 0" } },
+    [
+      _c("div", { staticClass: "column" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-content has-text-centered" }, [
+            _c("span", { staticClass: "count is-total" }, [
+              _vm._v(_vm._s(_vm.data.total))
+            ]),
+            _c("br"),
+            _vm._v(" "),
+            _c("span", { staticClass: "type" }, [_vm._v("Total")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "column" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-content has-text-centered" }, [
+            _c("span", { staticClass: "count is-applicants" }, [
+              _vm._v(_vm._s(_vm.data.applicants))
+            ]),
+            _c("br"),
+            _vm._v(" "),
+            _c("span", { staticClass: "type" }, [_vm._v("Applicants")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "column" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-content has-text-centered" }, [
+            _c("span", { staticClass: "count is-active" }, [
+              _vm._v(_vm._s(_vm.data.active))
+            ]),
+            _c("br"),
+            _vm._v(" "),
+            _c("span", { staticClass: "type" }, [_vm._v("Active")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "column" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-content has-text-centered" }, [
+            _c("span", { staticClass: "count is-inactive" }, [
+              _vm._v(_vm._s(_vm.data.inActive))
+            ]),
+            _c("br"),
+            _vm._v(" "),
+            _c("span", { staticClass: "type" }, [_vm._v("In-Active")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "column" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-content has-text-centered" }, [
+            _c("span", { staticClass: "count is-no-hires" }, [
+              _vm._v(_vm._s(_vm.data.noHire))
+            ]),
+            _c("br"),
+            _vm._v(" "),
+            _c("span", { staticClass: "type" }, [_vm._v("No Hire")])
+          ])
+        ])
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-279b67ab", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 353:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(354)
+/* template */
+var __vue_template__ = __webpack_require__(355)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/dashboard/components/NewHires.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-5860440a", Component.options)
+  } else {
+    hotAPI.reload("data-v-5860440a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 354:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4119,24 +4066,99 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	name: 'UserCounts',
+	name: "NewHire",
+	mounted: function mounted() {
+		this.newHireCount = window.dashboardData.newHireCount;
+		this.newHires = window.dashboardData.newHires;
+	},
 	data: function data() {
-		return {};
+		return {
+			newHireCount: 0,
+			newHires: []
+		};
 	}
 });
 
 /***/ }),
 
-/***/ 350:
+/***/ 355:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "column" }, [
+    _c("div", { staticClass: "card" }, [
+      _c("header", { staticClass: "card-header is-warning" }, [
+        _c("p", { staticClass: "card-header-title" }, [
+          _c("span", { staticClass: "tag is-dark" }, [
+            _vm._v(_vm._s(_vm.newHireCount))
+          ]),
+          _vm._v(" New Hires\n\t\t    ")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-content" }, [
+        _c(
+          "div",
+          { staticClass: "content" },
+          _vm._l(_vm.newHires, function(newHire) {
+            return _c("div", { staticClass: "card is-stacked" }, [
+              _c("div", { staticClass: "card-content" }, [
+                _c("div", { staticClass: "content" }, [
+                  _c(
+                    "span",
+                    { staticClass: "tag is-rounded is-small is-pulled-right" },
+                    [_vm._v("Incomplete")]
+                  ),
+                  _vm._v(" "),
+                  _c("h3", [
+                    _c("a", { attrs: { href: "/profile/" + newHire.id } }, [
+                      _vm._v(_vm._s(newHire.name))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "progress",
+                    {
+                      staticClass: "progress is-success is-small",
+                      attrs: { value: "0", max: "100" }
+                    },
+                    [_vm._v("0%")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("footer", { staticClass: "card-footer" }, [
+                _c("span", { staticClass: "card-footer-item" }, [
+                  _c("i", { staticClass: "fa fa-clock-o" }),
+                  _vm._v(" " + _vm._s(newHire.created_at))
+                ]),
+                _vm._v(" "),
+                _vm._m(0, true)
+              ])
+            ])
+          })
+        ),
+        _vm._v(" "),
+        _c("a", { staticClass: "button" }, [_vm._v("All New Hires")])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -4145,64 +4167,60 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "columns", staticStyle: { margin: "3rem 0 3rem 0" } },
+      { staticClass: "card-footer-item dropdown is-hoverable" },
       [
-        _c("div", { staticClass: "column" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-content has-text-centered" }, [
-              _c("span", { staticClass: "count is-total" }, [_vm._v("59")]),
-              _c("br"),
+        _c("div", { staticClass: "dropdown-trigger" }, [
+          _c(
+            "a",
+            {
+              attrs: {
+                "aria-haspopup": "true",
+                "aria-controls": "dropdown-menu"
+              }
+            },
+            [
+              _c("span", [_vm._v("Action")]),
               _vm._v(" "),
-              _c("span", { staticClass: "type" }, [_vm._v("Total")])
-            ])
-          ])
+              _c("span", { staticClass: "icon is-small" }, [
+                _c("i", {
+                  staticClass: "fa fa-angle-down",
+                  attrs: { "aria-hidden": "true" }
+                })
+              ])
+            ]
+          )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "column" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-content has-text-centered" }, [
-              _c("span", { staticClass: "count is-applicants" }, [
-                _vm._v("10")
+        _c(
+          "div",
+          {
+            staticClass: "dropdown-menu",
+            attrs: { id: "dropdown-menu", role: "menu" }
+          },
+          [
+            _c("div", { staticClass: "dropdown-content" }, [
+              _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+                _vm._v("\n\t\t\t\t\t\t        Notify\n\t\t\t\t\t\t      ")
               ]),
-              _c("br"),
               _vm._v(" "),
-              _c("span", { staticClass: "type" }, [_vm._v("Applicants")])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "column" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-content has-text-centered" }, [
-              _c("span", { staticClass: "count is-active" }, [_vm._v("22")]),
-              _c("br"),
+              _c("a", { staticClass: "dropdown-item" }, [
+                _vm._v("\n\t\t\t\t\t\t        Review\n\t\t\t\t\t\t      ")
+              ]),
               _vm._v(" "),
-              _c("span", { staticClass: "type" }, [_vm._v("Active")])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "column" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-content has-text-centered" }, [
-              _c("span", { staticClass: "count is-inactive" }, [_vm._v("13")]),
-              _c("br"),
+              _c("a", { staticClass: "dropdown-item" }, [
+                _vm._v("\n\t\t\t\t\t\t        Revoke offer\n\t\t\t\t\t\t      ")
+              ]),
               _vm._v(" "),
-              _c("span", { staticClass: "type" }, [_vm._v("In-Active")])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "column" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-content has-text-centered" }, [
-              _c("span", { staticClass: "count is-no-hires" }, [_vm._v("7")]),
-              _c("br"),
+              _c("hr", { staticClass: "dropdown-divider" }),
               _vm._v(" "),
-              _c("span", { staticClass: "type" }, [_vm._v("No Hire")])
+              _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+                _vm._v(
+                  "\n\t\t\t\t\t\t        Complete onboarding\n\t\t\t\t\t\t      "
+                )
+              ])
             ])
-          ])
-        ])
+          ]
+        )
       ]
     )
   }
@@ -4212,13 +4230,437 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-279b67ab", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-5860440a", module.exports)
   }
 }
 
 /***/ }),
 
-/***/ 351:
+/***/ 356:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(357)
+/* template */
+var __vue_template__ = __webpack_require__(358)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/dashboard/components/Candidates.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-e895f4e8", Component.options)
+  } else {
+    hotAPI.reload("data-v-e895f4e8", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 357:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	name: 'Candidates',
+	mounted: function mounted() {
+		this.candidateCount = window.dashboardData.candidateCount;
+		this.candidates = window.dashboardData.candidates;
+	},
+	data: function data() {
+		return {
+			candidateCount: 0,
+			candidates: []
+		};
+	}
+});
+
+/***/ }),
+
+/***/ 358:
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "column" }, [
+    _c("div", { staticClass: "card" }, [
+      _c("header", { staticClass: "card-header is-dark" }, [
+        _c("p", { staticClass: "card-header-title" }, [
+          _c("span", { staticClass: "tag is-secondary" }, [
+            _vm._v(_vm._s(_vm.candidateCount))
+          ]),
+          _vm._v(" Candidates\n\t\t    ")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-content" }, [
+        _c(
+          "div",
+          { staticClass: "content" },
+          _vm._l(_vm.candidates, function(candidate) {
+            return _c("div", { staticClass: "card is-stacked" }, [
+              _c("div", { staticClass: "card-content" }, [
+                _c("div", { staticClass: "content" }, [
+                  _vm._m(0, true),
+                  _vm._v(" "),
+                  _c("h3", [
+                    _c("a", { attrs: { href: "/profile/" + candidate.id } }, [
+                      _vm._v(_vm._s(candidate.name))
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(1, true)
+            ])
+          })
+        ),
+        _vm._v(" "),
+        _c("a", { staticClass: "button" }, [_vm._v("All Candidates")])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass:
+          "is-pulled-right is-tooltip-warning tooltip is-tooltip-left",
+        attrs: { "data-tooltip": "Remove from candidates" }
+      },
+      [_c("a", { staticClass: "delete is-small" })]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", { staticClass: "card-footer" }, [
+      _c("span", { staticClass: "card-footer-item" }, [
+        _c("i", { staticClass: "fa fa-clock-o" }),
+        _vm._v(" 1 month ago")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "card-footer-item" }, [_vm._v("Hire")])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-e895f4e8", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 359:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(360)
+/* template */
+var __vue_template__ = __webpack_require__(361)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/dashboard/components/Applicants.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7fc2d926", Component.options)
+  } else {
+    hotAPI.reload("data-v-7fc2d926", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 360:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+	name: 'Applicants',
+	mounted: function mounted() {
+		this.applicants = window.dashboardData.applicants;
+		this.applicantCount = window.dashboardData.applicantCount;
+	},
+	data: function data() {
+		return {
+			applicants: [],
+			applicantCount: 0
+		};
+	}
+});
+
+/***/ }),
+
+/***/ 361:
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "column" }, [
+    _c("div", { staticClass: "card" }, [
+      _c("header", { staticClass: "card-header is-info" }, [
+        _c("p", { staticClass: "card-header-title" }, [
+          _c("span", { staticClass: "tag is-dark" }, [
+            _vm._v(_vm._s(_vm.applicantCount))
+          ]),
+          _vm._v(" Recent Applicants \n\t\t    ")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-content" }, [
+        _c(
+          "div",
+          { staticClass: "content" },
+          _vm._l(_vm.applicants, function(applicant) {
+            return _c("div", { staticClass: "card is-stacked" }, [
+              _c("div", { staticClass: "card-content" }, [
+                _c("div", { staticClass: "content" }, [
+                  _c("h3", [
+                    _c("a", { attrs: { href: "/profile/" + applicant.id } }, [
+                      _vm._v(_vm._s(applicant.name))
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("footer", { staticClass: "card-footer" }, [
+                _c("span", { staticClass: "card-footer-item" }, [
+                  _c("i", { staticClass: "fa fa-clock-o" }),
+                  _vm._v(_vm._s(applicant.created_at))
+                ]),
+                _vm._v(" "),
+                _vm._m(0, true)
+              ])
+            ])
+          })
+        ),
+        _vm._v(" "),
+        _c("a", { staticClass: "button" }, [_vm._v("All Applicants")])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "card-footer-item dropdown is-hoverable" },
+      [
+        _c("div", { staticClass: "dropdown-trigger" }, [
+          _c(
+            "a",
+            {
+              attrs: {
+                "aria-haspopup": "true",
+                "aria-controls": "dropdown-menu"
+              }
+            },
+            [
+              _c("span", [_vm._v("Action")]),
+              _vm._v(" "),
+              _c("span", { staticClass: "icon is-small" }, [
+                _c("i", {
+                  staticClass: "fa fa-angle-down",
+                  attrs: { "aria-hidden": "true" }
+                })
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "dropdown-menu",
+            attrs: { id: "dropdown-menu", role: "menu" }
+          },
+          [
+            _c("div", { staticClass: "dropdown-content" }, [
+              _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+                _vm._v(
+                  "\n\t\t\t\t\t\t        Make candidate\n\t\t\t\t\t\t      "
+                )
+              ]),
+              _vm._v(" "),
+              _c("a", { staticClass: "dropdown-item" }, [
+                _vm._v(
+                  "\n\t\t\t\t\t\t        View applicant details\n\t\t\t\t\t\t      "
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7fc2d926", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 362:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -4249,813 +4691,24 @@ var render = function() {
         _vm._v(" "),
         _c("user-counts"),
         _vm._v(" "),
-        _vm._m(0)
+        _c(
+          "div",
+          { staticClass: "columns" },
+          [
+            _c("new-hires"),
+            _vm._v(" "),
+            _c("candidates"),
+            _vm._v(" "),
+            _c("applicants")
+          ],
+          1
+        )
       ],
       1
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "columns" }, [
-      _c("div", { staticClass: "column" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("header", { staticClass: "card-header is-info" }, [
-            _c("p", { staticClass: "card-header-title" }, [
-              _c("span", { staticClass: "tag is-dark" }, [_vm._v("3")]),
-              _vm._v(" New Hires\n\t\t\t\t\t    ")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-content" }, [
-            _c("div", { staticClass: "content" }, [
-              _c("div", { staticClass: "card is-stacked" }, [
-                _c("div", { staticClass: "card-content" }, [
-                  _c("div", { staticClass: "content" }, [
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "tag is-rounded is-success is-small is-pulled-right"
-                      },
-                      [_vm._v("Complete")]
-                    ),
-                    _vm._v(" "),
-                    _c("h3", [
-                      _c("a", { attrs: { href: "" } }, [
-                        _vm._v("Donald Longlastname")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "progress",
-                      {
-                        staticClass: "progress is-success is-small",
-                        attrs: { value: "100", max: "100" }
-                      },
-                      [_vm._v("15%")]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("footer", { staticClass: "card-footer" }, [
-                  _c("span", { staticClass: "card-footer-item" }, [
-                    _c("i", { staticClass: "fa fa-clock-o" }),
-                    _vm._v("  1 month ago")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "card-footer-item dropdown is-hoverable" },
-                    [
-                      _c("div", { staticClass: "dropdown-trigger" }, [
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              "aria-haspopup": "true",
-                              "aria-controls": "dropdown-menu"
-                            }
-                          },
-                          [
-                            _c("span", [_vm._v("Action")]),
-                            _vm._v(" "),
-                            _c("span", { staticClass: "icon is-small" }, [
-                              _c("i", {
-                                staticClass: "fa fa-angle-down",
-                                attrs: { "aria-hidden": "true" }
-                              })
-                            ])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "dropdown-menu",
-                          attrs: { id: "dropdown-menu", role: "menu" }
-                        },
-                        [
-                          _c("div", { staticClass: "dropdown-content" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "dropdown-item",
-                                attrs: { href: "#" }
-                              },
-                              [
-                                _vm._v(
-                                  "\n\t\t\t\t\t\t\t\t\t        Notify\n\t\t\t\t\t\t\t\t\t      "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("a", { staticClass: "dropdown-item" }, [
-                              _vm._v(
-                                "\n\t\t\t\t\t\t\t\t\t        Review\n\t\t\t\t\t\t\t\t\t      "
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("a", { staticClass: "dropdown-item" }, [
-                              _vm._v(
-                                "\n\t\t\t\t\t\t\t\t\t        Revoke offer\n\t\t\t\t\t\t\t\t\t      "
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("hr", { staticClass: "dropdown-divider" }),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "dropdown-item",
-                                attrs: { href: "#" }
-                              },
-                              [
-                                _vm._v(
-                                  "\n\t\t\t\t\t\t\t\t\t        Complete onboarding\n\t\t\t\t\t\t\t\t\t      "
-                                )
-                              ]
-                            )
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card is-stacked" }, [
-                _c("div", { staticClass: "card-content" }, [
-                  _c("div", { staticClass: "content" }, [
-                    _c(
-                      "span",
-                      { staticClass: "tag is-rounded is-info is-pulled-right" },
-                      [_vm._v("Onboarding")]
-                    ),
-                    _vm._v(" "),
-                    _c("h3", [
-                      _c("a", { attrs: { href: "" } }, [_vm._v("Joe Schmo")])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "progress",
-                      {
-                        staticClass: "progress is-small",
-                        attrs: { value: "75", max: "100" }
-                      },
-                      [_vm._v("15%")]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("footer", { staticClass: "card-footer" }, [
-                  _c("span", { staticClass: "card-footer-item" }, [
-                    _c("i", { staticClass: "fa fa-clock-o" }),
-                    _vm._v(" 23 days ago")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "card-footer-item dropdown is-hoverable" },
-                    [
-                      _c("div", { staticClass: "dropdown-trigger" }, [
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              "aria-haspopup": "true",
-                              "aria-controls": "dropdown-menu"
-                            }
-                          },
-                          [
-                            _c("span", [_vm._v("Action")]),
-                            _vm._v(" "),
-                            _c("span", { staticClass: "icon is-small" }, [
-                              _c("i", {
-                                staticClass: "fa fa-angle-down",
-                                attrs: { "aria-hidden": "true" }
-                              })
-                            ])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "dropdown-menu",
-                          attrs: { id: "dropdown-menu", role: "menu" }
-                        },
-                        [
-                          _c("div", { staticClass: "dropdown-content" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "dropdown-item",
-                                attrs: { href: "#" }
-                              },
-                              [
-                                _vm._v(
-                                  "\n\t\t\t\t\t\t\t\t\t        Notify\n\t\t\t\t\t\t\t\t\t      "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("a", { staticClass: "dropdown-item" }, [
-                              _vm._v(
-                                "\n\t\t\t\t\t\t\t\t\t        Review\n\t\t\t\t\t\t\t\t\t      "
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("a", { staticClass: "dropdown-item" }, [
-                              _vm._v(
-                                "\n\t\t\t\t\t\t\t\t\t        Revoke offer\n\t\t\t\t\t\t\t\t\t      "
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("hr", { staticClass: "dropdown-divider" }),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "dropdown-item",
-                                attrs: { href: "#" }
-                              },
-                              [
-                                _vm._v(
-                                  "\n\t\t\t\t\t\t\t\t\t        Complete onboarding\n\t\t\t\t\t\t\t\t\t      "
-                                )
-                              ]
-                            )
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card is-stacked" }, [
-                _c("div", { staticClass: "card-content" }, [
-                  _c("div", { staticClass: "content" }, [
-                    _c(
-                      "span",
-                      { staticClass: "tag is-rounded is-pulled-right" },
-                      [_vm._v("Not started")]
-                    ),
-                    _vm._v(" "),
-                    _c("h3", [
-                      _c("a", { attrs: { href: "" } }, [
-                        _vm._v("Sherry Longestlastname")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "progress",
-                      {
-                        staticClass: "progress is-danger is-small",
-                        attrs: { value: "0", max: "100" }
-                      },
-                      [_vm._v("15%")]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("footer", { staticClass: "card-footer" }, [
-                  _c("span", { staticClass: "card-footer-item" }, [
-                    _c("i", { staticClass: "fa fa-clock-o" }),
-                    _vm._v(" 14 days ago   ")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "card-footer-item dropdown is-hoverable" },
-                    [
-                      _c("div", { staticClass: "dropdown-trigger" }, [
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              "aria-haspopup": "true",
-                              "aria-controls": "dropdown-menu"
-                            }
-                          },
-                          [
-                            _c("span", [_vm._v("Action")]),
-                            _vm._v(" "),
-                            _c("span", { staticClass: "icon is-small" }, [
-                              _c("i", {
-                                staticClass: "fa fa-angle-down",
-                                attrs: { "aria-hidden": "true" }
-                              })
-                            ])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "dropdown-menu",
-                          attrs: { id: "dropdown-menu", role: "menu" }
-                        },
-                        [
-                          _c("div", { staticClass: "dropdown-content" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "dropdown-item",
-                                attrs: { href: "#" }
-                              },
-                              [
-                                _vm._v(
-                                  "\n\t\t\t\t\t\t\t\t\t        Notify\n\t\t\t\t\t\t\t\t\t      "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("a", { staticClass: "dropdown-item" }, [
-                              _vm._v(
-                                "\n\t\t\t\t\t\t\t\t\t        Review\n\t\t\t\t\t\t\t\t\t      "
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("a", { staticClass: "dropdown-item" }, [
-                              _vm._v(
-                                "\n\t\t\t\t\t\t\t\t\t        Revoke offer\n\t\t\t\t\t\t\t\t\t      "
-                              )
-                            ]),
-                            _vm._v(" "),
-                            _c("hr", { staticClass: "dropdown-divider" }),
-                            _vm._v(" "),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "dropdown-item",
-                                attrs: { href: "#" }
-                              },
-                              [
-                                _vm._v(
-                                  "\n\t\t\t\t\t\t\t\t\t        Complete onboarding\n\t\t\t\t\t\t\t\t\t      "
-                                )
-                              ]
-                            )
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "column" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("header", { staticClass: "card-header is-dark" }, [
-            _c("p", { staticClass: "card-header-title" }, [
-              _c("span", { staticClass: "tag is-secondary" }, [_vm._v("2")]),
-              _vm._v(" Candidates\n\t\t\t\t\t    ")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-content" }, [
-            _c("div", { staticClass: "content" }, [
-              _c("div", { staticClass: "card is-stacked" }, [
-                _c("div", { staticClass: "card-content" }, [
-                  _c("div", { staticClass: "content" }, [
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "is-pulled-right is-tooltip-warning tooltip is-tooltip-left",
-                        attrs: { "data-tooltip": "Remove from candidates" }
-                      },
-                      [_c("a", { staticClass: "delete is-small" })]
-                    ),
-                    _vm._v(" "),
-                    _c("h3", [
-                      _c("a", { attrs: { href: "" } }, [
-                        _vm._v("Ben Steinburger")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _c("strong", [_vm._v("10 years 3 months")]),
-                      _vm._v(" total experience, "),
-                      _c("strong", [_vm._v("4,300")]),
-                      _vm._v(" Total Claims")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("footer", { staticClass: "card-footer" }, [
-                  _c("span", { staticClass: "card-footer-item" }, [
-                    _c("i", { staticClass: "fa fa-clock-o" }),
-                    _vm._v(" 1 month ago")
-                  ]),
-                  _vm._v(" "),
-                  _c("a", { staticClass: "card-footer-item" }, [_vm._v("Hire")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card is-stacked" }, [
-                _c("div", { staticClass: "card-content" }, [
-                  _c("div", { staticClass: "content" }, [
-                    _c(
-                      "span",
-                      {
-                        staticClass:
-                          "is-pulled-right is-tooltip-warning tooltip is-tooltip-left",
-                        attrs: { "data-tooltip": "Remove from candidates" }
-                      },
-                      [_c("a", { staticClass: "delete is-small" })]
-                    ),
-                    _vm._v(" "),
-                    _c("h3", [
-                      _c("a", { attrs: { href: "" } }, [
-                        _vm._v("Jessica Caldroy")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _c("strong", [_vm._v("3 years 7 months")]),
-                      _vm._v(" total experience, "),
-                      _c("strong", [_vm._v("320")]),
-                      _vm._v(" Total Claims")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("footer", { staticClass: "card-footer" }, [
-                  _c("span", { staticClass: "card-footer-item" }, [
-                    _c("i", { staticClass: "fa fa-clock-o" }),
-                    _vm._v(" 1 month ago")
-                  ]),
-                  _vm._v(" "),
-                  _c("a", { staticClass: "card-footer-item" }, [_vm._v("Hire")])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "column" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("header", { staticClass: "card-header" }, [
-            _c("p", { staticClass: "card-header-title" }, [
-              _c("span", { staticClass: "tag is-primary" }, [_vm._v("4")]),
-              _vm._v(" Recent Applicants \n\t\t\t\t\t    ")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-content" }, [
-            _c("div", { staticClass: "content" }, [
-              _c("div", { staticClass: "card is-stacked" }, [
-                _c("div", { staticClass: "card-content" }, [
-                  _c("div", { staticClass: "content" }, [
-                    _c("h3", [
-                      _c("a", { attrs: { href: "" } }, [_vm._v("Dustin Smith")])
-                    ]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _c("strong", [_vm._v("3 years 7 months")]),
-                      _vm._v(" total experience, "),
-                      _c("strong", [_vm._v("320")]),
-                      _vm._v(" Total Claims")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("footer", { staticClass: "card-footer" }, [
-                  _c("span", { staticClass: "card-footer-item" }, [
-                    _c("i", { staticClass: "fa fa-clock-o" }),
-                    _vm._v(" 4 days ago")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "card-footer-item dropdown is-hoverable" },
-                    [
-                      _c("div", { staticClass: "dropdown-trigger" }, [
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              "aria-haspopup": "true",
-                              "aria-controls": "dropdown-menu"
-                            }
-                          },
-                          [
-                            _c("span", [_vm._v("Action")]),
-                            _vm._v(" "),
-                            _c("span", { staticClass: "icon is-small" }, [
-                              _c("i", {
-                                staticClass: "fa fa-angle-down",
-                                attrs: { "aria-hidden": "true" }
-                              })
-                            ])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "dropdown-menu",
-                          attrs: { id: "dropdown-menu", role: "menu" }
-                        },
-                        [
-                          _c("div", { staticClass: "dropdown-content" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "dropdown-item",
-                                attrs: { href: "#" }
-                              },
-                              [
-                                _vm._v(
-                                  "\n\t\t\t\t\t\t\t\t\t        Make candidate\n\t\t\t\t\t\t\t\t\t      "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("a", { staticClass: "dropdown-item" }, [
-                              _vm._v(
-                                "\n\t\t\t\t\t\t\t\t\t        View applicant details\n\t\t\t\t\t\t\t\t\t      "
-                              )
-                            ])
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card is-stacked" }, [
-                _c("div", { staticClass: "card-content" }, [
-                  _c("div", { staticClass: "content" }, [
-                    _c("h3", [
-                      _c("a", { attrs: { href: "" } }, [_vm._v("Mary Jones")])
-                    ]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _c("strong", [_vm._v("3 years 7 months")]),
-                      _vm._v(" total experience, "),
-                      _c("strong", [_vm._v("320")]),
-                      _vm._v(" Total Claims")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("footer", { staticClass: "card-footer" }, [
-                  _c("span", { staticClass: "card-footer-item" }, [
-                    _c("i", { staticClass: "fa fa-clock-o" }),
-                    _vm._v(" 15 days ago")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "card-footer-item dropdown is-hoverable" },
-                    [
-                      _c("div", { staticClass: "dropdown-trigger" }, [
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              "aria-haspopup": "true",
-                              "aria-controls": "dropdown-menu"
-                            }
-                          },
-                          [
-                            _c("span", [_vm._v("Action")]),
-                            _vm._v(" "),
-                            _c("span", { staticClass: "icon is-small" }, [
-                              _c("i", {
-                                staticClass: "fa fa-angle-down",
-                                attrs: { "aria-hidden": "true" }
-                              })
-                            ])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "dropdown-menu",
-                          attrs: { id: "dropdown-menu", role: "menu" }
-                        },
-                        [
-                          _c("div", { staticClass: "dropdown-content" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "dropdown-item",
-                                attrs: { href: "#" }
-                              },
-                              [
-                                _vm._v(
-                                  "\n\t\t\t\t\t\t\t\t\t        Make candidate\n\t\t\t\t\t\t\t\t\t      "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("a", { staticClass: "dropdown-item" }, [
-                              _vm._v(
-                                "\n\t\t\t\t\t\t\t\t\t        View applicant details\n\t\t\t\t\t\t\t\t\t      "
-                              )
-                            ])
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card is-stacked" }, [
-                _c("div", { staticClass: "card-content" }, [
-                  _c("div", { staticClass: "content" }, [
-                    _c("h3", [
-                      _c("a", { attrs: { href: "" } }, [
-                        _vm._v("James Abbotts")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _c("strong", [_vm._v("3 years 7 months")]),
-                      _vm._v(" total experience, "),
-                      _c("strong", [_vm._v("320")]),
-                      _vm._v(" Total Claims")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("footer", { staticClass: "card-footer" }, [
-                  _c("span", { staticClass: "card-footer-item" }, [
-                    _c("i", { staticClass: "fa fa-clock-o" }),
-                    _vm._v(" 15 days ago")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "card-footer-item dropdown is-hoverable" },
-                    [
-                      _c("div", { staticClass: "dropdown-trigger" }, [
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              "aria-haspopup": "true",
-                              "aria-controls": "dropdown-menu"
-                            }
-                          },
-                          [
-                            _c("span", [_vm._v("Action")]),
-                            _vm._v(" "),
-                            _c("span", { staticClass: "icon is-small" }, [
-                              _c("i", {
-                                staticClass: "fa fa-angle-down",
-                                attrs: { "aria-hidden": "true" }
-                              })
-                            ])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "dropdown-menu",
-                          attrs: { id: "dropdown-menu", role: "menu" }
-                        },
-                        [
-                          _c("div", { staticClass: "dropdown-content" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "dropdown-item",
-                                attrs: { href: "#" }
-                              },
-                              [
-                                _vm._v(
-                                  "\n\t\t\t\t\t\t\t\t\t        Make candidate\n\t\t\t\t\t\t\t\t\t      "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("a", { staticClass: "dropdown-item" }, [
-                              _vm._v(
-                                "\n\t\t\t\t\t\t\t\t\t        View applicant details\n\t\t\t\t\t\t\t\t\t      "
-                              )
-                            ])
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "card is-stacked" }, [
-                _c("div", { staticClass: "card-content" }, [
-                  _c("div", { staticClass: "content" }, [
-                    _c("h3", [
-                      _c("a", { attrs: { href: "" } }, [
-                        _vm._v("Jessica Caldroy")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _c("strong", [_vm._v("3 years 7 months")]),
-                      _vm._v(" total experience, "),
-                      _c("strong", [_vm._v("320")]),
-                      _vm._v(" Total Claims")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("footer", { staticClass: "card-footer" }, [
-                  _c("span", { staticClass: "card-footer-item" }, [
-                    _c("i", { staticClass: "fa fa-clock-o" }),
-                    _vm._v(" 2 months ago")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "card-footer-item dropdown is-hoverable" },
-                    [
-                      _c("div", { staticClass: "dropdown-trigger" }, [
-                        _c(
-                          "a",
-                          {
-                            attrs: {
-                              "aria-haspopup": "true",
-                              "aria-controls": "dropdown-menu"
-                            }
-                          },
-                          [
-                            _c("span", [_vm._v("Action")]),
-                            _vm._v(" "),
-                            _c("span", { staticClass: "icon is-small" }, [
-                              _c("i", {
-                                staticClass: "fa fa-angle-down",
-                                attrs: { "aria-hidden": "true" }
-                              })
-                            ])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "dropdown-menu",
-                          attrs: { id: "dropdown-menu", role: "menu" }
-                        },
-                        [
-                          _c("div", { staticClass: "dropdown-content" }, [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "dropdown-item",
-                                attrs: { href: "#" }
-                              },
-                              [
-                                _vm._v(
-                                  "\n\t\t\t\t\t\t\t\t\t        Make candidate\n\t\t\t\t\t\t\t\t\t      "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("a", { staticClass: "dropdown-item" }, [
-                              _vm._v(
-                                "\n\t\t\t\t\t\t\t\t\t        View applicant details\n\t\t\t\t\t\t\t\t\t      "
-                              )
-                            ])
-                          ])
-                        ]
-                      )
-                    ]
-                  )
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -5067,4 +4720,4 @@ if (false) {
 
 /***/ })
 
-},[325]);
+},[326]);

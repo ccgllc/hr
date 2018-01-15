@@ -100,15 +100,15 @@ var Resource = function () {
 
 /***/ }),
 
-/***/ 271:
+/***/ 272:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(272);
+module.exports = __webpack_require__(273);
 
 
 /***/ }),
 
-/***/ 272:
+/***/ 273:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -175,4 +175,4 @@ var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 
 /***/ })
 
-},[271]);
+},[272]);
