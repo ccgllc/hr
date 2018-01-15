@@ -264,7 +264,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				console.log(response);
 				var storage = window.localStorage;
 				storage.setItem('token', response.token);
-				// window.axios.defaults.headers.common['Authorization'] = storage.token;
 				return window.location.href = response.destination;
 			});
 		}
