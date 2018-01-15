@@ -9,12 +9,15 @@
 			<dashboard-navigation></dashboard-navigation>
 			
 			<div class="columns">
+
 				<div class="column is-4">
 					<user-statuses-chart></user-statuses-chart>
 				</div>
+
 				<div class="column is-8">
 					<user-roles-chart></user-roles-chart>
 				</div>
+				
 			</div>
 			<!-- <hr> -->
 			
