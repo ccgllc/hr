@@ -69,7 +69,6 @@
 						console.log(response);
                         let storage = window.localStorage;
                         storage.setItem('token', response.token);
-                        // window.axios.defaults.headers.common['Authorization'] = storage.token;
 						return window.location.href = response.destination;
 				});
 			}
