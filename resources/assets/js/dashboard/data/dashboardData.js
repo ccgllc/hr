@@ -1,19 +1,10 @@
 import counts from './counts.js';
 export default {
-	userRolesChart: {},
-	userStatusesChart: {
-	  chartData: {
-            labels: ['Applicants', 'Active', 'Candidates', 'New Hires', 'No Hire'],
-            datasets: [
-                {
-                    backgroundColor: ['#439BD1', '#30A987', '#343b4d', '#FEDD62', '#FC3C63'],
-                    data: []
-                }
-            ]
-        },
-	},
 	counts,
+	newHireCount: 0,
 	newHires: [],
+	candidateCount: 0,
 	candidates: [],
+	applicantCount: 0,
 	applicants: [],
 }

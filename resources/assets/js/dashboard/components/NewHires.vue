@@ -55,6 +55,7 @@
 </template>
 
 <script>
+	import dashboardData from '../data/dashboardData.js';
 	export default {
 		name: "NewHire",
 		mounted() {
@@ -62,10 +63,7 @@
 			this.newHires = window.dashboardData.newHires;
 		},
 		data() {
-			return {
-				newHireCount: 0,
-				newHires: [],
-			}
+			return dashboardData
 		}
 	}
 </script>

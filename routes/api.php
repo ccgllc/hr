@@ -25,6 +25,7 @@ Route::namespace('Api\EmploymentApplication')
 Route::namespace('Api\Profile')
 	->middleware('auth:api')
 	->group(function () {
+		Route::patch('user/{id}/status', 'ProfileController@status');
 		Route::put('user/{id}/xactnet_address', 'ProfileController@xactnetAddress');
 		Route::put('user/{id}/phone', 'ProfileController@phone');
 		Route::put('user/{id}/email', 'ProfileController@email');

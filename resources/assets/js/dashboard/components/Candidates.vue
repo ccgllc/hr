@@ -11,7 +11,7 @@
 			      <div class="card is-stacked" v-for="candidate in candidates">
 			    		<div class="card-content">
 			    			<div class="content">
-		    					<span class="is-pulled-right is-tooltip-warning tooltip is-tooltip-left" data-tooltip="Remove from candidates"><a class="delete is-small"></a></span>
+		    					<span @click="removeCandidate(candidate)" class="is-pulled-right is-tooltip-warning tooltip is-tooltip-left" data-tooltip="Remove from candidates"><a class="delete is-small"></a></span>
 			    				<h3><a :href="'/profile/' + candidate.id">{{ candidate.name }}</a></h3>
 			    				<!-- <p><strong>10 years 3 months</strong> total experience, <strong>4,300</strong> Total Claims</p> -->
 			    			</div>
@@ -29,6 +29,7 @@
 </template>
 
 <script>
+	import dashboardData from '../data/dashboardData.js';
 	export default {
 		name: 'Candidates',
 		mounted() {
@@ -36,9 +37,16 @@
 			this.candidates = window.dashboardData.candidates;
 		},
 		data(){
-			return {
-				candidateCount: 0,
-				candidates: []
+			return dashboardData;
+		},
+		methods: {
+			removeCandidate(user){
+				window.axios.patch('/api/user/' + user.id + '/status/', {status: 'applicant'})
+							.then(response => {
+								let idx = this.candidates.indexOf(user);
+								this.candidates.splice(idx, 1);
+								this.applicants.unshift(response.data);
+							})
 			}
 		}
 	}

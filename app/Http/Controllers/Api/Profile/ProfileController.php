@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller {
 
+	public function status(Request $request, $id)
+	{
+		$user = $this->getUser($id);
+		$user->status = $request->status;
+		$user->save();
+		return $user;
+	}
+
 	public function xactnetAddress(Request $request, $id)
 	{
 		$valid = $request->validate([

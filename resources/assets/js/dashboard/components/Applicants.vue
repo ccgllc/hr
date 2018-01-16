@@ -29,7 +29,7 @@
 							  </div>
 							  <div class="dropdown-menu" id="dropdown-menu" role="menu">
 							    <div class="dropdown-content">
-							      <a href="#" class="dropdown-item">
+							      <a @click="makeCandidate(applicant)" class="dropdown-item">
 							        Make candidate
 							      </a>
 							      <a class="dropdown-item">
@@ -48,6 +48,7 @@
 </template>
 
 <script>
+	import dashboardData from '../data/dashboardData.js';
 	export default {
 		name: 'Applicants',
 		mounted() {
@@ -55,9 +56,17 @@
 			this.applicantCount = window.dashboardData.applicantCount;
 		},
 		data() {
-			return {
-				applicants: [],
-				applicantCount: 0,
+			return dashboardData
+		},
+		methods: {
+			makeCandidate(user){
+				window.axios.patch('/api/user/' + user.id + '/status/', {status: 'candidate'})
+							.then(response => {
+								console.log('setting as candidate');
+								let idx = this.applicants.indexOf(user);
+								this.applicants.splice(idx, 1);
+								this.candidates.unshift(response.data);
+							})
 			}
 		}
 	}

@@ -131,20 +131,13 @@ function mergeOptions(obj, src) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__counts_js__ = __webpack_require__(330);
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-    userRolesChart: {},
-    userStatusesChart: {
-        chartData: {
-            labels: ['Applicants', 'Active', 'Candidates', 'New Hires', 'No Hire'],
-            datasets: [{
-                backgroundColor: ['#439BD1', '#30A987', '#343b4d', '#FEDD62', '#FC3C63'],
-                data: []
-            }]
-        }
-    },
-    counts: __WEBPACK_IMPORTED_MODULE_0__counts_js__["a" /* default */],
-    newHires: [],
-    candidates: [],
-    applicants: []
+	counts: __WEBPACK_IMPORTED_MODULE_0__counts_js__["a" /* default */],
+	newHireCount: 0,
+	newHires: [],
+	candidateCount: 0,
+	candidates: [],
+	applicantCount: 0,
+	applicants: []
 });
 
 /***/ }),
@@ -350,12 +343,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -377,7 +364,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		applicants: __WEBPACK_IMPORTED_MODULE_7__Applicants_vue___default.a
 	},
 	mounted: function mounted() {
-		//
+		this.newHires = window.dashboardData.newHires;
+		this.newHireCount = window.dashboardData.newHireCount;
+		this.candidates = window.dashboardData.candidates;
+		this.candidateCount = window.dashboardData.candidateCount;
+		this.applicants = window.dashboardData.applicants;
+		this.applicantCount = window.dashboardData.applicantCount;
 	},
 	data: function data() {
 		return __WEBPACK_IMPORTED_MODULE_0__data_dashboardData_js__["a" /* default */];
@@ -4088,6 +4080,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__data_dashboardData_js__ = __webpack_require__(149);
 //
 //
 //
@@ -4145,6 +4138,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
 	name: "NewHire",
 	mounted: function mounted() {
@@ -4152,10 +4146,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		this.newHires = window.dashboardData.newHires;
 	},
 	data: function data() {
-		return {
-			newHireCount: 0,
-			newHires: []
-		};
+		return __WEBPACK_IMPORTED_MODULE_0__data_dashboardData_js__["a" /* default */];
 	}
 });
 
@@ -4356,6 +4347,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__data_dashboardData_js__ = __webpack_require__(149);
 //
 //
 //
@@ -4387,6 +4379,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
 	name: 'Candidates',
 	mounted: function mounted() {
@@ -4394,10 +4387,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		this.candidates = window.dashboardData.candidates;
 	},
 	data: function data() {
-		return {
-			candidateCount: 0,
-			candidates: []
-		};
+		return __WEBPACK_IMPORTED_MODULE_0__data_dashboardData_js__["a" /* default */];
+	},
+
+	methods: {
+		removeCandidate: function removeCandidate(user) {
+			var _this = this;
+
+			window.axios.patch('/api/user/' + user.id + '/status/', { status: 'applicant' }).then(function (response) {
+				var idx = _this.candidates.indexOf(user);
+				_this.candidates.splice(idx, 1);
+				_this.applicants.unshift(response.data);
+			});
+		}
 	}
 });
 
@@ -4429,7 +4431,20 @@ var render = function() {
             return _c("div", { staticClass: "card is-stacked" }, [
               _c("div", { staticClass: "card-content" }, [
                 _c("div", { staticClass: "content" }, [
-                  _vm._m(0, true),
+                  _c(
+                    "span",
+                    {
+                      staticClass:
+                        "is-pulled-right is-tooltip-warning tooltip is-tooltip-left",
+                      attrs: { "data-tooltip": "Remove from candidates" },
+                      on: {
+                        click: function($event) {
+                          _vm.removeCandidate(candidate)
+                        }
+                      }
+                    },
+                    [_c("a", { staticClass: "delete is-small" })]
+                  ),
                   _vm._v(" "),
                   _c("h3", [
                     _c("a", { attrs: { href: "/profile/" + candidate.id } }, [
@@ -4456,22 +4471,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      {
-        staticClass:
-          "is-pulled-right is-tooltip-warning tooltip is-tooltip-left",
-        attrs: { "data-tooltip": "Remove from candidates" }
-      },
-      [_c("a", { staticClass: "delete is-small" })]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -4536,6 +4536,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__data_dashboardData_js__ = __webpack_require__(149);
 //
 //
 //
@@ -4586,6 +4587,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
 	name: 'Applicants',
 	mounted: function mounted() {
@@ -4593,10 +4595,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		this.applicantCount = window.dashboardData.applicantCount;
 	},
 	data: function data() {
-		return {
-			applicants: [],
-			applicantCount: 0
-		};
+		return __WEBPACK_IMPORTED_MODULE_0__data_dashboardData_js__["a" /* default */];
+	},
+
+	methods: {
+		makeCandidate: function makeCandidate(user) {
+			var _this = this;
+
+			window.axios.patch('/api/user/' + user.id + '/status/', { status: 'candidate' }).then(function (response) {
+				console.log('setting as candidate');
+				var idx = _this.applicants.indexOf(user);
+				_this.applicants.splice(idx, 1);
+				_this.candidates.unshift(response.data);
+			});
+		}
 	}
 });
 
@@ -4642,7 +4654,47 @@ var render = function() {
                   _vm._v(_vm._s(applicant.created_at))
                 ]),
                 _vm._v(" "),
-                _vm._m(0, true)
+                _c(
+                  "div",
+                  { staticClass: "card-footer-item dropdown is-hoverable" },
+                  [
+                    _vm._m(0, true),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "dropdown-menu",
+                        attrs: { id: "dropdown-menu", role: "menu" }
+                      },
+                      [
+                        _c("div", { staticClass: "dropdown-content" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "dropdown-item",
+                              on: {
+                                click: function($event) {
+                                  _vm.makeCandidate(applicant)
+                                }
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n\t\t\t\t\t\t        Make candidate\n\t\t\t\t\t\t      "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("a", { staticClass: "dropdown-item" }, [
+                            _vm._v(
+                              "\n\t\t\t\t\t\t        View applicant details\n\t\t\t\t\t\t      "
+                            )
+                          ])
+                        ])
+                      ]
+                    )
+                  ]
+                )
               ])
             ])
           })
@@ -4658,56 +4710,24 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "card-footer-item dropdown is-hoverable" },
-      [
-        _c("div", { staticClass: "dropdown-trigger" }, [
-          _c(
-            "a",
-            {
-              attrs: {
-                "aria-haspopup": "true",
-                "aria-controls": "dropdown-menu"
-              }
-            },
-            [
-              _c("span", [_vm._v("Action")]),
-              _vm._v(" "),
-              _c("span", { staticClass: "icon is-small" }, [
-                _c("i", {
-                  staticClass: "fa fa-angle-down",
-                  attrs: { "aria-hidden": "true" }
-                })
-              ])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass: "dropdown-menu",
-            attrs: { id: "dropdown-menu", role: "menu" }
-          },
-          [
-            _c("div", { staticClass: "dropdown-content" }, [
-              _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-                _vm._v(
-                  "\n\t\t\t\t\t\t        Make candidate\n\t\t\t\t\t\t      "
-                )
-              ]),
-              _vm._v(" "),
-              _c("a", { staticClass: "dropdown-item" }, [
-                _vm._v(
-                  "\n\t\t\t\t\t\t        View applicant details\n\t\t\t\t\t\t      "
-                )
-              ])
-            ])
-          ]
-        )
-      ]
-    )
+    return _c("div", { staticClass: "dropdown-trigger" }, [
+      _c(
+        "a",
+        {
+          attrs: { "aria-haspopup": "true", "aria-controls": "dropdown-menu" }
+        },
+        [
+          _c("span", [_vm._v("Action")]),
+          _vm._v(" "),
+          _c("span", { staticClass: "icon is-small" }, [
+            _c("i", {
+              staticClass: "fa fa-angle-down",
+              attrs: { "aria-hidden": "true" }
+            })
+          ])
+        ]
+      )
+    ])
   }
 ]
 render._withStripped = true
