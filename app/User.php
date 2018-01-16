@@ -121,6 +121,17 @@ class User extends Authenticatable
         return $query->where('status', $status);
     }
 
+      /**
+     * Scope a query to only select  recent users 
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeRecent($query)
+    {
+        return $query->orderBy('created_at', 'desc');
+    }
+
     // public function scopeAdmin($query)
     // {
         

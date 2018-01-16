@@ -33,7 +33,7 @@ class Dashboard
 
 	protected function getUsers($status, $quanity)
 	{
-		return User::status($status)->get()->take(4)->all();
+		return User::recent()->status($status)->get()->take(4)->all();
 	}
 
 	protected function getRoles()

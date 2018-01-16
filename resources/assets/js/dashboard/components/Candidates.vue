@@ -17,7 +17,7 @@
 			    			</div>
 			    		</div>
 			    		<footer class="card-footer">
-			    			<span class="card-footer-item"><i class="fa fa-clock-o"></i> 1 month ago</span>
+			    			<span class="card-footer-item"><i class="fa fa-clock-o"></i> {{ candidate.created_at }}</span>
 						   	<a class="card-footer-item">Hire</a>
 			    		</footer>
 			    	</div>
