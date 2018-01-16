@@ -42,6 +42,7 @@ route::get('apply', function(Illuminate\Http\Request $request){
 Route::get('/dashboard', 'DashboardController@show');
 
 Route::resource('users', 'UsersController');
+// Route::get('users/{status}', 'UsersController@status');
 Route::resource('users/{id}/documents', 'UserDocumentsController');
 Route::resource('users/{id}/roles', 'UserRolesController');
 Route::get('users/verify/{token}', 'UsersController@verifyAccount');

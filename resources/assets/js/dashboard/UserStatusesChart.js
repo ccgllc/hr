@@ -19,7 +19,7 @@ export default {
                 var label = chartData.labels[idx];
                 var value = chartData.datasets[0].data[idx];
 
-                var url = "/users?status=" + label;
+                var url = "/users/" + label;
                 // console.log(url);
                 // alert(url);
                 window.location = url

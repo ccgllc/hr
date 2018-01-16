@@ -498,7 +498,7 @@ var staticRenderFns = [
       [
         _c("ul", [
           _c("li", { staticClass: "is-active" }, [
-            _c("a", [
+            _c("a", { attrs: { href: "/dashboard" } }, [
               _c("span", { staticClass: "icon" }, [
                 _c("i", { staticClass: "fa fa-tachometer" })
               ]),
@@ -507,7 +507,7 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("li", [
-            _c("a", [
+            _c("a", { attrs: { href: "/users" } }, [
               _c("span", { staticClass: "icon" }, [
                 _c("i", { staticClass: "fa fa-user-circle-o" })
               ]),
@@ -516,7 +516,7 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("li", [
-            _c("a", [
+            _c("a", { attrs: { href: "/roles" } }, [
               _c("span", { staticClass: "icon" }, [
                 _c("i", { staticClass: "fa fa-users" })
               ]),
@@ -525,7 +525,7 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("li", [
-            _c("a", [
+            _c("a", { attrs: { href: "#" } }, [
               _c("span", { staticClass: "icon" }, [
                 _c("i", { staticClass: "fa fa-envelope" })
               ]),
@@ -3726,7 +3726,7 @@ module.exports = {"_from":"vue-chartjs@^3.0.2","_id":"vue-chartjs@3.0.2","_inBun
                 var label = chartData.labels[idx];
                 var value = chartData.datasets[0].data[idx];
 
-                var url = "/users?status=" + label;
+                var url = "/users/" + label;
                 // console.log(url);
                 // alert(url);
                 window.location = url;
@@ -3874,6 +3874,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		return {
 			data: __WEBPACK_IMPORTED_MODULE_0__data_dashboardData_js__["a" /* default */].counts
 		};
+	},
+
+	methods: {
+		view: function view(status) {
+			return window.location = '/users' + status;
+		}
 	}
 });
 
@@ -3891,68 +3897,128 @@ var render = function() {
     { staticClass: "columns", staticStyle: { margin: "3rem 0 3rem 0" } },
     [
       _c("div", { staticClass: "column" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-content has-text-centered" }, [
-            _c("span", { staticClass: "count is-total" }, [
-              _vm._v(_vm._s(_vm.data.total))
-            ]),
-            _c("br"),
-            _vm._v(" "),
-            _c("span", { staticClass: "type" }, [_vm._v("Total")])
-          ])
-        ])
+        _c(
+          "div",
+          {
+            staticClass: "card",
+            staticStyle: { cursor: "pointer" },
+            on: {
+              click: function($event) {
+                _vm.view("?page=1")
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "card-content has-text-centered" }, [
+              _c("span", { staticClass: "count is-total" }, [
+                _vm._v(_vm._s(_vm.data.total))
+              ]),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "type" }, [_vm._v("Total")])
+            ])
+          ]
+        )
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "column" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-content has-text-centered" }, [
-            _c("span", { staticClass: "count is-applicants" }, [
-              _vm._v(_vm._s(_vm.data.applicants))
-            ]),
-            _c("br"),
-            _vm._v(" "),
-            _c("span", { staticClass: "type" }, [_vm._v("Applicants")])
-          ])
-        ])
+        _c(
+          "div",
+          {
+            staticClass: "card",
+            staticStyle: { cursor: "pointer" },
+            on: {
+              click: function($event) {
+                _vm.view("/applicant")
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "card-content has-text-centered" }, [
+              _c("span", { staticClass: "count is-applicants" }, [
+                _vm._v(_vm._s(_vm.data.applicants))
+              ]),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "type" }, [_vm._v("Applicants")])
+            ])
+          ]
+        )
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "column" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-content has-text-centered" }, [
-            _c("span", { staticClass: "count is-active" }, [
-              _vm._v(_vm._s(_vm.data.active))
-            ]),
-            _c("br"),
-            _vm._v(" "),
-            _c("span", { staticClass: "type" }, [_vm._v("Active")])
-          ])
-        ])
+        _c(
+          "div",
+          {
+            staticClass: "card",
+            staticStyle: { cursor: "pointer" },
+            on: {
+              click: function($event) {
+                _vm.view("/active")
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "card-content has-text-centered" }, [
+              _c("span", { staticClass: "count is-active" }, [
+                _vm._v(_vm._s(_vm.data.active))
+              ]),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "type" }, [_vm._v("Active")])
+            ])
+          ]
+        )
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "column" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-content has-text-centered" }, [
-            _c("span", { staticClass: "count is-inactive" }, [
-              _vm._v(_vm._s(_vm.data.inActive))
-            ]),
-            _c("br"),
-            _vm._v(" "),
-            _c("span", { staticClass: "type" }, [_vm._v("In-Active")])
-          ])
-        ])
+        _c(
+          "div",
+          {
+            staticClass: "card",
+            staticStyle: { cursor: "pointer" },
+            on: {
+              click: function($event) {
+                _vm.view("/in-active")
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "card-content has-text-centered" }, [
+              _c("span", { staticClass: "count is-inactive" }, [
+                _vm._v(_vm._s(_vm.data.inActive))
+              ]),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "type" }, [_vm._v("In-Active")])
+            ])
+          ]
+        )
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "column" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-content has-text-centered" }, [
-            _c("span", { staticClass: "count is-no-hires" }, [
-              _vm._v(_vm._s(_vm.data.noHire))
-            ]),
-            _c("br"),
-            _vm._v(" "),
-            _c("span", { staticClass: "type" }, [_vm._v("No Hire")])
-          ])
-        ])
+        _c(
+          "div",
+          {
+            staticClass: "card",
+            staticStyle: { cursor: "pointer" },
+            on: {
+              click: function($event) {
+                _vm.view("/no-hire")
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "card-content has-text-centered" }, [
+              _c("span", { staticClass: "count is-no-hires" }, [
+                _vm._v(_vm._s(_vm.data.noHire))
+              ]),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", { staticClass: "type" }, [_vm._v("No Hire")])
+            ])
+          ]
+        )
       ])
     ]
   )

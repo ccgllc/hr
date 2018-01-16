@@ -59,19 +59,11 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($status)
     {
-    	$user = User::find($id);
-    	$user->load([
-    		'profile',
-    		'workHistory',
-    		'certifications',
-    		'adjusterLicenses',
-    		'softwareExperiences',
-            'documents'
-    	])->get();
-    	
-        return view('user.show', compact('user'));
+        $users =  User::status($status)->orderBy('created_at', 'desc')->paginate(15);
+        $status = ucwords($status);
+        return view('user.admin', compact('users', 'status'));
     }
 
     /**
