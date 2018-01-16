@@ -3726,16 +3726,17 @@ module.exports = {"_from":"vue-chartjs@^3.0.2","_id":"vue-chartjs@3.0.2","_inBun
                 var label = chartData.labels[idx];
                 var value = chartData.datasets[0].data[idx];
 
-                var url = "http://example.com/?label=" + label + "&value=" + value;
-                console.log(url);
-                alert(url);
+                var url = "/users?status=" + label;
+                // console.log(url);
+                // alert(url);
+                window.location = url;
             }
         };
     },
     data: function data() {
         return {
             chartData: {
-                labels: ['Applicants', 'Active', 'Candidates', 'New Hires', 'No Hire'],
+                labels: ['applicant', 'active', 'candidate', 'new-Hire', 'no-hire'],
                 datasets: [{
                     backgroundColor: ['#439BD1', '#30A987', '#343b4d', '#FEDD62', '#FC3C63'],
                     data: []

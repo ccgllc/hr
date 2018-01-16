@@ -19,12 +19,18 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::exclude('api_token')->paginate(15);
+        if ($request->has('status')) {
+            $users =  User::status($request->status)->orderBy('created_at', 'desc')->paginate(15);
+            $status = ucwords($request->status).'s';
+        }
+        else {
+            $users = User::orderBy('created_at', 'desc')->paginate(15);
+            $status = 'Users';
+        }
         $users->load('roles');
-        
-        return view('user.admin', compact('users'));
+        return view('user.admin', compact('users', 'status'));
     }
 
     /**
