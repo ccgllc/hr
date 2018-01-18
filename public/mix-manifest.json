@@ -1,0 +1,15 @@
+{
+    "/js/vendor.js": "/js/vendor.js?id=1e5fdf5242eb4f0aebf0",
+    "/js/profile.js": "/js/profile.js?id=a1f29a3e0e0d6ad5be16",
+    "/js/apply.js": "/js/apply.js?id=1769121b5d076c97ef56",
+    "/js/dashboard.js": "/js/dashboard.js?id=e79823b6ee30c4d258bf",
+    "/js/app.js": "/js/app.js?id=5913991c5df4c643a97e",
+    "/css/app.css": "/css/app.css?id=b26023a772cc1ad6c03d",
+    "/js/manageRoles.js": "/js/manageRoles.js?id=10c0c915343614e7eff7",
+    "/js/requestPasswordReset.js": "/js/requestPasswordReset.js?id=756dc84c8a2aaf0989d6",
+    "/js/register.js": "/js/register.js?id=8d4a2fa0f7d1c770be51",
+    "/js/manageUserRoles.js": "/js/manageUserRoles.js?id=0087ee1a89bb9cf6bbcf",
+    "/js/login.js": "/js/login.js?id=40e63ed61d643df73bba",
+    "/js/user.js": "/js/user.js?id=82e014bcdbe24295b740",
+    "/js/manifest.js": "/js/manifest.js?id=224a9649322585ffc33a"
+}
