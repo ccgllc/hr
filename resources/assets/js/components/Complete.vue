@@ -7,16 +7,22 @@
 					<p>Please take 5 seconds to tell us where you heard about us. We'd really apriciate it.</p><br>
 
 					<div class="select">
-					  <select v-model="referral">
+					  <select v-model="referral" @change="userInput = ''">
 					    <option value="">Select an option</option>
 					    <option v-for="refer in referrals" :value="refer">{{ refer }}</option>
 					  </select>
 					</div><br><br>
 
+					<div class="field is-signin" v-if="needsInput">
+						<label class="label" for="userInput">{{ getLabel }}?</label>
+						<input type="text" class="input" v-model="userInput">
+						<br><br>
+					</div>
+
 					<button 
 						@click="goToProfile()"
 						class="button is-primary has-text-centered" 
-						:disabled="referral == ''"
+						:disabled="referral == '' || userInput == ''"
 						>
 							Continue to your profile
 					</button>
@@ -33,11 +39,38 @@
 		mounted() {
 			this.setupView();
 		},
+		computed: {
+			needsInput() {
+				return this.referral === 'Conference' || this.referral === 'CCG Employee' || this.referral === 'Other'
+								? true
+								: false;
+			},
+			getLabel() {
+				switch(this.referral) {
+					case 'Conference' :
+						return 'Which Conference';
+						break;
+					case 'CCG Employee' :
+						return 'Employee\'s Name';
+						break;
+					case 'Other' :
+						return 'How did you hear about us';
+						break;
+					default:
+						return 'Label';
+
+				}
+				// this.referral === 'Conference' ? this.label = 'Which Conference' :
+			}
+		},
 		data() {
 			return {
 				appData,
 				referral: '',
-				referrals: ['Conference', 'Facebook', 'LinkedIn', 'CCG Employee']
+				label: '',
+				userInput: '',
+				userId: '',
+				referrals: ['Conference', 'Facebook', 'LinkedIn', 'CCG Employee', 'Other']
 			}
 		},
 		methods: {
@@ -45,9 +78,21 @@
 				this.appData.text.title = 'Thank you for Applying!';
 				this.appData.text.subtitle = 'You can edit and update your profile as you develop new skills or experience.'
 				this.appData.progress = 4;
+				this.userId = window.userData.id;
 			},
 			goToProfile(){
-				return window.location = '/profile';
+				// console.log(this.getData());
+				window.axios.patch('/api/user/' + this.userId + '/referral', this.getData())
+								.then(response => {
+									return window.location = '/profile';
+								}).catch(error => {
+									console.error(error);
+								});
+			},
+			getData() {
+				return this.needsInput 
+					? {referral: this.userInput} 
+					: {referral: this.referral};
 			}
 		}
 	}

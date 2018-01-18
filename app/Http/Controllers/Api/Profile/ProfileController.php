@@ -15,6 +15,16 @@ class ProfileController extends Controller {
 		return $user;
 	}
 
+	public function referral(Request $request, $id)
+	{
+		$user = $this->getUser($id);
+		if ($user->profile()->update(['referral' => $request->referral]))
+		{
+			return response('success', 200);
+		}
+		return response('error', 500);
+	}
+
 	public function xactnetAddress(Request $request, $id)
 	{
 		$valid = $request->validate([
