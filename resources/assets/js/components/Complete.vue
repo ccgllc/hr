@@ -1,7 +1,27 @@
 <template>
 	<div id="complete" class="level">
 		<div class="level-item has-text-centered">
-			<a href="/profile" class="button is-primary is-large has-text-centered" style="margin: 0 auto;">View your profile.</a>
+			<div class="columns">
+				<div class="column">
+					<h3 class="title">How Did You Hear About Us?</h3>
+					<p>Please take 5 seconds to tell us where you heard about us. We'd really apriciate it.</p><br>
+
+					<div class="select">
+					  <select v-model="referral">
+					    <option value="">Select an option</option>
+					    <option v-for="refer in referrals" :value="refer">{{ refer }}</option>
+					  </select>
+					</div><br><br>
+
+					<button 
+						@click="goToProfile()"
+						class="button is-primary has-text-centered" 
+						:disabled="referral == ''"
+						>
+							Continue to your profile
+					</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -15,7 +35,9 @@
 		},
 		data() {
 			return {
-				appData
+				appData,
+				referral: '',
+				referrals: ['Conference', 'Facebook', 'LinkedIn', 'CCG Employee']
 			}
 		},
 		methods: {
@@ -23,6 +45,9 @@
 				this.appData.text.title = 'Thank you for Applying!';
 				this.appData.text.subtitle = 'You can edit and update your profile as you develop new skills or experience.'
 				this.appData.progress = 4;
+			},
+			goToProfile(){
+				return window.location = '/profile';
 			}
 		}
 	}

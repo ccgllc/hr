@@ -37,6 +37,7 @@
         </router-link>
       </li>
       <li class="steps-segment" v-bind:class="{'is-active': appData.progress == 4}">
+        <router-link to="/complete"  class="has-text-dark">
         <span class="steps-marker" v-bind:class="{'is-success': appData.progress == 4}">
           <span class="icon">
             <i class="fa fa-check"></i>
@@ -45,6 +46,7 @@
         <div class="steps-content">
           <p class="heading">Complete</p>
         </div>
+        </router-link>
       </li>
     </ul>
 </template>

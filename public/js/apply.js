@@ -3520,6 +3520,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3529,7 +3549,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	},
 	data: function data() {
 		return {
-			appData: __WEBPACK_IMPORTED_MODULE_0__data_appData__["a" /* default */]
+			appData: __WEBPACK_IMPORTED_MODULE_0__data_appData__["a" /* default */],
+			referral: '',
+			referrals: ['Conference', 'Facebook', 'LinkedIn', 'CCG Employee']
 		};
 	},
 
@@ -3538,6 +3560,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			this.appData.text.title = 'Thank you for Applying!';
 			this.appData.text.subtitle = 'You can edit and update your profile as you develop new skills or experience.';
 			this.appData.progress = 4;
+		},
+		goToProfile: function goToProfile() {
+			return window.location = '/profile';
 		}
 	}
 });
@@ -3551,28 +3576,85 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "level", attrs: { id: "complete" } }, [
-      _c("div", { staticClass: "level-item has-text-centered" }, [
-        _c(
-          "a",
-          {
-            staticClass: "button is-primary is-large has-text-centered",
-            staticStyle: { margin: "0 auto" },
-            attrs: { href: "/profile" }
-          },
-          [_vm._v("View your profile.")]
-        )
+  return _c("div", { staticClass: "level", attrs: { id: "complete" } }, [
+    _c("div", { staticClass: "level-item has-text-centered" }, [
+      _c("div", { staticClass: "columns" }, [
+        _c("div", { staticClass: "column" }, [
+          _c("h3", { staticClass: "title" }, [
+            _vm._v("How Did You Hear About Us?")
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "Please take 5 seconds to tell us where you heard about us. We'd really apriciate it."
+            )
+          ]),
+          _c("br"),
+          _vm._v(" "),
+          _c("div", { staticClass: "select" }, [
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.referral,
+                    expression: "referral"
+                  }
+                ],
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.referral = $event.target.multiple
+                      ? $$selectedVal
+                      : $$selectedVal[0]
+                  }
+                }
+              },
+              [
+                _c("option", { attrs: { value: "" } }, [
+                  _vm._v("Select an option")
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.referrals, function(refer) {
+                  return _c("option", { domProps: { value: refer } }, [
+                    _vm._v(_vm._s(refer))
+                  ])
+                })
+              ],
+              2
+            )
+          ]),
+          _c("br"),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "button is-primary has-text-centered",
+              attrs: { disabled: _vm.referral == "" },
+              on: {
+                click: function($event) {
+                  _vm.goToProfile()
+                }
+              }
+            },
+            [_vm._v("\n\t\t\t\t\t\tContinue to your profile\n\t\t\t\t")]
+          )
+        ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -3638,6 +3720,8 @@ module.exports = Component.exports
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__data_appData_js__ = __webpack_require__(12);
+//
+//
 //
 //
 //
@@ -3803,38 +3887,34 @@ var render = function() {
         },
         [
           _c(
-            "span",
-            {
-              staticClass: "steps-marker",
-              class: { "is-success": _vm.appData.progress == 4 }
-            },
-            [_vm._m(0)]
-          ),
-          _vm._v(" "),
-          _vm._m(1)
-        ]
+            "router-link",
+            { staticClass: "has-text-dark", attrs: { to: "/complete" } },
+            [
+              _c(
+                "span",
+                {
+                  staticClass: "steps-marker",
+                  class: { "is-success": _vm.appData.progress == 4 }
+                },
+                [
+                  _c("span", { staticClass: "icon" }, [
+                    _c("i", { staticClass: "fa fa-check" })
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "steps-content" }, [
+                _c("p", { staticClass: "heading" }, [_vm._v("Complete")])
+              ])
+            ]
+          )
+        ],
+        1
       )
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "icon" }, [
-      _c("i", { staticClass: "fa fa-check" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "steps-content" }, [
-      _c("p", { staticClass: "heading" }, [_vm._v("Complete")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
