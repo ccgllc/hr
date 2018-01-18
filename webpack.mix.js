@@ -19,13 +19,12 @@ mix.js([
    .js('resources/assets/js/register.js', 'js')
    .js('resources/assets/js/login.js', 'js')
    .js('resources/assets/js/requestPasswordReset.js', 'js')
-   // .js('resources/assets/js/resetPassword.js', 'js')
    .js('resources/assets/js/apply.js', 'js')
    .js('resources/assets/js/user.js', 'js')
    .js('resources/assets/js/manageRoles.js', 'js')
    .js('resources/assets/js/manageUserRoles.js', 'js')
    .js('resources/assets/js/profile/profile.js', 'js')
-   .js('resources/assets/js/dashboard/dashboard.js', 'js')
+   .js('resources/assets/js/dashboard/dashboard.js', 'js/dashboard.js')
    .sass('resources/assets/sass/app.scss', 'css');
 
 // mix.js([

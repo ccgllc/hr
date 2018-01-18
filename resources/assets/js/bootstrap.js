@@ -29,7 +29,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  */
 
 let token = document.head.querySelector('meta[name="csrf-token"]');
-let api_token = document.head.querySelector('meta[name="api-token"]');
+let api_token = window.localStorage.token;
 
 if (token) {
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
@@ -40,11 +40,18 @@ else {
 
 if(api_token) 
 {
-	window.axios.defaults.headers.common['Authorization'] = "Bearer " + api_token.content;
+	window.axios.defaults.headers.common['Authorization'] = "Bearer " + api_token;
 } 
-// else {
-//     // console.error('');
-// }
+else {
+	if (! window.location === '/login#')
+	{
+		console.error('You need to login.');
+	    window.axios.post('logout').then(response => {
+	    	//wndow.location = '/login';
+	    })
+	}
+    
+}
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

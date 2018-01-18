@@ -26,8 +26,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', //'api_token'
+        'password', 'remember_token', 'api_token', 'verification_token'
     ];
+
+    public function getCreatedAtAttribute($value)
+    {
+       return \Carbon\Carbon::parse($value)->diffForHumans();
+    }
 
     /** 
      * Define role relationship.
@@ -114,6 +119,17 @@ class User extends Authenticatable
     public function scopeStatus($query, $status)
     {
         return $query->where('status', $status);
+    }
+
+      /**
+     * Scope a query to only select  recent users 
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeRecent($query)
+    {
+        return $query->orderBy('created_at', 'desc');
     }
 
     // public function scopeAdmin($query)

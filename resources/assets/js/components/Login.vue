@@ -66,8 +66,10 @@
 			submit () {
 				return this.form.post('/login')
 					.then(response => {
-						console.log(typeof(response));
-						return window.location.href = response;
+						console.log(response);
+                        let storage = window.localStorage;
+                        storage.setItem('token', response.token);
+						return window.location.href = response.destination;
 				});
 			}
 		}

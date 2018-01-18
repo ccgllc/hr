@@ -2,8 +2,8 @@ import { Bar } from 'vue-chartjs';
 export default {
     extends: Bar,
     mounted() {
-        this.chartData.labels = window.chartData.labels;
-        this.chartData.datasets[0].data = window.chartData.datasets.data;
+        this.chartData.labels = window.dashboardData.userRolesChart.labels;
+        this.chartData.datasets[0].data = window.dashboardData.userRolesChart.datasets[0].data;
         this.renderChart(this.chartData, this.options);
     },
     data() {

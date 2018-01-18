@@ -7,13 +7,11 @@
 			<div class="column is-1">
 				
 			</div>
-			<div class="column is-10" id="user" token="{{ Auth::user()->api_token }}">
-				<h1 class="title hr-title">Manage Users</h1>
+			<div class="column is-10" id="user">
+				<h1 class="title hr-title">{{ 'Manage ' . $status }}</h1>
 				<h2 class="subtitle">Update and make changes to system users</h2>
-				{{-- <search></search> --}}
-				{{-- <hr> --}}
 					
-					<br>	
+				<br>
 
 				<table class="table is-striped is-fullwidth" style="background: transparent">
 					<thead>

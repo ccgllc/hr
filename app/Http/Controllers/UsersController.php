@@ -19,12 +19,18 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::exclude('api_token')->paginate(15);
+        if ($request->has('status')) {
+            $users =  User::status($request->status)->orderBy('created_at', 'desc')->paginate(15);
+            $status = ucwords($request->status).'s';
+        }
+        else {
+            $users = User::orderBy('created_at', 'desc')->paginate(15);
+            $status = 'Users';
+        }
         $users->load('roles');
-        
-        return view('user.admin', compact('users'));
+        return view('user.admin', compact('users', 'status'));
     }
 
     /**
@@ -53,19 +59,11 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($status)
     {
-    	$user = User::find($id);
-    	$user->load([
-    		'profile',
-    		'workHistory',
-    		'certifications',
-    		'adjusterLicenses',
-    		'softwareExperiences',
-            'documents'
-    	])->get();
-    	
-        return view('user.show', compact('user'));
+        $users =  User::status($status)->orderBy('created_at', 'desc')->paginate(15);
+        $status = ucwords($status);
+        return view('user.admin', compact('users', 'status'));
     }
 
     /**

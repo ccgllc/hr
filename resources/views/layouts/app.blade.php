@@ -7,8 +7,6 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-     <!-- Api Token -->
-    <meta name="api-token" content="{{ Auth::user()->api_token }}">
 
     <title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
 
@@ -33,13 +31,15 @@
                 @include('partials.nav')
             </div> --}}
             <div class="column">
+                <div class="section">
                 @yield('content')
+                </div>
             </div> 
         </div>
         <div class="columns is-app-footer">
             <div class="column has-text-centered">
                 <span class="has-text-centered"><small><strong>CCG HRMS Version {{ env('APP_VERSION') }}</strong></small></span><br>
-                <small>© Claim Consultant Group {{ \Carbon\Carbon::now()->format('Y') }}. All rights reserved.</small> 
+                <small>© Claim Consultant Group {{ \Carbon\Carbon::now()->format('Y') }}. All rights reserved.</small>
             </div>
         </div>
     </div>
