@@ -22,7 +22,7 @@
 					<button 
 						@click="goToProfile()"
 						class="button is-primary has-text-centered" 
-						:disabled="referral == '' || userInput == ''"
+						:disabled="referral == '' || needsInput  && userInput == ''"
 						>
 							Continue to your profile
 					</button>
