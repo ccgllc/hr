@@ -31,9 +31,7 @@ let application = new Vue({
 		applicationProgress: ApplicationProgress
 	},
 	mounted() {
-			if(window.applicationData) {
-				this.appData.personalInformation = window.applicationData.profile;
-			}
+		window.localStorage.token = window.userData.token;
 	},
 	data() {
 		return {
