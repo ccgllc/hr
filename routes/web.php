@@ -33,6 +33,7 @@ Route::get('oauth', function(){
 
 route::get('apply', function(Illuminate\Http\Request $request){
 	$user = $request->user();
+	$user->token = $user->api_token;
 	if($user->applied) {
 		return redirect('/profile');
 	}
