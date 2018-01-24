@@ -4,12 +4,13 @@ namespace App;
 
 use App\Role;
 use App\Traits\Excludable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable, Excludable;
+    use Notifiable, Excludable, softDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -74,6 +75,11 @@ class User extends Authenticatable
         return false;
     }
 
+    public function isFrom($location)
+    {
+        return $this->profile->contains('state', $location) ? true : false;
+    }
+
     public function isConfirmed()
     {
         return $this->attributes['verified'] == 1 ? true : false;
@@ -81,7 +87,7 @@ class User extends Authenticatable
 
     public function profile()
     {
-        return $this->hasOne(\App\Profile::class);
+        return $this->hasOne(Profile::class);
     }
 
     public function workHistory()
@@ -131,26 +137,4 @@ class User extends Authenticatable
     {
         return $query->orderBy('created_at', 'desc');
     }
-
-    // public function scopeAdmin($query)
-    // {
-        
-    // }
-
-    // public function scopeRecent($query)
-    // {
-
-    // }
-
-
-
-    // public function setApiTokenAttribute($value)
-    // {
-    //     $this->attributes['api_token'] = str_random(60);
-    // }
-
-    // public function setVerificationTokenAttribute($value)
-    // {
-    //     $this->attributes['verification_token'] = str_random(60);
-    // }
 }

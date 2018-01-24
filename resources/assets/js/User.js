@@ -1,22 +1,24 @@
 import Vue from 'vue';
 import UserService from './structur/src/services/Resource.js';
 import userData from './data/userData.js';
+import states from './data/states.js';
 // import search from './components/Search.vue';
 
 Vue.component('search', search);
 
 let app = new Vue({
 	name: 'User Administration',
-	propsData: ['token'],
 	el: '#user',
 	data: {
 		userData,
+		states,
+		selected: [],
+		allSelected: false,
 		userService: new UserService({
 		uri: {
 			prefix: 'api',
 			resource: 'users',
 		},
-		api_token: this.token,
 		current_page: 0
 	}),
 	},
@@ -30,7 +32,12 @@ let app = new Vue({
 	mounted() {
 		//
 		this.current_page = window.users.current_page;
-		this.userData.users = window.users.data;
+		if(window.users.data) {
+			return this.userData.users = window.users.data;
+		} else {
+			return this.userData.users = window.users;
+		}
+
 	},
 	methods: {
 		toggleMenu(id) {
@@ -49,8 +56,42 @@ let app = new Vue({
 		select(user) {
 			console.log(user.name);
 		},
-		selectAll() {
-			console.log('selecting All');
+		selectAll(evt) {
+			let checkboxes = document.getElementsByClassName('has-user');
+			if (this.allSelected) {
+				for (let checkbox in checkboxes) {
+					if (typeof(checkboxes[checkbox]) !== 'function' && typeof(checkboxes[checkbox]) !== 'number') {
+						checkboxes[checkbox].checked = true;
+						this.selected.push(checkboxes[checkbox].value);
+					}
+				}
+			} else {
+				for (let checkbox in checkboxes) {
+					if (typeof(checkboxes[checkbox]) !== 'function' && typeof(checkboxes[checkbox]) !== 'number') {
+						checkboxes[checkbox].checked = false;
+						this.selected = [];
+					}
+				}
+			}
+		},
+		deleteUser(user) {
+			window.axios.delete('/api/users/' + user.id).then(response => {
+				let idx = this.userData.users.indexOf(user);
+				return this.userData.users.splice(idx, 1);
+			}).catch(error => {
+				console.error(error);
+			})
+		},
+		deleteSelected(){
+			window.axios.post('/api/users/', {users: this.selected}).then(response => {
+				for (let idx in this.selected) {
+					let userIdx = this.userData.users.indexOf(this.findUser(idx));
+					this.userData.users.splice(userIdx, 1);
+				}
+			})
+		},
+		findUser(idx) {
+			return this.userData.users.find(user => user.id == this.selected[idx])
 		}
 	}
 });

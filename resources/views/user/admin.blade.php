@@ -10,14 +10,52 @@
 			<div class="column is-10" id="user">
 				<h1 class="title hr-title">{{ 'Manage ' . $status }}</h1>
 				<h2 class="subtitle">Update and make changes to system users</h2>
+
+					<div class="dropdown is-hoverable" v-if="selected.length == 0">
+					  <div class="dropdown-trigger">
+					    <button class="button" aria-haspopup="true" aria-controls="states">
+					      <span>Users By Location</span>
+					      <span class="icon is-small">
+					        <i class="fa fa-angle-down" aria-hidden="true"></i>
+					      </span>
+					    </button>
+					  </div>
+					  <div class="dropdown-menu" id="states" role="menu">
+					    <div class="dropdown-content">
+					      <a class="dropdown-item" v-for="state in states" :href="'/users/location/' + state.abbr">
+					        @{{ state.name }}
+					      </a>
+					    </div>
+					  </div>
+					</div><br><br>
+										 
 					
-				<br>
+					<div class="field is-grouped" v-show="selected.length > 0">
+					<p class="control">
+					    <a class="button" @click="selected = []; allSelected = false;">
+					      Cancel
+					    </a>
+					  </p>
+					  <p class="control">
+					    <a class="button is-link" disabled>
+					    	<span class="icon"><i class="fa fa-users"></i></span>
+					      	&nbsp; Add To Candidates
+					    </a>
+					  </p>
+					  <p class="control">
+					    <a class="button is-danger" @click="deleteSelected">
+					    	<span class="icon is-small"><i class="fa fa-trash"></i></span>
+					      	&nbsp; Delete Selected
+					    </a>
+					  </p>
+					</div>
+
 
 				<table class="table is-striped is-fullwidth" style="background: transparent">
 					<thead>
 						<tr>
 							<th>
-								<input type="checkbox" id="selectAll" name="selectAll" class="is-checkbox is-circle is-small">
+								<input v-model="allSelected" type="checkbox" @change="selectAll" id="selectAll" name="selectAll" class="is-checkbox is-circle is-small">
 			 					<label for="selectAll">&nbsp;</label>
 			 				</th>
 							<th>Name</th>
@@ -27,9 +65,9 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr v-for="user in userData.users">
+						<tr v-for="user in userData.users" :key="user.id">
 							<td>
-								<input type="checkbox" :id="user.id" :name="user.id" class="is-checkbox is-circle is-small">
+								<input type="checkbox" v-model="selected" :value="user.id" :id="user.id" :name="user.id" class="is-checkbox is-circle is-small has-user">
 			 					<label :for="user.id">&nbsp;</label>
 			 				</td>
 							<td><a :href="'/profile/' + user.id" v-text='user.name'></a></td>
@@ -55,7 +93,7 @@
 									    <hr class="dropdown-divider">
 									      	<div class="level">
 										      	<div class="level-item">
-											    	<a href="" class="button is-danger is-fullwidth">
+											    	<a @click.prevent="deleteUser(user)" class="button is-danger is-fullwidth">
 											    		<span>Delete</span>
 														<span class="icon is-small">
 															<i class="fa fa-trash"></i>
@@ -69,7 +107,9 @@
 							</tr>
 						</tbody>
 					</table>
-					{{ $users->links() }}
+					
+					{{ method_exists($users, 'links') ? $users->links() : null }}
+
 			</div>
 		</div>
 		<br><br>

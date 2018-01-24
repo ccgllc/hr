@@ -12,6 +12,17 @@ class UserAdministrationController extends Controller
     	return \App\User::exclude('api_token')->get();
     }
 
+    public function destroyUsers(\Illuminate\Http\Request $request)
+    {
+        return $request->users;
+        // return \App\User::destroy($request->users);
+    }
+
+    public function destroy($id)
+    {
+        return \App\User::destroy($id);
+    }
+
     public function getRoles($id)
     {
     	return \App\User::with('roles')->whereId($id)->firstOrFail();
