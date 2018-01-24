@@ -28,8 +28,18 @@ class UsersController extends Controller
         else {
             $users = User::orderBy('created_at', 'desc')->paginate(15);
             $status = 'Users';
+            $users->load('roles');
         }
-        $users->load('roles');
+        return view('user.admin', compact('users', 'status'));
+    }
+
+    public function location($location)
+    {
+        $profiles = \App\Profile::state($location)->get();
+        $users = $profiles->map(function ($profile, $key){
+            return $profile->user;
+        });
+        $status = ucwords($location. ' users');
         return view('user.admin', compact('users', 'status'));
     }
 

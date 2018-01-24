@@ -2,20 +2,14 @@
 
 // use Laravel\Socialite\Facades\Socialite;
 
-Route::get('/mailable', function () {
-    $user = App\User::find(107);
-    return new App\Mail\AccountVerification($user);
-});
-
+// Route::get('/mailable', function () {
+//     $user = App\User::find(107);
+//     return new App\Mail\AccountVerification($user);
+// });
 // Route::get('/file', function(){
 // 	// dd(Storage::url('hr/user_documents/file.docx'));
 // 	$file = '../storage/hr/user_documents/Brandon Hamm1/Brandon Hamm.docx';
 // 	return response()->download($file, 'Brandon Hamm.docx', ['Content-Type: application/pdf']);
-// });
-
-// Route::get('/test', function(Request $request){
-// 	$request->user()->update(['applied' => 1]);
-// 	return $request->user();
 // });
 
 Route::get('/', function () {
@@ -43,6 +37,7 @@ route::get('apply', function(Illuminate\Http\Request $request){
 Route::get('/dashboard', 'DashboardController@show');
 
 Route::resource('users', 'UsersController');
+Route::get('users/location/{state}', 'UsersController@location');
 // Route::get('users/{status}', 'UsersController@status');
 Route::resource('users/{id}/documents', 'UserDocumentsController');
 Route::resource('users/{id}/roles', 'UserRolesController');
