@@ -12,7 +12,7 @@
 		</thead>
 		<tbody>
 			<tr v-for="role in roles">
-				<td><a :href="'/role/' + role.id ">{{ role.name }}</a></td>
+				<td><a :href="'/roles/' + role.id ">{{ role.name }}</a></td>
 				<td style="width: 5%">
 					<a @click="deleteRole(role)" class="button is-small is-danger">
 						<span class="icon"><i class="fa fa-trash"></i></span>
