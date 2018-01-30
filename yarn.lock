@@ -1284,6 +1284,10 @@ caniuse-lite@^1.0.30000791, caniuse-lite@^1.0.30000792:
   version "1.0.30000792"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000792.tgz#d0cea981f8118f3961471afbb43c9a1e5bbf0332"
 
+canvas-exif-orientation@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/canvas-exif-orientation/-/canvas-exif-orientation-0.4.0.tgz#b487f3701998a9e879eb104010b2a58115368b6b"
+
 capture-stack-trace@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/capture-stack-trace/-/capture-stack-trace-1.0.0.tgz#4a6fa07399c26bba47f0b2496b4d0fb408c5550d"
@@ -7247,6 +7251,13 @@ vue-chartjs@^3.0.2:
 vue-click-outside@1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/vue-click-outside/-/vue-click-outside-1.0.6.tgz#bf3e0217210d7778299cc39ddcf89cc036089f22"
+
+vue-croppa@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/vue-croppa/-/vue-croppa-1.2.0.tgz#e1d8ebf1aadf281e454f55f1a563a81b63beccaf"
+  dependencies:
+    canvas-exif-orientation "^0.4.0"
+    object-assign "^4.1.1"
 
 vue-hot-reload-api@^2.2.0:
   version "2.2.4"

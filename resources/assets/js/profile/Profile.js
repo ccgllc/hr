@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import Croppa from 'vue-croppa';
 
 import PersonalInformation from './PersonalInformation';
 import Licenses from './Licenses';
@@ -10,6 +11,7 @@ import profileNavigation from './ProfileNavigation'
 
 
 Vue.use(VueRouter);
+Vue.use(Croppa, { componentName: 'avatar-cropper' });
 
 const routes = [
 	{ path: '/', name: "home", component: PersonalInformation },
@@ -33,11 +35,19 @@ const Profile = new Vue({
 	name: 'Profile',
 	router,
 	components: {
-		profileNavigation
+		profileNavigation,
 	},
 	data() {
 		return {
-			//Profile Data.
+			avatarCropper: null,
+			showAvatarButton: false,
+			addingAvatar: false,
 		}
 	},
+	methods: {
+		toggleAvatarButton() {
+			console.log('toggling..');
+			return this.showAvatarButton = !this.showAvatarButton;
+		}
+	}
 }).$mount('#profile');
