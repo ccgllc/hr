@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Api\Profile;
 
+use App\Avatar;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller {
 
@@ -90,6 +92,29 @@ class ProfileController extends Controller {
 	public function destroyLicense(Request $request, $id, $licenseId)
 	{
 		return \App\AdjusterLicense::destroy($licenseId);
+	}
+
+	public function createAvatar(Request $request, $id)
+	{
+		if($request->hasFile('avatar')) {
+			$user = $this->getUser($id);
+			$path = $request->avatar->storeAs('avatars', $id.'.png', 'public');
+			if ( !$user->avatar ) 
+			{
+				$avatar = Avatar::create([
+					'name' => $id,
+					'extension' => 'png',
+					'path' => '/storage/'.$path,
+					'user_id' => $id,
+				]);
+			}
+			$avatar = $user->avatar;
+			$avatar->name = $id;
+			$avatar->save();
+
+			return response($avatar->path, 200);
+		}
+		return response('Server Error', 500);
 	}
 
 	public function getUser($id)

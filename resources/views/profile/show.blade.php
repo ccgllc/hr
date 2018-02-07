@@ -6,7 +6,7 @@
 
 @section('content')
 
-	<div class="columns is-gapless">
+	<div class="columns is-gapless" id="profile">
 
 	<div class="options column is-1 has-text-centered">
 		@include('partials.user.options')
@@ -23,11 +23,10 @@
 				
 			</div>
 		</div>
-		<div class="columns" style="margin-top: 4rem;" id="profile">
+		<div class="columns" style="margin-top: 4rem;">
 			<div class="column is-12">
 				<profile-navigation></profile-navigation>
 				<router-view></router-view>
-
 			</div><!-- end column -->
 		</div><!-- end columns -->
 	</div><!--end container column --> 

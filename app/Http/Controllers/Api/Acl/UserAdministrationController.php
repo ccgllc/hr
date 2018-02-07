@@ -14,8 +14,8 @@ class UserAdministrationController extends Controller
 
     public function destroyUsers(\Illuminate\Http\Request $request)
     {
-        return $request->users;
-        // return \App\User::destroy($request->users);
+        // return $request->users;
+        return \App\User::destroy($request->users);
     }
 
     public function destroy($id)

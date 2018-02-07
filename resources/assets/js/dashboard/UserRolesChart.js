@@ -21,7 +21,24 @@ export default {
                 title: { display: true, text: 'System Users By Role'}, 
                 legend: {display: false},
                 responsive: true, 
-                maintainAspectRatio: false
+                maintainAspectRatio: false,
+                scales: {
+                  yAxes: [{
+                    ticks: {
+                      beginAtZero: true
+                    },
+                    gridLines: {
+                      display: false
+                    }
+                  }],
+                  xAxes: [ {
+                    gridLines: {
+                      display: false
+                    },
+                    categoryPercentage: 0.5,
+                    barPercentage: 0.2
+                  }]
+                }
             } 
         }
     }

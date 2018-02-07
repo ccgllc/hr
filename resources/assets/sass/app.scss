@@ -11,6 +11,7 @@
 @import "resources/assets/sass/bulma-switch.sass";
 @import "resources/assets/sass/bulma-check-radio.sass";
 @import "resources/assets/sass/tooltip.sass";
+@import "./croppa.scss";
 // @import "resources/assets/sass/ccg-forms.sass";
 
 
@@ -453,6 +454,7 @@ p.card-header-title > span.tag {
 		}
 	}
 }
+
 //footer 
 .columns.is-app-footer{
 	color: #7683a2; 
