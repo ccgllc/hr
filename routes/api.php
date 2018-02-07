@@ -33,6 +33,8 @@ Route::namespace('Api\Profile')
 		Route::put('user/{id}/address', 'ProfileController@address');
 		Route::post('user/{id}/license', 'ProfileController@license');
 		Route::delete('user/{id}/license/{licenseId}', 'ProfileController@destroyLicense');
+		Route::post('user/{id}/avatar/', 'ProfileController@createAvatar');
+		Route::delete('user/avatar/{id}', 'ProfileController@destroyAvatar');
 		Route::post('user/{id}/documents', 'UserDocumentsController@store');
 		Route::delete('user/documents/{id}', 'UserDocumentsController@destroy');
 		Route::post('user/{id}/certifications', 'UserCertificationsController@store');

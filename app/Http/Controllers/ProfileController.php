@@ -22,14 +22,14 @@ class ProfileController extends Controller
 		$user->load(['roles', 'profile', 'adjusterLicenses', 'documents', 'workHistory', 'certifications', 'softwareExperiences']);
 		$user->role = $this->prepareRolesForDisplay($user->roles);
 		return response()
-					->view('profile.show', compact('user'), 200)
-					->header('X-TOKEN', 'klajdbflkajhfa');
+					->view('profile.show', compact('user'), 200);
+					//->header('X-TOKEN', 'klajdbflkajhfa');
 	}
 
 	public function show($id)
 	{
 		$user = User::findOrFail($id);
-		$user->load(['roles', 'profile', 'adjusterLicenses', 'documents', 'workHistory', 'certifications', 'softwareExperiences']);
+		$user->load(['roles', 'profile', 'adjusterLicenses', 'documents', 'workHistory', 'certifications', 'softwareExperiences', 'avatar']);
 		$user->role = $this->prepareRolesForDisplay($user->roles);
 		return view('profile.show', compact('user'));
 	}

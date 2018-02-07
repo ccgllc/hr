@@ -115,6 +115,11 @@ class User extends Authenticatable
         return $this->hasMany(\App\Document::class);
     }
 
+    public function avatar()
+    {
+        return $this->hasOne(\App\Avatar::class);
+    }
+
     /**
      * Scope a query to only include only users with
      * an employment status of applicant.

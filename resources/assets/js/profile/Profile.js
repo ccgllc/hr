@@ -37,16 +37,40 @@ const Profile = new Vue({
 	components: {
 		profileNavigation,
 	},
+	mounted() {
+		this.user = window.userData;
+	},
 	data() {
 		return {
+			user: {
+				avatar: { path: '' }
+			},
 			avatarCropper: null,
 			showAvatarButton: false,
 			addingAvatar: false,
+			imgLoaded: false,
 		}
 	},
 	methods: {
+		uploadImage() {
+			console.log('uploading...');
+			this.avatarCropper.generateBlob((blob) => {
+				let file = new File([blob], "avatar.png", {type: 'image/png'});
+				let data = new FormData();
+				data.append('avatar', file);
+	        	window.axios.post('/api/user/' + window.userData.id + '/avatar/', data).then(response => {
+	        		console.log(response);
+	        		this.addingAvatar =  false;
+	        		this.user.avatar = {
+	        			path: response.data
+	        		};
+	        	})
+			});
+		},
+		hasImage() {
+			return this.imgLoaded = !this.imgLoaded;
+		},
 		toggleAvatarButton() {
-			console.log('toggling..');
 			return this.showAvatarButton = !this.showAvatarButton;
 		}
 	}
