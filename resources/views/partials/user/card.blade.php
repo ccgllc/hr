@@ -16,7 +16,7 @@
 				    			@click="addingAvatar = true"
 				    			style="border-radius: 256px; border: 10px solid #ccc; cursor: pointer;"
 			    			>
-				    		<span class="icon is-extra-large" v-if="user.avatar == null" @click="addingAvatar = true">
+				    		<span class="icon is-extra-large" v-if="user.avatar.path == ''" @click="addingAvatar = true">
 				    			<i class="fa fa-12x fa-user-circle-o"></i>
 				    		</span>
 		    		</div>
