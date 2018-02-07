@@ -38,5 +38,4 @@ class ProfileController extends Controller
 	{
 		return ucwords(implode(', ', $roles->pluck('name')->toArray()));
 	}
-
 }

@@ -35,4 +35,5 @@ class CreateAvatarsTable extends Migration
     {
         Schema::dropIfExists('avatars');
     }
+    
 }

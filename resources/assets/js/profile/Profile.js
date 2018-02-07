@@ -27,6 +27,7 @@ let router = new VueRouter({
 	linkActiveClass: 'is-active'
 })
 
+
 // router.beforeEach((to, from, next) => {
   
 // })

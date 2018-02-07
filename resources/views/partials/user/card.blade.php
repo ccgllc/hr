@@ -10,7 +10,6 @@
 		    				style="position: absolute; top: 225px; left: 12%; cursor: pointer;">Edit
 		    			</span>
 				    		<img 
-				    			{{-- src="{{ isset($user->avatar->path) ? asset($user->avatar->path) : '' }}"  --}}
 				    			v-if="user.avatar !== null"
 				    			:src="user.avatar.path" 
 				    			:alt="user.name"

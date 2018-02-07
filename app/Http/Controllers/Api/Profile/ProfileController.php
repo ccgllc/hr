@@ -111,9 +111,9 @@ class ProfileController extends Controller {
 			$avatar = $user->avatar;
 			$avatar->name = $id;
 			$avatar->save();
+
 			return response($avatar->path, 200);
 		}
-
 		return response('Server Error', 500);
 	}
 
