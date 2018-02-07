@@ -1,15 +1,15 @@
 {
-    "/js/vendor.js": "/js/vendor.js",
-    "/js/profile.js": "/js/profile.js",
-    "/js/dashboard.js": "/js/dashboard.js",
-    "/js/apply.js": "/js/apply.js",
-    "/js/manageRoles.js": "/js/manageRoles.js",
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/js/requestPasswordReset.js": "/js/requestPasswordReset.js",
-    "/js/register.js": "/js/register.js",
-    "/js/login.js": "/js/login.js",
-    "/js/manageUserRoles.js": "/js/manageUserRoles.js",
-    "/js/user.js": "/js/user.js",
-    "/js/manifest.js": "/js/manifest.js"
+    "/js/vendor.js": "/js/vendor.js?id=d5d2b25d3a0ea7df77bc",
+    "/js/profile.js": "/js/profile.js?id=3cc01699ce13ce8e1b7c",
+    "/js/apply.js": "/js/apply.js?id=23210f9b7f7f3a42d6cb",
+    "/js/dashboard.js": "/js/dashboard.js?id=1f0dc769bac54d94c652",
+    "/js/app.js": "/js/app.js?id=43c86027afb63ef8ad88",
+    "/css/app.css": "/css/app.css?id=8f8c74d9d46dee57509b",
+    "/js/manageRoles.js": "/js/manageRoles.js?id=c487f7665749a77d2c49",
+    "/js/requestPasswordReset.js": "/js/requestPasswordReset.js?id=3c56aedb9f1f51929608",
+    "/js/register.js": "/js/register.js?id=afa4953505e95c62dfa5",
+    "/js/manageUserRoles.js": "/js/manageUserRoles.js?id=0087ee1a89bb9cf6bbcf",
+    "/js/login.js": "/js/login.js?id=b90330bf041b6f6cc7c5",
+    "/js/user.js": "/js/user.js?id=01cbe9e992d62de8cb54",
+    "/js/manifest.js": "/js/manifest.js?id=224a9649322585ffc33a"
 }
