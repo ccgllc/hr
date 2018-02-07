@@ -43,9 +43,7 @@ const Profile = new Vue({
 	},
 	data() {
 		return {
-			user: {
-				avatar: { path: '' }
-			},
+			user: {},
 			avatarCropper: null,
 			showAvatarButton: false,
 			addingAvatar: false,
