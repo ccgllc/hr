@@ -50,6 +50,14 @@ const Profile = new Vue({
 			imgLoaded: false,
 		}
 	},
+	computed: {
+		userHasAvatar() {
+			return this.user.avatar !== null ? true : false;
+		},
+		avatarPath() {
+			return this.userHasAvatar ? this.user.avatar.path : null;
+		}
+	},
 	methods: {
 		uploadImage() {
 			console.log('uploading...');

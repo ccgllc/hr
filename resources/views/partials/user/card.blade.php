@@ -12,9 +12,8 @@
 	    					Edit
 		    			</span>
 				    		<img 
-				    			v-if="user.avatar"
-				    			{{-- v-if="false" --}}
-				    			:src="user.avatar.path" 
+				    			v-if="userHasAvatar"
+				    			:src="avatarPath" 
 				    			:alt="user.name"
 				    			@click="addingAvatar = true"
 				    			style="border-radius: 256px; border: 10px solid #ccc; cursor: pointer;"
