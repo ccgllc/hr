@@ -7,16 +7,18 @@
 		    			<span 
 		    				class="tag is-light is-small has-text-centered" 
 		    				v-show="showAvatarButton" 
-		    				style="position: absolute; top: 225px; left: 12%; cursor: pointer;">Edit
+		    				style="position: absolute; top: 225px; left: 12%; cursor: pointer;"
+	    				>
+	    					Edit
 		    			</span>
 				    		<img 
-				    			v-if="user.avatar !== null"
-				    			:src="user.avatar.path" 
+				    			v-if="userHasAvatar"
+				    			:src="avatarPath" 
 				    			:alt="user.name"
 				    			@click="addingAvatar = true"
 				    			style="border-radius: 256px; border: 10px solid #ccc; cursor: pointer;"
 			    			>
-				    		<span class="icon is-extra-large" v-if="user.avatar == null" @click="addingAvatar = true">
+				    		<span class="icon is-extra-large" @click="addingAvatar = true" v-else>
 				    			<i class="fa fa-12x fa-user-circle-o"></i>
 				    		</span>
 		    		</div>

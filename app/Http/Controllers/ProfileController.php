@@ -19,7 +19,7 @@ class ProfileController extends Controller
 	public function index()
 	{
 		$user = Auth::user();
-		$user->load(['roles', 'profile', 'adjusterLicenses', 'documents', 'workHistory', 'certifications', 'softwareExperiences']);
+		$user->load(['roles', 'profile', 'adjusterLicenses', 'documents', 'workHistory', 'certifications', 'softwareExperiences', 'avatar']);
 		$user->role = $this->prepareRolesForDisplay($user->roles);
 		return response()
 					->view('profile.show', compact('user'), 200);
