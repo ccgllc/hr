@@ -2,10 +2,10 @@
 
 // use Laravel\Socialite\Facades\Socialite;
 
-// Route::get('/mailable', function () {
-//     $user = App\User::find(107);
-//     return new App\Mail\AccountVerification($user);
-// });
+Route::get('/mailable', function () {
+    $user = App\User::find(1);
+    return new App\Mail\ResetPasswordEmail($user, '12345');
+});
 // Route::get('/file', function(){
 // 	// dd(Storage::url('hr/user_documents/file.docx'));
 // 	$file = '../storage/hr/user_documents/Brandon Hamm1/Brandon Hamm.docx';
