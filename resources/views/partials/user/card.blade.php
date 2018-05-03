@@ -13,7 +13,7 @@
 		    			</span>
 				    		<img 
 				    			v-if="userHasAvatar"
-				    			:src="avatarPath" 
+				    			:src="user.avatar.path"
 				    			:alt="user.name"
 				    			@click="addingAvatar = true"
 				    			style="border-radius: 256px; border: 10px solid #ccc; cursor: pointer;"
@@ -35,12 +35,16 @@
 			      	
 			      	<div class="card-section">
 			      		<h4><i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;My Location</h4>
-			      		<h3>{{ optional($user->profile)->city }} {{ optional($user->profile)->state }}</h3>
+			      		<h3>{{ $user->profile->city ?? 'No City' }} {{ $user->profile->state ?? 'No State' }}</h3>
 			      	</div>
 					
 					<div class="card-section">
 						<h4><i class="fa fa-calendar" aria-hidden="true"></i> &nbsp;Application Date</h4>
-						<h3>{{ $user->profile->created_at->diffForHumans() }}</h3>
+						@if ($user->profile)
+							<h3>{{ $user->profile->created_at->diffForHumans() }}</h3>
+						@else 
+							<h3>User has not completed their application</h3>
+						@endif
 					</div>
 
 		    	</div>

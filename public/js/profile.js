@@ -118,7 +118,11 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 24:
+=======
+/***/ 23:
+>>>>>>> dev
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -177,7 +181,11 @@ var FormWithFiles = function (_Form) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 25:
+=======
+/***/ 24:
+>>>>>>> dev
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -185,15 +193,26 @@ var FormWithFiles = function (_Form) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 296:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(297);
+=======
+/***/ 287:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(288);
+>>>>>>> dev
 
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 297:
+=======
+/***/ 288:
+>>>>>>> dev
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -201,6 +220,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(19);
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_croppa__ = __webpack_require__(298);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_croppa___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_croppa__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PersonalInformation__ = __webpack_require__(299);
@@ -214,6 +234,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__WorkHistory__ = __webpack_require__(329);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__WorkHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__WorkHistory__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ProfileNavigation__ = __webpack_require__(332);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_croppa__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_croppa___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_croppa__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PersonalInformation__ = __webpack_require__(290);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PersonalInformation___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__PersonalInformation__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Licenses__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Licenses___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__Licenses__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Documents__ = __webpack_require__(311);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Documents___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__Documents__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Certifications__ = __webpack_require__(317);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Certifications___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__Certifications__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__WorkHistory__ = __webpack_require__(320);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__WorkHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__WorkHistory__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ProfileNavigation__ = __webpack_require__(323);
+>>>>>>> dev
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ProfileNavigation___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__ProfileNavigation__);
 
 
@@ -296,11 +331,19 @@ var Profile = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 298:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/*
  * vue-croppa v1.3.6
+=======
+/***/ 289:
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {/*
+ * vue-croppa v1.2.0
+>>>>>>> dev
  * https://github.com/zhanziyang/vue-croppa
  * 
  * Copyright (c) 2018 zhanziyang
@@ -549,11 +592,16 @@ var u = {
     }
     return -1;
   },
+<<<<<<< HEAD
   parseDataUrl: function parseDataUrl(url) {
     var reg = /^data:([^;]+)?(;base64)?,(.*)/gmi;
     return reg.exec(url)[3];
   },
   base64ToArrayBuffer: function base64ToArrayBuffer(base64) {
+=======
+  base64ToArrayBuffer: function base64ToArrayBuffer(base64) {
+    base64 = base64.replace(/^data:([^;]+);base64,/gmi, '');
+>>>>>>> dev
     var binaryString = atob(base64);
     var len = binaryString.length;
     var bytes = new Uint8Array(len);
@@ -725,9 +773,13 @@ var props = {
   imageBorderRadius: {
     type: [Number, String],
     default: 0
+<<<<<<< HEAD
   },
   autoSizing: Boolean,
   videoEnabled: Boolean
+=======
+  }
+>>>>>>> dev
 };
 
 var events = {
@@ -773,8 +825,11 @@ var component = { render: function render() {
           $event.stopPropagation();$event.preventDefault();_vm._handleDrop($event);
         } } }, [_c('input', _vm._b({ ref: "fileInput", staticStyle: { "height": "1px", "width": "1px", "overflow": "hidden", "margin-left": "-99999px", "position": "absolute" }, attrs: { "type": "file", "accept": _vm.accept, "disabled": _vm.disabled }, on: { "change": _vm._handleInputChange } }, 'input', _vm.inputAttrs)), _c('div', { staticClass: "slots", staticStyle: { "width": "0", "height": "0", "visibility": "hidden" } }, [_vm._t("initial"), _vm._t("placeholder")], 2), _c('canvas', { ref: "canvas", on: { "click": function click($event) {
           $event.stopPropagation();$event.preventDefault();_vm._handleClick($event);
+<<<<<<< HEAD
         }, "dblclick": function dblclick($event) {
           $event.stopPropagation();$event.preventDefault();_vm._handleDblClick($event);
+=======
+>>>>>>> dev
         }, "touchstart": function touchstart($event) {
           $event.stopPropagation();_vm._handlePointerStart($event);
         }, "mousedown": function mousedown($event) {
@@ -822,7 +877,10 @@ var component = { render: function render() {
       ctx: null,
       originalImage: null,
       img: null,
+<<<<<<< HEAD
       video: null,
+=======
+>>>>>>> dev
       dragging: false,
       lastMovingCoord: null,
       imgData: {
@@ -848,23 +906,34 @@ var component = { render: function render() {
       imageSet: false,
       currentPointerCoord: null,
       currentIsInitial: false,
+<<<<<<< HEAD
       loading: false,
       realWidth: 0, // only for when autoSizing is on
       realHeight: 0, // only for when autoSizing is on
       chosenFile: null,
       useAutoSizing: false
+=======
+      loading: false
+>>>>>>> dev
     };
   },
 
 
   computed: {
     outputWidth: function outputWidth() {
+<<<<<<< HEAD
       var w = this.useAutoSizing ? this.realWidth : this.width;
       return w * this.quality;
     },
     outputHeight: function outputHeight() {
       var h = this.useAutoSizing ? this.realHeight : this.height;
       return h * this.quality;
+=======
+      return this.width * this.quality;
+    },
+    outputHeight: function outputHeight() {
+      return this.height * this.quality;
+>>>>>>> dev
     },
     computedPlaceholderFontSize: function computedPlaceholderFontSize() {
       return this.placeholderFontSize * this.quality;
@@ -920,6 +989,7 @@ var component = { render: function render() {
         deep: true
       });
     }
+<<<<<<< HEAD
 
     this.useAutoSizing = !!(this.autoSizing && this.$refs.wrapper && getComputedStyle);
     if (this.useAutoSizing) {
@@ -930,6 +1000,8 @@ var component = { render: function render() {
     if (this.useAutoSizing) {
       this._autoSizingRemove();
     }
+=======
+>>>>>>> dev
   },
 
 
@@ -1037,6 +1109,7 @@ var component = { render: function render() {
       } else {
         this.$emit(events.LOADING_END);
       }
+<<<<<<< HEAD
     },
     autoSizing: function autoSizing(val) {
       this.useAutoSizing = !!(this.autoSizing && this.$refs.wrapper && getComputedStyle);
@@ -1045,6 +1118,8 @@ var component = { render: function render() {
       } else {
         this._autoSizingRemove();
       }
+=======
+>>>>>>> dev
     }
   },
 
@@ -1056,7 +1131,11 @@ var component = { render: function render() {
       return this.ctx;
     },
     getChosenFile: function getChosenFile() {
+<<<<<<< HEAD
       return this.chosenFile || this.$refs.fileInput.files[0];
+=======
+      return this.$refs.fileInput.files[0];
+>>>>>>> dev
     },
     move: function move(offset) {
       if (!offset || this.passive) return;
@@ -1221,11 +1300,14 @@ var component = { render: function render() {
       this.userMetadata = null;
       this.imageSet = false;
       this.loading = false;
+<<<<<<< HEAD
       this.chosenFile = null;
       if (this.video) {
         this.video.pause();
         this.video = null;
       }
+=======
+>>>>>>> dev
 
       if (hadImage) {
         this.$emit(events.IMAGE_REMOVE_EVENT);
@@ -1241,6 +1323,7 @@ var component = { render: function render() {
         throw Error('Clip plugins should be functions');
       }
     },
+<<<<<<< HEAD
     emitNativeEvent: function emitNativeEvent(evt) {
       this.$emit(evt.type, evt);
     },
@@ -1258,11 +1341,14 @@ var component = { render: function render() {
       this._setContainerSize();
       window.removeEventListener('resize', this._setContainerSize);
     },
+=======
+>>>>>>> dev
     _initialize: function _initialize() {
       this.canvas = this.$refs.canvas;
       this._setSize();
       this.canvas.style.backgroundColor = !this.canvasColor || this.canvasColor == 'default' ? 'transparent' : typeof this.canvasColor === 'string' ? this.canvasColor : '';
       this.ctx = this.canvas.getContext('2d');
+<<<<<<< HEAD
       this.ctx.mozImageSmoothingEnabled = true;
       this.ctx.imageSmoothingQuality = "high";
       this.ctx.webkitImageSmoothingEnabled = true;
@@ -1273,6 +1359,11 @@ var component = { render: function render() {
       this.$refs.fileInput.value = '';
       this.imageSet = false;
       this.chosenFile = null;
+=======
+      this.originalImage = null;
+      this.img = null;
+      this.imageSet = false;
+>>>>>>> dev
       this._setInitial();
       if (!this.passive) {
         this.$emit(events.INIT_EVENT, this);
@@ -1281,8 +1372,13 @@ var component = { render: function render() {
     _setSize: function _setSize() {
       this.canvas.width = this.outputWidth;
       this.canvas.height = this.outputHeight;
+<<<<<<< HEAD
       this.canvas.style.width = (this.useAutoSizing ? this.realWidth : this.width) + 'px';
       this.canvas.style.height = (this.useAutoSizing ? this.realHeight : this.height) + 'px';
+=======
+      this.canvas.style.width = this.width + 'px';
+      this.canvas.style.height = this.height + 'px';
+>>>>>>> dev
     },
     _rotateByStep: function _rotateByStep(step) {
       var orientation = 1;
@@ -1410,6 +1506,7 @@ var component = { render: function render() {
         this.$emit(events.INITIAL_IMAGE_LOADED_EVENT);
       }
     },
+<<<<<<< HEAD
     _onVideoLoad: function _onVideoLoad(video, initial) {
       var _this5 = this;
 
@@ -1451,10 +1548,14 @@ var component = { render: function render() {
     },
     _handleClick: function _handleClick(evt) {
       this.emitNativeEvent(evt);
+=======
+    _handleClick: function _handleClick() {
+>>>>>>> dev
       if (!this.hasImage() && !this.disableClickToChoose && !this.disabled && !this.supportTouch && !this.passive) {
         this.chooseFile();
       }
     },
+<<<<<<< HEAD
     _handleDblClick: function _handleDblClick(evt) {
       this.emitNativeEvent(evt);
       if (this.videoEnabled && this.video) {
@@ -1466,6 +1567,8 @@ var component = { render: function render() {
         return;
       }
     },
+=======
+>>>>>>> dev
     _handleInputChange: function _handleInputChange() {
       var input = this.$refs.fileInput;
       if (!input.files.length || this.passive) return;
@@ -1474,28 +1577,45 @@ var component = { render: function render() {
       this._onNewFileIn(file);
     },
     _onNewFileIn: function _onNewFileIn(file) {
+<<<<<<< HEAD
       var _this6 = this;
+=======
+      var _this5 = this;
+>>>>>>> dev
 
       this.currentIsInitial = false;
       this.loading = true;
       this.$emit(events.FILE_CHOOSE_EVENT, file);
+<<<<<<< HEAD
       this.chosenFile = file;
       if (!this._fileSizeIsValid(file)) {
         this.loading = false;
         this.$emit(events.FILE_SIZE_EXCEED_EVENT, file);
         return false;
+=======
+      if (!this._fileSizeIsValid(file)) {
+        this.loading = false;
+        this.$emit(events.FILE_SIZE_EXCEED_EVENT, file);
+        throw new Error('File size exceeds limit which is ' + this.fileSizeLimit + ' bytes.');
+>>>>>>> dev
       }
       if (!this._fileTypeIsValid(file)) {
         this.loading = false;
         this.$emit(events.FILE_TYPE_MISMATCH_EVENT, file);
         var type = file.type || file.name.toLowerCase().split('.').pop();
+<<<<<<< HEAD
         return false;
       }
 
+=======
+        throw new Error('File type (' + type + ') mimatches (' + this.accept + ').');
+      }
+>>>>>>> dev
       if (typeof window !== 'undefined' && typeof window.FileReader !== 'undefined') {
         var fr = new FileReader();
         fr.onload = function (e) {
           var fileData = e.target.result;
+<<<<<<< HEAD
           var base64 = u.parseDataUrl(fileData);
           var isVideo = /^video/.test(file.type);
           if (isVideo) {
@@ -1524,6 +1644,19 @@ var component = { render: function render() {
               _this6.$emit(events.NEW_IMAGE);
             };
           }
+=======
+          var orientation = 1;
+          try {
+            orientation = u.getFileOrientation(u.base64ToArrayBuffer(fileData));
+          } catch (err) {}
+          if (orientation < 1) orientation = 1;
+          var img = new Image();
+          img.src = fileData;
+          img.onload = function () {
+            _this5._onload(img, orientation);
+            _this5.$emit(events.NEW_IMAGE);
+          };
+>>>>>>> dev
         };
         fr.readAsDataURL(file);
       }
@@ -1535,8 +1668,11 @@ var component = { render: function render() {
       return file.size < this.fileSizeLimit;
     },
     _fileTypeIsValid: function _fileTypeIsValid(file) {
+<<<<<<< HEAD
       var acceptableMimeType = this.videoEnabled && /^video/.test(file.type) && document.createElement('video').canPlayType(file.type) || /^image/.test(file.type);
       if (!acceptableMimeType) return false;
+=======
+>>>>>>> dev
       if (!this.accept) return true;
       var accept = this.accept;
       var baseMimetype = accept.replace(/\/.*$/, '');
@@ -1644,13 +1780,19 @@ var component = { render: function render() {
         this.imgData.height = imgHeight / scaleRatio;
         this.imgData.width = this.outputWidth;
         this.imgData.startY = -(this.imgData.height - this.outputHeight) / 2;
+<<<<<<< HEAD
         this.imgData.startX = 0;
+=======
+>>>>>>> dev
       } else {
         scaleRatio = imgHeight / this.outputHeight;
         this.imgData.width = imgWidth / scaleRatio;
         this.imgData.height = this.outputHeight;
         this.imgData.startX = -(this.imgData.width - this.outputWidth) / 2;
+<<<<<<< HEAD
         this.imgData.startY = 0;
+=======
+>>>>>>> dev
       }
     },
     _naturalSize: function _naturalSize() {
@@ -1662,7 +1804,10 @@ var component = { render: function render() {
       this.imgData.startY = -(this.imgData.height - this.outputHeight) / 2;
     },
     _handlePointerStart: function _handlePointerStart(evt) {
+<<<<<<< HEAD
       this.emitNativeEvent(evt);
+=======
+>>>>>>> dev
       if (this.passive) return;
       this.supportTouch = true;
       this.pointerMoved = false;
@@ -1698,7 +1843,10 @@ var component = { render: function render() {
       }
     },
     _handlePointerEnd: function _handlePointerEnd(evt) {
+<<<<<<< HEAD
       this.emitNativeEvent(evt);
+=======
+>>>>>>> dev
       if (this.passive) return;
       var pointerMoveDistance = 0;
       if (this.pointerStartCoord) {
@@ -1723,7 +1871,10 @@ var component = { render: function render() {
       this.pointerStartCoord = null;
     },
     _handlePointerMove: function _handlePointerMove(evt) {
+<<<<<<< HEAD
       this.emitNativeEvent(evt);
+=======
+>>>>>>> dev
       if (this.passive) return;
       this.pointerMoved = true;
       if (!this.hasImage()) return;
@@ -1752,15 +1903,24 @@ var component = { render: function render() {
         this.pinchDistance = distance;
       }
     },
+<<<<<<< HEAD
     _handlePointerLeave: function _handlePointerLeave(evt) {
       this.emitNativeEvent(evt);
+=======
+    _handlePointerLeave: function _handlePointerLeave() {
+>>>>>>> dev
       if (this.passive) return;
       this.currentPointerCoord = null;
     },
     _handleWheel: function _handleWheel(evt) {
+<<<<<<< HEAD
       var _this7 = this;
 
       this.emitNativeEvent(evt);
+=======
+      var _this6 = this;
+
+>>>>>>> dev
       if (this.passive) return;
       if (this.disabled || this.disableScrollToZoom || !this.hasImage()) return;
       evt.preventDefault();
@@ -1771,27 +1931,42 @@ var component = { render: function render() {
         this.zoom(!this.reverseScrollToZoom);
       }
       this.$nextTick(function () {
+<<<<<<< HEAD
         _this7.scrolling = false;
       });
     },
     _handleDragEnter: function _handleDragEnter(evt) {
       this.emitNativeEvent(evt);
+=======
+        _this6.scrolling = false;
+      });
+    },
+    _handleDragEnter: function _handleDragEnter(evt) {
+>>>>>>> dev
       if (this.passive) return;
       if (this.disabled || this.disableDragAndDrop || !u.eventHasFile(evt)) return;
       if (this.hasImage() && !this.replaceDrop) return;
       this.fileDraggedOver = true;
     },
     _handleDragLeave: function _handleDragLeave(evt) {
+<<<<<<< HEAD
       this.emitNativeEvent(evt);
+=======
+>>>>>>> dev
       if (this.passive) return;
       if (!this.fileDraggedOver || !u.eventHasFile(evt)) return;
       this.fileDraggedOver = false;
     },
+<<<<<<< HEAD
     _handleDragOver: function _handleDragOver(evt) {
       this.emitNativeEvent(evt);
     },
     _handleDrop: function _handleDrop(evt) {
       this.emitNativeEvent(evt);
+=======
+    _handleDragOver: function _handleDragOver(evt) {},
+    _handleDrop: function _handleDrop(evt) {
+>>>>>>> dev
       if (this.passive) return;
       if (!this.fileDraggedOver || !u.eventHasFile(evt)) return;
       if (this.hasImage() && this.replaceDrop) {
@@ -1842,7 +2017,11 @@ var component = { render: function render() {
       }
     },
     _setOrientation: function _setOrientation() {
+<<<<<<< HEAD
       var _this8 = this;
+=======
+      var _this7 = this;
+>>>>>>> dev
 
       var orientation = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 6;
       var applyMetadata = arguments[1];
@@ -1851,11 +2030,18 @@ var component = { render: function render() {
       if (orientation > 1 || useOriginal) {
         if (!this.img) return;
         this.rotating = true;
+<<<<<<< HEAD
         // u.getRotatedImageData(useOriginal ? this.originalImage : this.img, orientation)
         var _img = u.getRotatedImage(useOriginal ? this.originalImage : this.img, orientation);
         _img.onload = function () {
           _this8.img = _img;
           _this8._placeImage(applyMetadata);
+=======
+        var _img = u.getRotatedImage(useOriginal ? this.originalImage : this.img, orientation);
+        _img.onload = function () {
+          _this7.img = _img;
+          _this7._placeImage(applyMetadata);
+>>>>>>> dev
         };
       } else {
         this._placeImage(applyMetadata);
@@ -1891,6 +2077,7 @@ var component = { render: function render() {
       this.ctx.fillRect(0, 0, this.outputWidth, this.outputHeight);
     },
     _draw: function _draw() {
+<<<<<<< HEAD
       var _this9 = this;
 
       this.$nextTick(function () {
@@ -1898,11 +2085,24 @@ var component = { render: function render() {
           requestAnimationFrame(_this9._drawFrame);
         } else {
           _this9._drawFrame();
+=======
+      var _this8 = this;
+
+      this.$nextTick(function () {
+        if (!_this8.img) return;
+        if (typeof window !== 'undefined' && window.requestAnimationFrame) {
+          requestAnimationFrame(_this8._drawFrame);
+        } else {
+          _this8._drawFrame();
+>>>>>>> dev
         }
       });
     },
     _drawFrame: function _drawFrame() {
+<<<<<<< HEAD
       if (!this.img) return;
+=======
+>>>>>>> dev
       this.loading = false;
       var ctx = this.ctx;
       var _imgData2 = this.imgData,
@@ -1944,12 +2144,20 @@ var component = { render: function render() {
       ctx.closePath();
     },
     _createContainerClipPath: function _createContainerClipPath() {
+<<<<<<< HEAD
       var _this10 = this;
+=======
+      var _this9 = this;
+>>>>>>> dev
 
       this._clipPathFactory(0, 0, this.outputWidth, this.outputHeight);
       if (this.clipPlugins && this.clipPlugins.length) {
         this.clipPlugins.forEach(function (func) {
+<<<<<<< HEAD
           func(_this10.ctx, 0, 0, _this10.outputWidth, _this10.outputHeight);
+=======
+          func(_this9.ctx, 0, 0, _this9.outputWidth, _this9.outputHeight);
+>>>>>>> dev
         });
       }
     },
@@ -1981,7 +2189,11 @@ var component = { render: function render() {
       ctx.restore();
     },
     _applyMetadata: function _applyMetadata() {
+<<<<<<< HEAD
       var _this11 = this;
+=======
+      var _this10 = this;
+>>>>>>> dev
 
       if (!this.userMetadata) return;
       var _userMetadata = this.userMetadata,
@@ -2003,7 +2215,11 @@ var component = { render: function render() {
       }
 
       this.$nextTick(function () {
+<<<<<<< HEAD
         _this11.userMetadata = null;
+=======
+        _this10.userMetadata = null;
+>>>>>>> dev
       });
     },
     onDimensionChange: function onDimensionChange() {
@@ -2134,19 +2350,33 @@ return VueCroppa;
 
 })));
 
+<<<<<<< HEAD
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11)))
 
 /***/ }),
 
 /***/ 299:
+=======
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12)))
+
+/***/ }),
+
+/***/ 290:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
+<<<<<<< HEAD
 var __vue_script__ = __webpack_require__(300)
 /* template */
 var __vue_template__ = __webpack_require__(313)
+=======
+var __vue_script__ = __webpack_require__(291)
+/* template */
+var __vue_template__ = __webpack_require__(304)
+>>>>>>> dev
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -2186,11 +2416,16 @@ module.exports = Component.exports
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 300:
+=======
+/***/ 291:
+>>>>>>> dev
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_XactnetAddress_vue__ = __webpack_require__(301);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_XactnetAddress_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_XactnetAddress_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_PhoneNumber_vue__ = __webpack_require__(304);
@@ -2198,6 +2433,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_EmailAddress_vue__ = __webpack_require__(307);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_EmailAddress_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_EmailAddress_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Address_vue__ = __webpack_require__(310);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_XactnetAddress_vue__ = __webpack_require__(292);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_XactnetAddress_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_XactnetAddress_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_PhoneNumber_vue__ = __webpack_require__(295);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_PhoneNumber_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_PhoneNumber_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_EmailAddress_vue__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_EmailAddress_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_EmailAddress_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Address_vue__ = __webpack_require__(301);
+>>>>>>> dev
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Address_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_Address_vue__);
 //
 //
@@ -2232,15 +2476,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 301:
+=======
+/***/ 292:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
+<<<<<<< HEAD
 var __vue_script__ = __webpack_require__(302)
 /* template */
 var __vue_template__ = __webpack_require__(303)
+=======
+var __vue_script__ = __webpack_require__(293)
+/* template */
+var __vue_template__ = __webpack_require__(294)
+>>>>>>> dev
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -2280,7 +2534,11 @@ module.exports = Component.exports
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 302:
+=======
+/***/ 293:
+>>>>>>> dev
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2410,7 +2668,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 303:
+=======
+/***/ 294:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -2430,7 +2692,11 @@ var render = function() {
             on: {
               submit: function($event) {
                 $event.preventDefault()
+<<<<<<< HEAD
                 return _vm.submit($event)
+=======
+                _vm.submit($event)
+>>>>>>> dev
               },
               keydown: function($event) {
                 _vm.form.errors.clear($event.target.name)
@@ -2478,6 +2744,7 @@ var render = function() {
                       keyup: function($event) {
                         if (
                           !("button" in $event) &&
+<<<<<<< HEAD
                           _vm._k(
                             $event.keyCode,
                             "enter",
@@ -2489,6 +2756,13 @@ var render = function() {
                           return null
                         }
                         return _vm.toggleEditing($event)
+=======
+                          _vm._k($event.keyCode, "enter", 13, $event.key)
+                        ) {
+                          return null
+                        }
+                        _vm.toggleEditing($event)
+>>>>>>> dev
                       },
                       input: function($event) {
                         if ($event.target.composing) {
@@ -2537,7 +2811,11 @@ var render = function() {
                 on: {
                   dblclick: function($event) {
                     $event.preventDefault()
+<<<<<<< HEAD
                     return _vm.toggleEditing($event)
+=======
+                    _vm.toggleEditing($event)
+>>>>>>> dev
                   },
                   mouseover: function($event) {
                     _vm.showEdit = true
@@ -2573,7 +2851,11 @@ var render = function() {
                           on: {
                             click: function($event) {
                               $event.preventDefault()
+<<<<<<< HEAD
                               return _vm.copyToClipboard($event)
+=======
+                              _vm.copyToClipboard($event)
+>>>>>>> dev
                             }
                           }
                         })
@@ -2586,7 +2868,11 @@ var render = function() {
                             on: {
                               click: function($event) {
                                 $event.preventDefault()
+<<<<<<< HEAD
                                 return _vm.toggleEditing($event)
+=======
+                                _vm.toggleEditing($event)
+>>>>>>> dev
                               }
                             }
                           },
@@ -2636,15 +2922,25 @@ if (false) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 304:
+=======
+/***/ 295:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
+<<<<<<< HEAD
 var __vue_script__ = __webpack_require__(305)
 /* template */
 var __vue_template__ = __webpack_require__(306)
+=======
+var __vue_script__ = __webpack_require__(296)
+/* template */
+var __vue_template__ = __webpack_require__(297)
+>>>>>>> dev
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -2684,7 +2980,11 @@ module.exports = Component.exports
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 305:
+=======
+/***/ 296:
+>>>>>>> dev
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2822,7 +3122,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 306:
+=======
+/***/ 297:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -2842,7 +3146,11 @@ var render = function() {
             on: {
               submit: function($event) {
                 $event.preventDefault()
+<<<<<<< HEAD
                 return _vm.submit($event)
+=======
+                _vm.submit($event)
+>>>>>>> dev
               },
               keydown: function($event) {
                 _vm.form.errors.clear($event.target.name)
@@ -2890,6 +3198,7 @@ var render = function() {
                       keyup: function($event) {
                         if (
                           !("button" in $event) &&
+<<<<<<< HEAD
                           _vm._k(
                             $event.keyCode,
                             "enter",
@@ -2901,6 +3210,13 @@ var render = function() {
                           return null
                         }
                         return _vm.toggleEditing($event)
+=======
+                          _vm._k($event.keyCode, "enter", 13, $event.key)
+                        ) {
+                          return null
+                        }
+                        _vm.toggleEditing($event)
+>>>>>>> dev
                       },
                       input: function($event) {
                         if ($event.target.composing) {
@@ -2933,7 +3249,11 @@ var render = function() {
                 on: {
                   dblclick: function($event) {
                     $event.preventDefault()
+<<<<<<< HEAD
                     return _vm.toggleEditing($event)
+=======
+                    _vm.toggleEditing($event)
+>>>>>>> dev
                   },
                   mouseover: function($event) {
                     _vm.showEdit = true
@@ -2969,7 +3289,11 @@ var render = function() {
                           on: {
                             click: function($event) {
                               $event.preventDefault()
+<<<<<<< HEAD
                               return _vm.copyToClipboard($event)
+=======
+                              _vm.copyToClipboard($event)
+>>>>>>> dev
                             }
                           }
                         })
@@ -2982,7 +3306,11 @@ var render = function() {
                             on: {
                               click: function($event) {
                                 $event.preventDefault()
+<<<<<<< HEAD
                                 return _vm.toggleEditing($event)
+=======
+                                _vm.toggleEditing($event)
+>>>>>>> dev
                               }
                             }
                           },
@@ -3032,15 +3360,25 @@ if (false) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 307:
+=======
+/***/ 298:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
+<<<<<<< HEAD
 var __vue_script__ = __webpack_require__(308)
 /* template */
 var __vue_template__ = __webpack_require__(309)
+=======
+var __vue_script__ = __webpack_require__(299)
+/* template */
+var __vue_template__ = __webpack_require__(300)
+>>>>>>> dev
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -3080,7 +3418,11 @@ module.exports = Component.exports
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 308:
+=======
+/***/ 299:
+>>>>>>> dev
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3213,7 +3555,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 309:
+=======
+/***/ 300:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -3233,7 +3579,11 @@ var render = function() {
             on: {
               submit: function($event) {
                 $event.preventDefault()
+<<<<<<< HEAD
                 return _vm.submit($event)
+=======
+                _vm.submit($event)
+>>>>>>> dev
               },
               keydown: function($event) {
                 _vm.form.errors.clear($event.target.name)
@@ -3287,6 +3637,7 @@ var render = function() {
                       keyup: function($event) {
                         if (
                           !("button" in $event) &&
+<<<<<<< HEAD
                           _vm._k(
                             $event.keyCode,
                             "enter",
@@ -3298,6 +3649,13 @@ var render = function() {
                           return null
                         }
                         return _vm.toggleEditing($event)
+=======
+                          _vm._k($event.keyCode, "enter", 13, $event.key)
+                        ) {
+                          return null
+                        }
+                        _vm.toggleEditing($event)
+>>>>>>> dev
                       },
                       input: function($event) {
                         if ($event.target.composing) {
@@ -3330,7 +3688,11 @@ var render = function() {
                 on: {
                   dblclick: function($event) {
                     $event.preventDefault()
+<<<<<<< HEAD
                     return _vm.toggleEditing($event)
+=======
+                    _vm.toggleEditing($event)
+>>>>>>> dev
                   },
                   mouseover: function($event) {
                     _vm.showEdit = true
@@ -3364,7 +3726,11 @@ var render = function() {
                           on: {
                             click: function($event) {
                               $event.preventDefault()
+<<<<<<< HEAD
                               return _vm.copyToClipboard($event)
+=======
+                              _vm.copyToClipboard($event)
+>>>>>>> dev
                             }
                           }
                         })
@@ -3377,7 +3743,11 @@ var render = function() {
                             on: {
                               click: function($event) {
                                 $event.preventDefault()
+<<<<<<< HEAD
                                 return _vm.toggleEditing($event)
+=======
+                                _vm.toggleEditing($event)
+>>>>>>> dev
                               }
                             }
                           },
@@ -3414,15 +3784,25 @@ if (false) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 310:
+=======
+/***/ 301:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
+<<<<<<< HEAD
 var __vue_script__ = __webpack_require__(311)
 /* template */
 var __vue_template__ = __webpack_require__(312)
+=======
+var __vue_script__ = __webpack_require__(302)
+/* template */
+var __vue_template__ = __webpack_require__(303)
+>>>>>>> dev
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -3462,7 +3842,11 @@ module.exports = Component.exports
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 311:
+=======
+/***/ 302:
+>>>>>>> dev
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3658,7 +4042,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 312:
+=======
+/***/ 303:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -3678,7 +4066,11 @@ var render = function() {
             on: {
               submit: function($event) {
                 $event.preventDefault()
+<<<<<<< HEAD
                 return _vm.submit($event)
+=======
+                _vm.submit($event)
+>>>>>>> dev
               },
               keydown: function($event) {
                 _vm.address.errors.clear($event.target.name)
@@ -3732,6 +4124,7 @@ var render = function() {
                       keyup: function($event) {
                         if (
                           !("button" in $event) &&
+<<<<<<< HEAD
                           _vm._k(
                             $event.keyCode,
                             "enter",
@@ -3743,6 +4136,13 @@ var render = function() {
                           return null
                         }
                         return _vm.toggleEditing($event)
+=======
+                          _vm._k($event.keyCode, "enter", 13, $event.key)
+                        ) {
+                          return null
+                        }
+                        _vm.toggleEditing($event)
+>>>>>>> dev
                       },
                       input: function($event) {
                         if ($event.target.composing) {
@@ -3811,6 +4211,7 @@ var render = function() {
                       keyup: function($event) {
                         if (
                           !("button" in $event) &&
+<<<<<<< HEAD
                           _vm._k(
                             $event.keyCode,
                             "enter",
@@ -3822,6 +4223,13 @@ var render = function() {
                           return null
                         }
                         return _vm.toggleEditing($event)
+=======
+                          _vm._k($event.keyCode, "enter", 13, $event.key)
+                        ) {
+                          return null
+                        }
+                        _vm.toggleEditing($event)
+>>>>>>> dev
                       },
                       input: function($event) {
                         if ($event.target.composing) {
@@ -3890,6 +4298,7 @@ var render = function() {
                       keyup: function($event) {
                         if (
                           !("button" in $event) &&
+<<<<<<< HEAD
                           _vm._k(
                             $event.keyCode,
                             "enter",
@@ -3901,6 +4310,13 @@ var render = function() {
                           return null
                         }
                         return _vm.toggleEditing($event)
+=======
+                          _vm._k($event.keyCode, "enter", 13, $event.key)
+                        ) {
+                          return null
+                        }
+                        _vm.toggleEditing($event)
+>>>>>>> dev
                       },
                       input: function($event) {
                         if ($event.target.composing) {
@@ -3969,6 +4385,7 @@ var render = function() {
                       keyup: function($event) {
                         if (
                           !("button" in $event) &&
+<<<<<<< HEAD
                           _vm._k(
                             $event.keyCode,
                             "enter",
@@ -3980,6 +4397,13 @@ var render = function() {
                           return null
                         }
                         return _vm.toggleEditing($event)
+=======
+                          _vm._k($event.keyCode, "enter", 13, $event.key)
+                        ) {
+                          return null
+                        }
+                        _vm.toggleEditing($event)
+>>>>>>> dev
                       },
                       input: function($event) {
                         if ($event.target.composing) {
@@ -4012,7 +4436,11 @@ var render = function() {
                 on: {
                   dblclick: function($event) {
                     $event.preventDefault()
+<<<<<<< HEAD
                     return _vm.toggleEditing($event)
+=======
+                    _vm.toggleEditing($event)
+>>>>>>> dev
                   },
                   mouseover: function($event) {
                     _vm.showEdit = true
@@ -4054,7 +4482,11 @@ var render = function() {
                           on: {
                             click: function($event) {
                               $event.preventDefault()
+<<<<<<< HEAD
                               return _vm.copyToClipboard($event)
+=======
+                              _vm.copyToClipboard($event)
+>>>>>>> dev
                             }
                           }
                         })
@@ -4067,7 +4499,11 @@ var render = function() {
                             on: {
                               click: function($event) {
                                 $event.preventDefault()
+<<<<<<< HEAD
                                 return _vm.toggleEditing($event)
+=======
+                                _vm.toggleEditing($event)
+>>>>>>> dev
                               }
                             }
                           },
@@ -4104,7 +4540,11 @@ if (false) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 313:
+=======
+/***/ 304:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -4142,15 +4582,25 @@ if (false) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 314:
+=======
+/***/ 305:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
+<<<<<<< HEAD
 var __vue_script__ = __webpack_require__(315)
 /* template */
 var __vue_template__ = __webpack_require__(319)
+=======
+var __vue_script__ = __webpack_require__(306)
+/* template */
+var __vue_template__ = __webpack_require__(310)
+>>>>>>> dev
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -4190,16 +4640,28 @@ module.exports = Component.exports
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 315:
+=======
+/***/ 306:
+>>>>>>> dev
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_license_vue__ = __webpack_require__(316);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_license_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_license_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__structur_src_form_Form_js__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_states_js__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__data_months_js__ = __webpack_require__(25);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_license_vue__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_license_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_license_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__structur_src_form_Form_js__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_states_js__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__data_months_js__ = __webpack_require__(24);
+>>>>>>> dev
 //
 //
 //
@@ -4390,15 +4852,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 316:
+=======
+/***/ 307:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
+<<<<<<< HEAD
 var __vue_script__ = __webpack_require__(317)
 /* template */
 var __vue_template__ = __webpack_require__(318)
+=======
+var __vue_script__ = __webpack_require__(308)
+/* template */
+var __vue_template__ = __webpack_require__(309)
+>>>>>>> dev
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -4438,7 +4910,11 @@ module.exports = Component.exports
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 317:
+=======
+/***/ 308:
+>>>>>>> dev
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4455,7 +4931,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 318:
+=======
+/***/ 309:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -4476,7 +4956,11 @@ if (false) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 319:
+=======
+/***/ 310:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -4587,7 +5071,11 @@ var render = function() {
                 on: {
                   submit: function($event) {
                     $event.preventDefault()
+<<<<<<< HEAD
                     return _vm.submit($event)
+=======
+                    _vm.submit($event)
+>>>>>>> dev
                   },
                   keydown: function($event) {
                     _vm.newLicense.errors.clear($event.target.name)
@@ -4925,15 +5413,25 @@ if (false) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 320:
+=======
+/***/ 311:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
+<<<<<<< HEAD
 var __vue_script__ = __webpack_require__(321)
 /* template */
 var __vue_template__ = __webpack_require__(325)
+=======
+var __vue_script__ = __webpack_require__(312)
+/* template */
+var __vue_template__ = __webpack_require__(316)
+>>>>>>> dev
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -4973,13 +5471,22 @@ module.exports = Component.exports
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 321:
+=======
+/***/ 312:
+>>>>>>> dev
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__structur_src_form_FormWithFiles__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_File_vue__ = __webpack_require__(322);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__structur_src_form_FormWithFiles__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_File_vue__ = __webpack_require__(313);
+>>>>>>> dev
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_File_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_File_vue__);
 //
 //
@@ -5121,15 +5628,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 322:
+=======
+/***/ 313:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
+<<<<<<< HEAD
 var __vue_script__ = __webpack_require__(323)
 /* template */
 var __vue_template__ = __webpack_require__(324)
+=======
+var __vue_script__ = __webpack_require__(314)
+/* template */
+var __vue_template__ = __webpack_require__(315)
+>>>>>>> dev
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -5169,7 +5686,11 @@ module.exports = Component.exports
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 323:
+=======
+/***/ 314:
+>>>>>>> dev
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5218,7 +5739,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 324:
+=======
+/***/ 315:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -5312,7 +5837,11 @@ if (false) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 325:
+=======
+/***/ 316:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -5378,7 +5907,11 @@ var render = function() {
                   on: {
                     submit: function($event) {
                       $event.preventDefault()
+<<<<<<< HEAD
                       return _vm.submit($event)
+=======
+                      _vm.submit($event)
+>>>>>>> dev
                     },
                     keydown: function($event) {
                       _vm.newFile.errors.clear($event.target.name)
@@ -5588,15 +6121,25 @@ if (false) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 326:
+=======
+/***/ 317:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
+<<<<<<< HEAD
 var __vue_script__ = __webpack_require__(327)
 /* template */
 var __vue_template__ = __webpack_require__(328)
+=======
+var __vue_script__ = __webpack_require__(318)
+/* template */
+var __vue_template__ = __webpack_require__(319)
+>>>>>>> dev
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -5636,7 +6179,11 @@ module.exports = Component.exports
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 327:
+=======
+/***/ 318:
+>>>>>>> dev
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5821,7 +6368,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 328:
+=======
+/***/ 319:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -5949,7 +6500,11 @@ var render = function() {
                 on: {
                   submit: function($event) {
                     $event.preventDefault()
+<<<<<<< HEAD
                     return _vm.submit($event)
+=======
+                    _vm.submit($event)
+>>>>>>> dev
                   },
                   keydown: function($event) {
                     _vm.form.errors.clear($event.target.name)
@@ -6216,15 +6771,25 @@ if (false) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 329:
+=======
+/***/ 320:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
+<<<<<<< HEAD
 var __vue_script__ = __webpack_require__(330)
 /* template */
 var __vue_template__ = __webpack_require__(331)
+=======
+var __vue_script__ = __webpack_require__(321)
+/* template */
+var __vue_template__ = __webpack_require__(322)
+>>>>>>> dev
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -6264,7 +6829,11 @@ module.exports = Component.exports
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 330:
+=======
+/***/ 321:
+>>>>>>> dev
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6349,7 +6918,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 331:
+=======
+/***/ 322:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -6407,15 +6980,25 @@ if (false) {
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 332:
+=======
+/***/ 323:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
+<<<<<<< HEAD
 var __vue_script__ = __webpack_require__(333)
 /* template */
 var __vue_template__ = __webpack_require__(334)
+=======
+var __vue_script__ = __webpack_require__(324)
+/* template */
+var __vue_template__ = __webpack_require__(325)
+>>>>>>> dev
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -6455,7 +7038,11 @@ module.exports = Component.exports
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 333:
+=======
+/***/ 324:
+>>>>>>> dev
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6507,7 +7094,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ 334:
+=======
+/***/ 325:
+>>>>>>> dev
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -6851,4 +7442,8 @@ var Errors = function () {
 
 /***/ })
 
+<<<<<<< HEAD
 },[296]);
+=======
+},[287]);
+>>>>>>> dev

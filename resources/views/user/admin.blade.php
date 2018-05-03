@@ -10,6 +10,10 @@
 			<div class="column is-10" id="user">
 				<h1 class="title hr-title">{{ 'Manage ' . $status }}</h1>
 				<h2 class="subtitle">Update and make changes to system users</h2>
+				<label for="claim-location" class="label">Claim Location</label>
+				<input type="text" id="claim-location" class="input" @focus="geolocate">
+
+				<div id="map" style="width: 100%; height: 500px;"></div><br>
 
 					<div class="dropdown is-hoverable" v-if="selected.length == 0">
 					  <div class="dropdown-trigger">
@@ -119,5 +123,8 @@
 	<script>
 		window.users = {!! $users->toJson() !!}
 	</script>
+	<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ2-Na1yIv_0zOlDuTbrizwya-5HcL1C0&libraries=places">
+    </script>
 	<script src="{{ mix('/js/user.js') }}"></script>
 @endsection

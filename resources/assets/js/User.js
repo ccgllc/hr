@@ -15,12 +15,17 @@ let app = new Vue({
 		selected: [],
 		allSelected: false,
 		userService: new UserService({
-		uri: {
-			prefix: 'api',
-			resource: 'users',
-		},
-		current_page: 0
-	}),
+			uri: {
+				prefix: 'api',
+				resource: 'users',
+			},
+			current_page: 0,
+		}),
+		autocomplete: {},
+		bounds: {},
+		map: {},
+		marker: {},
+		home: {lat: 30.2702208, lng:  -97.7453625},
 	},
 	computed: {
 		resetUsers() {
@@ -30,16 +35,49 @@ let app = new Vue({
 		}
 	},
 	mounted() {
-		//
-		this.current_page = window.users.current_page;
+		// const _home = this.home;
+		// console.log(this.home);
+		this.bounds = new google.maps.LatLngBounds();
+		this.map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: this.home,
+        });
+        this.marker = new google.maps.Marker({
+          position: this.home,
+          map: this.map
+        });
+        this.autocomplete = new google.maps.places.Autocomplete(
+             /* @type {!HTMLInputElement} */
+            (document.getElementById('claim-location')),
+            {types: ['geocode']}
+        );
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+    	this.autocomplete.addListener('place_changed', () => { this.setHome() });
+
+
+
+        this.current_page = window.users.current_page;
 		if(window.users.data) {
 			return this.userData.users = window.users.data;
 		} else {
 			return this.userData.users = window.users;
 		}
-
 	},
 	methods: {
+		geolocate() {
+			console.log('geolocating');
+		},
+		setHome(){
+			let place = this.autocomplete.getPlace();
+			this.home = {lat: place.geometry.location.lat(), lng: place.geometry.location.lng()};
+			console.log(this.home);
+			this.marker.setPosition(this.home);
+			// this.map.fitBounds(this.bounds.extend(this.home));
+			this.map.setCenter(this.home);
+			this.map.setZoom(12);
+		},
 		toggleMenu(id) {
 			let menu = document.getElementById(id);
 			menu.style.display == 'none' 
