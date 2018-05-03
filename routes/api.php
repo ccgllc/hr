@@ -40,6 +40,7 @@ Route::namespace('Api\Profile')
 		Route::post('user/{id}/certifications', 'UserCertificationsController@store');
 		Route::delete('user/certifications/{id}', 'UserCertificationsController@destroy');
 		Route::post('user/{id}/software-experiences', 'UserSoftwareExperiencesController@store');
+		Route::post('user/{id}/work-history', 'UserWorkHistoriesController@store');
 		Route::delete('user/software-experiences/{id}', 'UserSoftwareExperiencesController@destroy');
 });
 

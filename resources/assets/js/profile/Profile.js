@@ -40,10 +40,11 @@ const Profile = new Vue({
 	},
 	mounted() {
 		this.user = window.userData;
+		// this.user.avatar.path = '';
 	},
 	data() {
 		return {
-			user: {},
+			user: {avatar:{path: '#'}},
 			avatarCropper: null,
 			showAvatarButton: false,
 			addingAvatar: false,
@@ -52,11 +53,8 @@ const Profile = new Vue({
 	},
 	computed: {
 		userHasAvatar() {
-			return this.user.avatar !== null ? true : false;
+			return  this.user.avatar !== '#' && this.user.avatar !== null ? true : false;
 		},
-		avatarPath() {
-			return this.userHasAvatar ? this.user.avatar.path : null;
-		}
 	},
 	methods: {
 		uploadImage() {
@@ -79,6 +77,12 @@ const Profile = new Vue({
 		},
 		toggleAvatarButton() {
 			return this.showAvatarButton = !this.showAvatarButton;
-		}
+		},
+		// avatarPath() {
+		// 	if (this.userHasAvatar) {
+		// 		return this.user.avatar.path;
+		// 	}
+		// 	return "#";
+		// }
 	}
 }).$mount('#profile');

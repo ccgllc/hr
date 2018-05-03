@@ -28,7 +28,7 @@ class UsersController extends Controller
         else {
             $users = User::orderBy('created_at', 'desc')->paginate(15);
             $status = 'Users';
-            $users->load('roles');
+            $users->load('roles', 'profile');
         }
         return view('user.admin', compact('users', 'status'));
     }
