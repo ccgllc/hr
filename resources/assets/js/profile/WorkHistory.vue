@@ -9,7 +9,7 @@
 						<p class="card-header-title is-pulled-left">
 							{{ key | capitalize }}
 						</p>
-						 <a href="#" class="card-header-icon" aria-label="more options">
+						 <a class="card-header-icon" aria-label="more options">
 					      <span class="icon">
 					        <i class="fa fa-edit" @click="edit(value, key)" style="color: #fff;" aria-hidden="true"></i>
 					      </span>
@@ -24,15 +24,16 @@
 			</div>
 		</div>
 			<a class="button is-primary" @click="showForm = !showForm">Add Work History</a>
+			<!-- <form @submit.prevent="save" > -->
 			<div class="modal" :class="{ 'is-active': showForm }">
 			  <div class="modal-background"></div>
 			  <div class="modal-card">
 			    <header class="modal-card-head">
 			      <p class="modal-card-title">Add Work History</p>
-			      <button class="delete" aria-label="close" @click="cancel"></button>
+			      <button class="delete" aria-label="close" @mouseup="cancel"></button>
 			    </header>
 			    <section class="modal-card-body">
-			    	<div class="columns">
+			    	<div class="columns" @keydown="newWorkHistory.errors.clear($event.target.name)">
 			    		<div class="column is-6">
 			    			<label for="types" class="label">Type:</label>
 			    			<div class="select">
@@ -40,6 +41,7 @@
 					      			<option value="">Select</option>
 					      			<option v-for="type in types" :value="type">{{ type | format | capitalize}}</option>
 				      			</select>
+				      			<span class="help is-danger" v-if="newWorkHistory.errors.has('type')" v-text="newWorkHistory.errors.get('type')"></span>
 			    			</div>
 						</div>
 
@@ -56,6 +58,7 @@
 						          	v-model="newWorkHistory.value"
 						          	number
 			    				>
+			    				<span class="help is-danger" v-if="newWorkHistory.errors.has('value')" v-text="newWorkHistory.errors.get('value')"></span>
 			    			</div>
 
 			    			<div class="field" v-if="newWorkHistory.type.includes('experience')">
@@ -86,19 +89,27 @@
 			    	</div>
 			    </section>
 			    <footer class="modal-card-foot">
-			      <button class="button is-success" @click="save">Save</button>
-			      <button class="button" @click="cancel">Cancel</button>
+			      <div class="field is-grouped">
+					  <div class="control">
+					    <button class="button is-success" @mouseup="save" :disabled="!newWorkHistory.type">Submit</button>
+					  </div>
+					  <div class="control">
+					    <button class="button is-text" @mouseup="cancel">Cancel</button>
+					  </div>
+					</div>
 			    </footer>
 			  </div>
 			</div> <!-- end modal -->
+		<!-- </form> -->
 	</div>
 </template>
 
 <script> 
+	import Form from '../structur/src/form/Form';
 	export default {
 		name: 'WorkHistory',
 		mounted() {
-			console.log(window.userData.work_history);
+			// console.log(window.userData.work_history);
 			this.workHistory = this.setup(window.userData.work_history);
 		},
 		data() {
@@ -108,10 +119,10 @@
 				editing: false,
 				years: 0,
 				months: 0,
-				newWorkHistory: {
+				newWorkHistory: new Form({
 					type: '',
 					value: 0,
-				},
+				}),
 				types: [
 					'desk_experience',
 					'residential_experience',
@@ -143,21 +154,23 @@
 		},
 		methods: {
 			save() {
+				// console.error('newError');
 				let endpoint = '/api/user/' + window.userData.id + '/work-history';
-				window.axios.post(endpoint, this.newWorkHistory).then(response => {
-					console.log(response);
-					let type = this.newWorkHistory.type.replace(/(_)/g, " ");
-					if (this.newWorkHistory.type.includes('experience'))
-					{
-						let value = this.newWorkHistory.value;
-						this.workHistory[type] = this.getYears(value) + ' years ' + this.getMonths(value) + "  months";
-					} else {
-						this.workHistory[type] = this.newWorkHistory.value;
-					}
-					return this.cancel();
-				}).catch(error => {
-					console.log(error);
-				});
+				this.newWorkHistory.post(endpoint, false)
+					.then(response => {
+						console.log(response);
+						let type = this.newWorkHistory.type.replace(/(_)/g, " ");
+						if (this.newWorkHistory.type.includes('experience'))
+						{
+							let value = this.newWorkHistory.value;
+							this.workHistory[type] = this.getYears(value) + ' years ' + this.getMonths(value) + "  months";
+						} else {
+							this.workHistory[type] = this.newWorkHistory.value;
+						}
+						return this.cancel();
+					}).catch(error => {
+					// console.error(error);
+					});
 			},
 			setup(data) {
 				let workHistory = {};
@@ -173,7 +186,6 @@
 						workHistory[newProp] = this.getYears(value) + ' years ' + this.getMonths(value) + "  months";
 					}
 				}
-				console.log(workHistory);
 				return workHistory;
 			},
 			getMonths(value) {
@@ -197,8 +209,6 @@
 				if (key.includes('experience')){
 					let v = value.match(/([0-9])+(?!=\s){1,2}/g);
 					let sum = v.reduce((a, b) => (parseInt(a) * 12) + parseInt(b) );
-					console.log(v);
-					console.log(sum);
 					this.months = this.getMonths(+sum);
 					this.years = this.getYears(+sum);
 					this.newWorkHistory.value = this.years + this.months;
@@ -214,6 +224,7 @@
 				this.months = 0;
 				this.years = 0;
 				this.editing = false;
+				this.newWorkHistory.errors.any() ? this.newWorkHistory.errors.clear() : null;
 				return this.showForm = !this.showForm;
 			}
 		},

@@ -116,7 +116,7 @@
 			  	textArea.style.outline = 'none';
 			  	textArea.style.boxShadow = 'none';
 			  	textArea.style.background = 'transparent';
-			  	textArea.value = this.emailAddress.value;
+			  	textArea.value = this.form.email;
 			  	document.body.appendChild(textArea);
 			  	textArea.select();
 			}

@@ -56,6 +56,11 @@ Route::namespace('Api\Acl')
 		Route::delete('role/{id}', 'RolesController@destroy');
 });
 
+Route::post('/admin/client-error', function(Request $request){
+	Log::error($request->all());
+	return response('success', 200);
+});
+
 Route::post('/user/search', function(Request $request){
 	$query = $request->get('query');
 	return App\User::with('roles')->where('name', 'like', "%$query%")->exclude('api_token')->get();

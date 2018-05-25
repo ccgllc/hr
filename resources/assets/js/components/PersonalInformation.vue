@@ -188,10 +188,11 @@
 			submit () {
 				this.appData.personalInfo.post('/api/user/personal-information', false)
 					.then(response => {
-						console.log(response.data)
+						console.log(response.data);
 						this.$router.push({ path: '/work-history' })
 					}).catch(error => {
 						this.btnState = false;
+						console.error(error);
 					});
 			},
 			setupView() {

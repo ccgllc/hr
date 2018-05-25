@@ -81,6 +81,7 @@ export default class Form {
                     resolve(response.data);
                 })
                 .catch(error => {
+                    console.error(error);
                     this.onFail(error.response.data.errors);
                     reject(error.response.data.errors); 
                 });

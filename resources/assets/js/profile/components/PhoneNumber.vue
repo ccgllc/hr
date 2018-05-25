@@ -113,7 +113,7 @@
 			  	textArea.style.outline = 'none';
 			  	textArea.style.boxShadow = 'none';
 			  	textArea.style.background = 'transparent';
-			  	textArea.value = this.phoneNumber.value;
+			  	textArea.value = this.form.phone;
 			  	document.body.appendChild(textArea);
 			  	textArea.select();
 			}
