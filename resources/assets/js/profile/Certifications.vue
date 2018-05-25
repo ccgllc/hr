@@ -106,7 +106,7 @@
 					</form>
 			    </section>
 			    <footer class="modal-card-foot">
-			      <button class="button is-primary" @click="submit">Save</button>
+			      <button class="button is-primary" @click="submit" :disabled="!form.type">Save</button>
 			      <button class="button" @click="creatingNew = false">Cancel</button>
 			    </footer>
 			  </div>
@@ -159,7 +159,6 @@
 		},
 		methods: {
 			submit() {
-				console.log('submitting');
 				this.form.post('/api/user/' + this.userId + '/' + this.type)
 							.then(response => {
 								console.log(response);
